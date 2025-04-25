@@ -77,9 +77,6 @@ func fetchImageFromElementPage(name, pageURL string) string {
 }
 
 func main() {
-	// Buat folder images jika belum ada
-	os.MkdirAll("images", os.ModePerm)
-
 	// Setup kolektor
 	c := colly.NewCollector(
 		colly.UserAgent(HEADERS),
@@ -87,11 +84,11 @@ func main() {
 
 	var elements []Element
 
-	tableCount := 1 // Hitung jumlah tabel yang sudah diproses
-	currentTier:= -1 // Reset currentTier untuk tabel ini
+	tableCount := 1 
+	currentTier:= -1 
 	// Scrape halaman utama
 	c.OnHTML("table.list-table.col-list.icon-hover", func(e *colly.HTMLElement) {
-		if(tableCount == 2) {
+		if(tableCount == 2) { // skip Time
 			tableCount++
 		} else {
 			currentTier++
@@ -99,7 +96,7 @@ func main() {
 		}
 		e.ForEach("tr", func(i int, el *colly.HTMLElement) {
 			if i == 0 {
-				return // skip header row
+				return
 			}
 			name := el.ChildText("td:nth-child(1) a")
 			// fmt.Println(name)
@@ -159,16 +156,13 @@ func main() {
 			el.DOM.Find("td:nth-child(2) li").Each(func(i int, li *goquery.Selection) {
 				recipeParts := []string{}
 				li.Find("a").Each(func(j int, aTag *goquery.Selection) {
-					// Pastikan <a> tidak berada dalam <span>
 					if aTag.Parent().Is("span") {
-						return // Lewati <a> yang berada dalam <span>
+						return
 					}
 		
-					// Ambil nama elemen dari setiap link
 					recipeParts = append(recipeParts, aTag.Text())
 				})
 				if len(recipeParts) >= 2 {
-					// Gabungkan dua bahan atau lebih dalam satu resep
 					recipeList = append(recipeList, fmt.Sprintf("%s + %s", recipeParts[0], recipeParts[1]))
 				}
 			})
@@ -186,7 +180,6 @@ func main() {
 
 			// Simpan hasil scraping
 			fmt.Printf("Scraped: %s (Tier %d)\n", name, currentTier)
-			// Simpan data ke JSON atau apa pun sesuai kebutuhanmu di sini
 		})
 	})
 
