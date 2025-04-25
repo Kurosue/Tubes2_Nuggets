@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly/v2"
+	// "strconv"
 )
 
 type Element struct {
@@ -17,6 +18,7 @@ type Element struct {
 	Recipes  []string `json:"recipes"`
 	Image    string   `json:"image"`
 	PageURL  string   `json:"page_url"`
+	Tier	 int      `json:"tier"`
 }
 
 const BASE_URL = "https://little-alchemy.fandom.com"
@@ -85,8 +87,16 @@ func main() {
 
 	var elements []Element
 
+	tableCount := 1 // Hitung jumlah tabel yang sudah diproses
+	currentTier:= -1 // Reset currentTier untuk tabel ini
 	// Scrape halaman utama
 	c.OnHTML("table.list-table.col-list.icon-hover", func(e *colly.HTMLElement) {
+		if(tableCount == 2) {
+			tableCount++
+		} else {
+			currentTier++
+			tableCount++
+		}
 		e.ForEach("tr", func(i int, el *colly.HTMLElement) {
 			if i == 0 {
 				return // skip header row
@@ -171,10 +181,11 @@ func main() {
 				Recipes: recipeList,
 				Image:   "images/" + name + ".png",
 				PageURL: elementPageURL,
+				Tier: currentTier,
 			})
 
 			// Simpan hasil scraping
-			fmt.Printf("Scraped: %s\n", name)
+			fmt.Printf("Scraped: %s (Tier %d)\n", name, currentTier)
 			// Simpan data ke JSON atau apa pun sesuai kebutuhanmu di sini
 		})
 	})

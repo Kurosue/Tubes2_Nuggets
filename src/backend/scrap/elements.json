@@ -5,7 +5,8 @@
       "Fire + Mist"
     ],
     "image": "images/Air.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 0
   },
   {
     "name": "Fire",
@@ -14,7 +15,8 @@
       "Fire + Coal"
     ],
     "image": "images/Fire.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 0
   },
   {
     "name": "Water",
@@ -23,7 +25,8 @@
       "Heat + Snow"
     ],
     "image": "images/Water.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Heat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Heat",
+    "tier": 0
   },
   {
     "name": "Dust",
@@ -33,7 +36,8 @@
       "Land + Air"
     ],
     "image": "images/Dust.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 1
   },
   {
     "name": "Energy",
@@ -44,7 +48,8 @@
       "Heat + Science"
     ],
     "image": "images/Energy.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 1
   },
   {
     "name": "Land",
@@ -56,7 +61,8 @@
       "Earth + Stone"
     ],
     "image": "images/Land.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Soil"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Soil",
+    "tier": 1
   },
   {
     "name": "Lava",
@@ -66,7 +72,8 @@
       "Earth + Liquid"
     ],
     "image": "images/Lava.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 1
   },
   {
     "name": "Mist",
@@ -76,7 +83,8 @@
       "Air + Rain"
     ],
     "image": "images/Mist.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Air"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Air",
+    "tier": 1
   },
   {
     "name": "Mud",
@@ -85,7 +93,8 @@
       "Water + Soil"
     ],
     "image": "images/Mud.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 1
   },
   {
     "name": "Pressure",
@@ -97,7 +106,8 @@
       "Ocean + Ocean"
     ],
     "image": "images/Pressure.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Air"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Air",
+    "tier": 1
   },
   {
     "name": "Puddle",
@@ -106,7 +116,8 @@
       "Pond + Small"
     ],
     "image": "images/Puddle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 1
   },
   {
     "name": "Smoke",
@@ -122,7 +133,8 @@
       "Fire + Air"
     ],
     "image": "images/Smoke.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 1
   },
   {
     "name": "Steam",
@@ -133,7 +145,8 @@
       "Water + Gas"
     ],
     "image": "images/Steam.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 1
   },
   {
     "name": "Brick",
@@ -145,7 +158,8 @@
       "Clay + Stone"
     ],
     "image": "images/Brick.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mud"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mud",
+    "tier": 2
   },
   {
     "name": "Continent",
@@ -156,7 +170,8 @@
       "Mountain range + Mountain range"
     ],
     "image": "images/Continent.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Land"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Land",
+    "tier": 2
   },
   {
     "name": "Earthquake",
@@ -166,7 +181,8 @@
       "Continent + Motion"
     ],
     "image": "images/Earthquake.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 2
   },
   {
     "name": "Eruption",
@@ -176,7 +192,8 @@
       "Volcano + Time"
     ],
     "image": "images/Eruption.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure",
+    "tier": 2
   },
   {
     "name": "Geyser",
@@ -187,7 +204,8 @@
       "Steam + Pressure"
     ],
     "image": "images/Geyser.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Steam"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Steam",
+    "tier": 2
   },
   {
     "name": "Granite",
@@ -197,7 +215,8 @@
       "Pressure + Rock"
     ],
     "image": "images/Granite.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure",
+    "tier": 2
   },
   {
     "name": "Gunpowder",
@@ -209,7 +228,8 @@
       "Energy + Dust"
     ],
     "image": "images/Gunpowder.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Charcoal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Charcoal",
+    "tier": 2
   },
   {
     "name": "Heat",
@@ -220,7 +240,8 @@
       "Air + Energy"
     ],
     "image": "images/Heat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 2
   },
   {
     "name": "Obsidian",
@@ -230,7 +251,8 @@
       "Lava + Glass"
     ],
     "image": "images/Obsidian.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lava"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lava",
+    "tier": 2
   },
   {
     "name": "Pond",
@@ -241,7 +263,8 @@
       "Lake + Small"
     ],
     "image": "images/Pond.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Puddle"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Puddle",
+    "tier": 2
   },
   {
     "name": "Stone",
@@ -251,7 +274,8 @@
       "Air + Lava"
     ],
     "image": "images/Stone.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 2
   },
   {
     "name": "Volcano",
@@ -266,7 +290,8 @@
       "Pressure + Hill"
     ],
     "image": "images/Volcano.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lava"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lava",
+    "tier": 2
   },
   {
     "name": "Wind",
@@ -276,7 +301,8 @@
       "Air + Pressure"
     ],
     "image": "images/Wind.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Motion"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Motion",
+    "tier": 2
   },
   {
     "name": "Chimney",
@@ -290,7 +316,8 @@
       "Fireplace + Stone"
     ],
     "image": "images/Chimney.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 3
   },
   {
     "name": "Clay",
@@ -304,7 +331,8 @@
       "Rock + Liquid"
     ],
     "image": "images/Clay.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mud"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mud",
+    "tier": 3
   },
   {
     "name": "Explosion",
@@ -321,7 +349,8 @@
       "Volcano + Petroleum"
     ],
     "image": "images/Explosion.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 3
   },
   {
     "name": "Lake",
@@ -332,7 +361,8 @@
       "Sea + Small"
     ],
     "image": "images/Lake.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pond"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pond",
+    "tier": 3
   },
   {
     "name": "Metal",
@@ -344,7 +374,8 @@
       "Ore + Tool"
     ],
     "image": "images/Metal.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Stone"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Stone",
+    "tier": 3
   },
   {
     "name": "Mountain",
@@ -357,7 +388,8 @@
       "Earth + Big"
     ],
     "image": "images/Mountain.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Big"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Big",
+    "tier": 3
   },
   {
     "name": "Planet",
@@ -369,7 +401,8 @@
       "Earth + Sky"
     ],
     "image": "images/Planet.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Continent"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Continent",
+    "tier": 3
   },
   {
     "name": "Plasma",
@@ -380,7 +413,8 @@
       "Heat + Pressure"
     ],
     "image": "images/Plasma.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Science"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Science",
+    "tier": 3
   },
   {
     "name": "Sand",
@@ -394,7 +428,8 @@
       "Pebble + Small"
     ],
     "image": "images/Sand.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Stone"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Stone",
+    "tier": 3
   },
   {
     "name": "Tornado",
@@ -407,7 +442,8 @@
       "Wind + Motion"
     ],
     "image": "images/Tornado.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Storm"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Storm",
+    "tier": 3
   },
   {
     "name": "Wall",
@@ -417,7 +453,8 @@
       "Stone + Stone"
     ],
     "image": "images/Wall.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Brick"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Brick",
+    "tier": 3
   },
   {
     "name": "Warmth",
@@ -426,7 +463,8 @@
       "Heat + Human"
     ],
     "image": "images/Warmth.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Heat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Heat",
+    "tier": 3
   },
   {
     "name": "Atmosphere",
@@ -435,7 +473,8 @@
       "Air + Sky"
     ],
     "image": "images/Atmosphere.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Air"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Air",
+    "tier": 4
   },
   {
     "name": "Atomic bomb",
@@ -445,7 +484,8 @@
       "Explosion + Big"
     ],
     "image": "images/Atomic bomb.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Explosion"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Explosion",
+    "tier": 4
   },
   {
     "name": "Avalanche",
@@ -465,7 +505,8 @@
       "Gun + Mountain range"
     ],
     "image": "images/Avalanche.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earthquake"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earthquake",
+    "tier": 4
   },
   {
     "name": "Beach",
@@ -477,7 +518,8 @@
       "Sand + Wave"
     ],
     "image": "images/Beach.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 4
   },
   {
     "name": "Blade",
@@ -488,7 +530,8 @@
       "Rock + Steel"
     ],
     "image": "images/Blade.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Stone"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Stone",
+    "tier": 4
   },
   {
     "name": "Boiler",
@@ -500,7 +543,8 @@
       "Steam + Tool"
     ],
     "image": "images/Boiler.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure",
+    "tier": 4
   },
   {
     "name": "Bullet",
@@ -511,7 +555,8 @@
       "Gunpowder + Container"
     ],
     "image": "images/Bullet.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Gunpowder"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Gunpowder",
+    "tier": 4
   },
   {
     "name": "Dam",
@@ -527,7 +572,8 @@
       "Beaver + Water"
     ],
     "image": "images/Dam.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/River"
+    "page_url": "https://little-alchemy.fandom.com/wiki/River",
+    "tier": 4
   },
   {
     "name": "Desert",
@@ -539,7 +585,8 @@
       "Sand + Vulture"
     ],
     "image": "images/Desert.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 4
   },
   {
     "name": "Dune",
@@ -551,7 +598,8 @@
       "Sandstorm + Desert"
     ],
     "image": "images/Dune.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wind"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wind",
+    "tier": 4
   },
   {
     "name": "Firewall",
@@ -559,7 +607,8 @@
       "Fire + Wall"
     ],
     "image": "images/Firewall.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 4
   },
   {
     "name": "Glass",
@@ -570,7 +619,8 @@
       "Sand + Electricity"
     ],
     "image": "images/Glass.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 4
   },
   {
     "name": "Gold",
@@ -592,7 +642,8 @@
       "Quicksilver + Philosopher's stone"
     ],
     "image": "images/Gold.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Metal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Metal",
+    "tier": 4
   },
   {
     "name": "Grenade",
@@ -602,7 +653,8 @@
       "Explosion + Warrior"
     ],
     "image": "images/Grenade.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Explosion"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Explosion",
+    "tier": 4
   },
   {
     "name": "House",
@@ -614,7 +666,8 @@
       "Family + Container"
     ],
     "image": "images/House.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wall"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wall",
+    "tier": 4
   },
   {
     "name": "Mercury",
@@ -623,7 +676,8 @@
       "Planet + Heat"
     ],
     "image": "images/Mercury.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Planet"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Planet",
+    "tier": 4
   },
   {
     "name": "Moon",
@@ -639,7 +693,8 @@
       "Night + Cheese"
     ],
     "image": "images/Moon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sky"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sky",
+    "tier": 4
   },
   {
     "name": "Mountain range",
@@ -648,7 +703,8 @@
       "Mountain + Continent"
     ],
     "image": "images/Mountain range.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain",
+    "tier": 4
   },
   {
     "name": "Plow",
@@ -662,7 +718,8 @@
       "Field + Tool"
     ],
     "image": "images/Plow.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 4
   },
   {
     "name": "River",
@@ -674,7 +731,8 @@
       "Rain + Hill"
     ],
     "image": "images/River.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lake"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lake",
+    "tier": 4
   },
   {
     "name": "Rust",
@@ -685,7 +743,8 @@
       "Steel + Oxygen"
     ],
     "image": "images/Rust.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Air"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Air",
+    "tier": 4
   },
   {
     "name": "Sandstone",
@@ -695,7 +754,8 @@
       "Sand + Earth"
     ],
     "image": "images/Sandstone.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 4
   },
   {
     "name": "Sandstorm",
@@ -709,7 +769,8 @@
       "Desert + Wind"
     ],
     "image": "images/Sandstorm.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 4
   },
   {
     "name": "Sea",
@@ -720,7 +781,8 @@
       "Ocean + Small"
     ],
     "image": "images/Sea.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lake"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lake",
+    "tier": 4
   },
   {
     "name": "Solar system",
@@ -736,7 +798,8 @@
       "Saturn + Container"
     ],
     "image": "images/Solar system.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Planet"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Planet",
+    "tier": 4
   },
   {
     "name": "Sun",
@@ -750,7 +813,8 @@
       "Planet + Light"
     ],
     "image": "images/Sun.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sky"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sky",
+    "tier": 4
   },
   {
     "name": "Venus",
@@ -760,7 +824,8 @@
       "Planet + Volcano"
     ],
     "image": "images/Venus.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Planet"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Planet",
+    "tier": 4
   },
   {
     "name": "Waterfall",
@@ -773,7 +838,8 @@
       "Lake + Hill"
     ],
     "image": "images/Waterfall.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/River"
+    "page_url": "https://little-alchemy.fandom.com/wiki/River",
+    "tier": 4
   },
   {
     "name": "Wave",
@@ -789,7 +855,8 @@
       "Lake + Hurricane"
     ],
     "image": "images/Wave.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ocean"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ocean",
+    "tier": 4
   },
   {
     "name": "Aquarium",
@@ -802,7 +869,8 @@
       "Small + Swimming pool"
     ],
     "image": "images/Aquarium.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 5
   },
   {
     "name": "Aurora",
@@ -816,7 +884,8 @@
       "Sun + Atmosphere"
     ],
     "image": "images/Aurora.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Electricity"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Electricity",
+    "tier": 5
   },
   {
     "name": "Bank",
@@ -834,7 +903,8 @@
       "House + Vault"
     ],
     "image": "images/Bank.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Gold"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Gold",
+    "tier": 5
   },
   {
     "name": "Black hole",
@@ -845,7 +915,8 @@
       "Darkness + Sun"
     ],
     "image": "images/Black hole.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure",
+    "tier": 5
   },
   {
     "name": "Blender",
@@ -857,7 +928,8 @@
       "Blade + Motion"
     ],
     "image": "images/Blender.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 5
   },
   {
     "name": "Bridge",
@@ -870,7 +942,8 @@
       "Stream + Steel"
     ],
     "image": "images/Bridge.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 5
   },
   {
     "name": "Cloud",
@@ -881,7 +954,8 @@
       "Sky + Water"
     ],
     "image": "images/Cloud.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Atmosphere"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Atmosphere",
+    "tier": 5
   },
   {
     "name": "Current",
@@ -896,7 +970,8 @@
       "Sea + Science"
     ],
     "image": "images/Current.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ocean"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ocean",
+    "tier": 5
   },
   {
     "name": "Eclipse",
@@ -904,7 +979,8 @@
       "Sun + Moon"
     ],
     "image": "images/Eclipse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sun",
+    "tier": 5
   },
   {
     "name": "Factory",
@@ -913,7 +989,8 @@
       "House + Tool"
     ],
     "image": "images/Factory.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 5
   },
   {
     "name": "Field",
@@ -929,7 +1006,8 @@
       "Plow + Soil"
     ],
     "image": "images/Field.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Farmer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Farmer",
+    "tier": 5
   },
   {
     "name": "Fireworks",
@@ -938,7 +1016,8 @@
       "Explosion + Atmosphere"
     ],
     "image": "images/Fireworks.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Explosion"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Explosion",
+    "tier": 5
   },
   {
     "name": "Flood",
@@ -954,7 +1033,8 @@
       "Tsunami + City"
     ],
     "image": "images/Flood.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rain",
+    "tier": 5
   },
   {
     "name": "Galaxy",
@@ -970,7 +1050,8 @@
       "Supernova + Container"
     ],
     "image": "images/Galaxy.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Star"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Star",
+    "tier": 5
   },
   {
     "name": "Glasses",
@@ -983,7 +1064,8 @@
       "Lens + Lens"
     ],
     "image": "images/Glasses.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 5
   },
   {
     "name": "Gun",
@@ -997,7 +1079,8 @@
       "Bow + Gunpowder"
     ],
     "image": "images/Gun.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bullet"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bullet",
+    "tier": 5
   },
   {
     "name": "Hourglass",
@@ -1009,7 +1092,8 @@
       "Time + Container"
     ],
     "image": "images/Hourglass.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 5
   },
   {
     "name": "Hurricane",
@@ -1020,7 +1104,8 @@
       "Sea + Storm"
     ],
     "image": "images/Hurricane.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ocean"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ocean",
+    "tier": 5
   },
   {
     "name": "Island",
@@ -1031,7 +1116,8 @@
       "Maui's fishhook + Sea"
     ],
     "image": "images/Island.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Volcano"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Volcano",
+    "tier": 5
   },
   {
     "name": "Katana",
@@ -1043,7 +1129,8 @@
       "Sword + Ninja"
     ],
     "image": "images/Katana.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 5
   },
   {
     "name": "Mars",
@@ -1052,7 +1139,8 @@
       "Planet + Desert"
     ],
     "image": "images/Mars.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Planet"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Planet",
+    "tier": 5
   },
   {
     "name": "Meteoroid",
@@ -1068,7 +1156,8 @@
       "Sun + Boulder"
     ],
     "image": "images/Meteoroid.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Space"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Space",
+    "tier": 5
   },
   {
     "name": "Mirror",
@@ -1078,7 +1167,8 @@
       "Glass + Wood"
     ],
     "image": "images/Mirror.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 5
   },
   {
     "name": "Oasis",
@@ -1093,7 +1183,8 @@
       "Desert + Palm"
     ],
     "image": "images/Oasis.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Desert"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Desert",
+    "tier": 5
   },
   {
     "name": "Ocean",
@@ -1104,7 +1195,8 @@
       "Tide + Container"
     ],
     "image": "images/Ocean.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sea"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sea",
+    "tier": 5
   },
   {
     "name": "Primordial soup",
@@ -1117,7 +1209,8 @@
       "Earth + Sea"
     ],
     "image": "images/Primordial soup.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lava"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lava",
+    "tier": 5
   },
   {
     "name": "Pyramid",
@@ -1132,7 +1225,8 @@
       "Container + Book of the dead"
     ],
     "image": "images/Pyramid.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Desert"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Desert",
+    "tier": 5
   },
   {
     "name": "Rainbow",
@@ -1146,7 +1240,8 @@
       "Prism + Light"
     ],
     "image": "images/Rainbow.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rain",
+    "tier": 5
   },
   {
     "name": "Rocket",
@@ -1162,7 +1257,8 @@
       "Atmosphere + Pirate ship"
     ],
     "image": "images/Rocket.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Atmosphere"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Atmosphere",
+    "tier": 5
   },
   {
     "name": "Safe",
@@ -1175,7 +1271,8 @@
       "Container + Gold"
     ],
     "image": "images/Safe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Metal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Metal",
+    "tier": 5
   },
   {
     "name": "Salt",
@@ -1188,7 +1285,8 @@
       "Ocean + Mineral"
     ],
     "image": "images/Salt.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sea"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sea",
+    "tier": 5
   },
   {
     "name": "Scissors",
@@ -1200,7 +1298,8 @@
       "Sword + Paper"
     ],
     "image": "images/Scissors.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 5
   },
   {
     "name": "Sky",
@@ -1211,7 +1310,8 @@
       "Cloud + Atmosphere"
     ],
     "image": "images/Sky.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Air"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Air",
+    "tier": 5
   },
   {
     "name": "Solar cell",
@@ -1223,7 +1323,8 @@
       "Tool + Light"
     ],
     "image": "images/Solar cell.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sun",
+    "tier": 5
   },
   {
     "name": "Sound",
@@ -1234,7 +1335,8 @@
       "Wave + Wolf"
     ],
     "image": "images/Sound.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wave"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wave",
+    "tier": 5
   },
   {
     "name": "Space station",
@@ -1247,7 +1349,8 @@
       "Atmosphere + Village"
     ],
     "image": "images/Space station.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Space"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Space",
+    "tier": 5
   },
   {
     "name": "Supernova",
@@ -1258,7 +1361,8 @@
       "Explosion + Space"
     ],
     "image": "images/Supernova.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Explosion"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Explosion",
+    "tier": 5
   },
   {
     "name": "Swimming pool",
@@ -1268,7 +1372,8 @@
       "Aquarium + Big"
     ],
     "image": "images/Swimming pool.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 5
   },
   {
     "name": "Sword",
@@ -1278,7 +1383,8 @@
       "Blade + Wood"
     ],
     "image": "images/Sword.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 5
   },
   {
     "name": "Telescope",
@@ -1299,7 +1405,8 @@
       "Glass + Supernova"
     ],
     "image": "images/Telescope.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 5
   },
   {
     "name": "Tide",
@@ -1310,7 +1417,8 @@
       "Sea + Time"
     ],
     "image": "images/Tide.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ocean"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ocean",
+    "tier": 5
   },
   {
     "name": "Tsunami",
@@ -1323,7 +1431,8 @@
       "Ocean + Meteor"
     ],
     "image": "images/Tsunami.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sea"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sea",
+    "tier": 5
   },
   {
     "name": "Village",
@@ -1335,7 +1444,8 @@
       "Bakery + Container"
     ],
     "image": "images/Village.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 5
   },
   {
     "name": "Windmill",
@@ -1347,7 +1457,8 @@
       "Wheel + Wall"
     ],
     "image": "images/Windmill.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wind"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wind",
+    "tier": 5
   },
   {
     "name": "Acid rain",
@@ -1361,7 +1472,8 @@
       "Cloud + Sickness"
     ],
     "image": "images/Acid rain.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rain",
+    "tier": 6
   },
   {
     "name": "Archipelago",
@@ -1371,7 +1483,8 @@
       "Island + Ocean"
     ],
     "image": "images/Archipelago.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Island"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Island",
+    "tier": 6
   },
   {
     "name": "Barn",
@@ -1395,7 +1508,8 @@
       "Container + Babe the blue ox"
     ],
     "image": "images/Barn.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 6
   },
   {
     "name": "Bayonet",
@@ -1405,7 +1519,8 @@
       "Gun + Axe"
     ],
     "image": "images/Bayonet.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Gun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Gun",
+    "tier": 6
   },
   {
     "name": "Bell",
@@ -1417,7 +1532,8 @@
       "Steel + Hammer"
     ],
     "image": "images/Bell.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sound"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sound",
+    "tier": 6
   },
   {
     "name": "Binoculars",
@@ -1426,7 +1542,8 @@
       "Glasses + Glasses"
     ],
     "image": "images/Binoculars.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Telescope"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Telescope",
+    "tier": 6
   },
   {
     "name": "City",
@@ -1442,7 +1559,8 @@
       "Bank + Post office"
     ],
     "image": "images/City.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Village"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Village",
+    "tier": 6
   },
   {
     "name": "Day",
@@ -1453,7 +1571,8 @@
       "Time + Dawn"
     ],
     "image": "images/Day.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sun",
+    "tier": 6
   },
   {
     "name": "Double rainbow!",
@@ -1461,7 +1580,8 @@
       "Rainbow + Rainbow"
     ],
     "image": "images/Double rainbow!.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rainbow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rainbow",
+    "tier": 6
   },
   {
     "name": "Electricity",
@@ -1478,7 +1598,8 @@
       "Solar cell + Star"
     ],
     "image": "images/Electricity.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Metal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Metal",
+    "tier": 6
   },
   {
     "name": "Excalibur",
@@ -1491,7 +1612,8 @@
       "Sword + Fairy tale"
     ],
     "image": "images/Excalibur.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sword"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sword",
+    "tier": 6
   },
   {
     "name": "Fence",
@@ -1504,7 +1626,8 @@
       "Garden + Wall"
     ],
     "image": "images/Fence.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 6
   },
   {
     "name": "Flamethrower",
@@ -1514,7 +1637,8 @@
       "Gun + Volcano"
     ],
     "image": "images/Flamethrower.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Gun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Gun",
+    "tier": 6
   },
   {
     "name": "Fog",
@@ -1527,7 +1651,8 @@
       "Cloud + Forest"
     ],
     "image": "images/Fog.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cloud"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cloud",
+    "tier": 6
   },
   {
     "name": "Galaxy cluster",
@@ -1536,7 +1661,8 @@
       "Galaxy + Container"
     ],
     "image": "images/Galaxy cluster.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Galaxy"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Galaxy",
+    "tier": 6
   },
   {
     "name": "Hangar",
@@ -1563,7 +1689,8 @@
       "Spaceship + Barn"
     ],
     "image": "images/Hangar.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Airplane"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Airplane",
+    "tier": 6
   },
   {
     "name": "Horizon",
@@ -1576,7 +1703,8 @@
       "Sea + Sky"
     ],
     "image": "images/Horizon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 6
   },
   {
     "name": "Jupiter",
@@ -1589,7 +1717,8 @@
       "Saturn + Big"
     ],
     "image": "images/Jupiter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Planet"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Planet",
+    "tier": 6
   },
   {
     "name": "Life",
@@ -1608,7 +1737,8 @@
       "Lightning + Lake"
     ],
     "image": "images/Life.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Primordial_soup"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Primordial_soup",
+    "tier": 6
   },
   {
     "name": "Light sword",
@@ -1620,7 +1750,8 @@
       "Sword + Force knight"
     ],
     "image": "images/Light sword.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sword"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sword",
+    "tier": 6
   },
   {
     "name": "Lightning",
@@ -1636,7 +1767,8 @@
       "Cyclops + Tool"
     ],
     "image": "images/Lightning.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Electricity"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Electricity",
+    "tier": 6
   },
   {
     "name": "Meteor",
@@ -1648,7 +1780,8 @@
       "Meteoroid + Day"
     ],
     "image": "images/Meteor.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Meteoroid"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Meteoroid",
+    "tier": 6
   },
   {
     "name": "Night",
@@ -1659,7 +1792,8 @@
       "Time + Twilight"
     ],
     "image": "images/Night.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sky"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sky",
+    "tier": 6
   },
   {
     "name": "Paint",
@@ -1676,7 +1810,8 @@
       "Liquid + Pencil"
     ],
     "image": "images/Paint.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 6
   },
   {
     "name": "Park",
@@ -1691,7 +1826,8 @@
       "Village + Field"
     ],
     "image": "images/Park.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/City"
+    "page_url": "https://little-alchemy.fandom.com/wiki/City",
+    "tier": 6
   },
   {
     "name": "Prism",
@@ -1702,7 +1838,8 @@
       "Crystal ball + Double rainbow!"
     ],
     "image": "images/Prism.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 6
   },
   {
     "name": "Rain",
@@ -1712,7 +1849,8 @@
       "Cloud + Water"
     ],
     "image": "images/Rain.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cloud"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cloud",
+    "tier": 6
   },
   {
     "name": "Ruins",
@@ -1726,7 +1864,8 @@
       "Time + Farm"
     ],
     "image": "images/Ruins.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Time"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Time",
+    "tier": 6
   },
   {
     "name": "Safety glasses",
@@ -1738,7 +1877,8 @@
       "Glasses + Armor"
     ],
     "image": "images/Safety glasses.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glasses"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glasses",
+    "tier": 6
   },
   {
     "name": "Skyscraper",
@@ -1749,7 +1889,8 @@
       "Village + Sky"
     ],
     "image": "images/Skyscraper.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 6
   },
   {
     "name": "Space",
@@ -1761,7 +1902,8 @@
       "Solar system + Sky"
     ],
     "image": "images/Space.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Star"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Star",
+    "tier": 6
   },
   {
     "name": "Storm",
@@ -1772,7 +1914,8 @@
       "Rain + Wind"
     ],
     "image": "images/Storm.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cloud"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cloud",
+    "tier": 6
   },
   {
     "name": "Stun gun",
@@ -1784,7 +1927,8 @@
       "Bow + Energy"
     ],
     "image": "images/Stun gun.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Gun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Gun",
+    "tier": 6
   },
   {
     "name": "Sunglasses",
@@ -1796,7 +1940,8 @@
       "Glasses + Light"
     ],
     "image": "images/Sunglasses.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glasses"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glasses",
+    "tier": 6
   },
   {
     "name": "Swim goggles",
@@ -1813,7 +1958,8 @@
       "Sunglasses + River"
     ],
     "image": "images/Swim goggles.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glasses"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glasses",
+    "tier": 6
   },
   {
     "name": "Water gun",
@@ -1823,7 +1969,8 @@
       "Gun + Puddle"
     ],
     "image": "images/Water gun.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Gun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Gun",
+    "tier": 6
   },
   {
     "name": "Alien",
@@ -1839,7 +1986,8 @@
       "Life + Jupiter"
     ],
     "image": "images/Alien.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Life"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Life",
+    "tier": 7
   },
   {
     "name": "Animal",
@@ -1852,7 +2000,8 @@
       "Life + Desert"
     ],
     "image": "images/Animal.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Life"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Life",
+    "tier": 7
   },
   {
     "name": "Bacteria",
@@ -1862,7 +2011,8 @@
       "Life + Mud"
     ],
     "image": "images/Bacteria.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Life"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Life",
+    "tier": 7
   },
   {
     "name": "Clock",
@@ -1879,7 +2029,8 @@
       "Watch + Big"
     ],
     "image": "images/Clock.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Time"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Time",
+    "tier": 7
   },
   {
     "name": "Darkness",
@@ -1888,7 +2039,8 @@
       "Sky + Twilight"
     ],
     "image": "images/Darkness.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sky"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sky",
+    "tier": 7
   },
   {
     "name": "Dawn",
@@ -1897,7 +2049,8 @@
       "Time + Night"
     ],
     "image": "images/Dawn.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Day"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Day",
+    "tier": 7
   },
   {
     "name": "Death",
@@ -1909,7 +2062,8 @@
       "Graveyard + Philosophy"
     ],
     "image": "images/Death.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Time"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Time",
+    "tier": 7
   },
   {
     "name": "Farm",
@@ -1921,7 +2075,8 @@
       "House + Tractor"
     ],
     "image": "images/Farm.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Farmer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Farmer",
+    "tier": 7
   },
   {
     "name": "Human",
@@ -1933,7 +2088,8 @@
       "Tool + Monkey"
     ],
     "image": "images/Human.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Time"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Time",
+    "tier": 7
   },
   {
     "name": "Light bulb",
@@ -1943,7 +2099,8 @@
       "Light + Container"
     ],
     "image": "images/Light bulb.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 7
   },
   {
     "name": "Magic",
@@ -1954,7 +2111,8 @@
       "Energy + Wizard"
     ],
     "image": "images/Magic.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Life"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Life",
+    "tier": 7
   },
   {
     "name": "Ozone",
@@ -1965,7 +2123,8 @@
       "Electricity + Air"
     ],
     "image": "images/Ozone.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Oxygen"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Oxygen",
+    "tier": 7
   },
   {
     "name": "Phoenix",
@@ -1976,7 +2135,8 @@
       "Fire + Egg"
     ],
     "image": "images/Phoenix.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 7
   },
   {
     "name": "Plankton",
@@ -1989,7 +2149,8 @@
       "Bacteria + Sea"
     ],
     "image": "images/Plankton.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 7
   },
   {
     "name": "Robot",
@@ -2002,7 +2163,8 @@
       "Golem + Steel"
     ],
     "image": "images/Robot.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Life"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Life",
+    "tier": 7
   },
   {
     "name": "Smog",
@@ -2014,7 +2176,8 @@
       "City + Air"
     ],
     "image": "images/Smog.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Smoke"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Smoke",
+    "tier": 7
   },
   {
     "name": "Snow",
@@ -2025,7 +2188,8 @@
       "Steam + Cold"
     ],
     "image": "images/Snow.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rain",
+    "tier": 7
   },
   {
     "name": "Soil",
@@ -2036,7 +2200,8 @@
       "Land + Organic matter"
     ],
     "image": "images/Soil.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 7
   },
   {
     "name": "Spaceship",
@@ -2051,7 +2216,8 @@
       "Astronaut + Container"
     ],
     "image": "images/Spaceship.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Space"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Space",
+    "tier": 7
   },
   {
     "name": "Star",
@@ -2064,7 +2230,8 @@
       "Sun + Space"
     ],
     "image": "images/Star.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Night"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Night",
+    "tier": 7
   },
   {
     "name": "Twilight",
@@ -2073,7 +2240,8 @@
       "Day + Time"
     ],
     "image": "images/Twilight.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Day"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Day",
+    "tier": 7
   },
   {
     "name": "Universe",
@@ -2084,7 +2252,8 @@
       "Primordial soup + Cosmic egg"
     ],
     "image": "images/Universe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Space"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Space",
+    "tier": 7
   },
   {
     "name": "Wind turbine",
@@ -2095,7 +2264,8 @@
       "Wind + Electricity"
     ],
     "image": "images/Wind turbine.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Windmill"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Windmill",
+    "tier": 7
   },
   {
     "name": "Wire",
@@ -2107,7 +2277,8 @@
       "Electricity + Rope"
     ],
     "image": "images/Wire.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Metal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Metal",
+    "tier": 7
   },
   {
     "name": "Alarm clock",
@@ -2120,7 +2291,8 @@
       "Watch + Bell"
     ],
     "image": "images/Alarm clock.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Clock"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Clock",
+    "tier": 8
   },
   {
     "name": "Alchemist",
@@ -2129,7 +2301,8 @@
       "Gold + Philosophy"
     ],
     "image": "images/Alchemist.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Allergy",
@@ -2138,7 +2311,8 @@
       "Human + Pollen"
     ],
     "image": "images/Allergy.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Antarctica",
@@ -2149,7 +2323,8 @@
       "Continent + Ice"
     ],
     "image": "images/Antarctica.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Desert"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Desert",
+    "tier": 8
   },
   {
     "name": "Archeologist",
@@ -2158,7 +2333,8 @@
       "Ruins + Science"
     ],
     "image": "images/Archeologist.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ruins"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ruins",
+    "tier": 8
   },
   {
     "name": "Astronaut",
@@ -2177,7 +2353,8 @@
       "Human + Moon rover"
     ],
     "image": "images/Astronaut.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Astronomer",
@@ -2185,7 +2362,8 @@
       "Human + Telescope"
     ],
     "image": "images/Astronomer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Beaver",
@@ -2196,7 +2374,8 @@
       "Animal + Stream"
     ],
     "image": "images/Beaver.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Bird",
@@ -2211,7 +2390,8 @@
       "Time + Pterodactyl"
     ],
     "image": "images/Bird.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Blizzard",
@@ -2224,7 +2404,8 @@
       "Snow + Big"
     ],
     "image": "images/Blizzard.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Snow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Snow",
+    "tier": 8
   },
   {
     "name": "Blood",
@@ -2233,7 +2414,8 @@
       "Warrior + Sword"
     ],
     "image": "images/Blood.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Butterfly",
@@ -2244,7 +2426,8 @@
       "Animal + Double rainbow!"
     ],
     "image": "images/Butterfly.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Cable car",
@@ -2257,7 +2440,8 @@
       "Mountain range + Rope"
     ],
     "image": "images/Cable car.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain",
+    "tier": 8
   },
   {
     "name": "Camel",
@@ -2277,7 +2461,8 @@
       "Dune + Cow"
     ],
     "image": "images/Camel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Desert"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Desert",
+    "tier": 8
   },
   {
     "name": "Cat",
@@ -2287,7 +2472,8 @@
       "Animal + Night"
     ],
     "image": "images/Cat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Chain",
@@ -2298,7 +2484,8 @@
       "Wire + Steel"
     ],
     "image": "images/Chain.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rope"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rope",
+    "tier": 8
   },
   {
     "name": "Cold",
@@ -2312,7 +2499,8 @@
       "Space + Thermometer"
     ],
     "image": "images/Cold.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Constellation",
@@ -2320,7 +2508,8 @@
       "Star + Star"
     ],
     "image": "images/Constellation.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Star"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Star",
+    "tier": 8
   },
   {
     "name": "Corpse",
@@ -2336,7 +2525,8 @@
       "Jiangshi + Peach of immortality"
     ],
     "image": "images/Corpse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Crystal ball",
@@ -2349,7 +2539,8 @@
       "Snow globe + Magic"
     ],
     "image": "images/Crystal ball.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 8
   },
   {
     "name": "Cyborg",
@@ -2368,7 +2559,8 @@
       "Robot + Electrician"
     ],
     "image": "images/Cyborg.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Robot"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Robot",
+    "tier": 8
   },
   {
     "name": "Dew",
@@ -2384,7 +2576,8 @@
       "Fog + Dawn"
     ],
     "image": "images/Dew.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Grass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Grass",
+    "tier": 8
   },
   {
     "name": "Domestication",
@@ -2395,7 +2588,8 @@
       "Farmer + Science"
     ],
     "image": "images/Domestication.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Dynamite",
@@ -2405,7 +2599,8 @@
       "Gunpowder + Container"
     ],
     "image": "images/Dynamite.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Gunpowder"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Gunpowder",
+    "tier": 8
   },
   {
     "name": "Egg",
@@ -2447,7 +2642,8 @@
       "Tyrannosaurus rex + Tyrannosaurus rex"
     ],
     "image": "images/Egg.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Life"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Life",
+    "tier": 8
   },
   {
     "name": "Electrician",
@@ -2456,7 +2652,8 @@
       "Human + Wire"
     ],
     "image": "images/Electrician.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Family",
@@ -2466,7 +2663,8 @@
       "Love + Container"
     ],
     "image": "images/Family.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Farmer",
@@ -2480,7 +2678,8 @@
       "Human + Orchard"
     ],
     "image": "images/Farmer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Firefighter",
@@ -2490,7 +2689,8 @@
       "Human + Fire extinguisher"
     ],
     "image": "images/Firefighter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Fish",
@@ -2505,7 +2705,8 @@
       "Egg + Lake"
     ],
     "image": "images/Fish.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Force knight",
@@ -2515,7 +2716,8 @@
       "Knight + Light sword"
     ],
     "image": "images/Force knight.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Frog",
@@ -2526,7 +2728,8 @@
       "Egg + Puddle"
     ],
     "image": "images/Frog.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Glacier",
@@ -2538,7 +2741,8 @@
       "Time + Ice"
     ],
     "image": "images/Glacier.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain",
+    "tier": 8
   },
   {
     "name": "Gravestone",
@@ -2551,7 +2755,8 @@
       "Graveyard + Rock"
     ],
     "image": "images/Gravestone.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Grave"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Grave",
+    "tier": 8
   },
   {
     "name": "Hacker",
@@ -2562,7 +2767,8 @@
       "Human + Internet"
     ],
     "image": "images/Hacker.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Hero",
@@ -2573,7 +2779,8 @@
       "Human + Lightning"
     ],
     "image": "images/Hero.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Horse",
@@ -2588,7 +2795,8 @@
       "Livestock + Saddle"
     ],
     "image": "images/Horse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Idea",
@@ -2626,7 +2834,8 @@
       "Alchemist + Alchemist"
     ],
     "image": "images/Idea.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Igloo",
@@ -2637,7 +2846,8 @@
       "House + Snowman"
     ],
     "image": "images/Igloo.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 8
   },
   {
     "name": "Lamp",
@@ -2646,7 +2856,8 @@
       "Light bulb + Steel"
     ],
     "image": "images/Lamp.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Light_bulb"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Light_bulb",
+    "tier": 8
   },
   {
     "name": "Light",
@@ -2655,7 +2866,8 @@
       "Electricity + Flashlight"
     ],
     "image": "images/Light.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Electricity"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Electricity",
+    "tier": 8
   },
   {
     "name": "Livestock",
@@ -2666,7 +2878,8 @@
       "Animal + Domestication"
     ],
     "image": "images/Livestock.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Lizard",
@@ -2682,7 +2895,8 @@
       "Blood + Cold"
     ],
     "image": "images/Lizard.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Stone"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Stone",
+    "tier": 8
   },
   {
     "name": "Love",
@@ -2692,7 +2906,8 @@
       "Cupid + Arrow"
     ],
     "image": "images/Love.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Meat",
@@ -2740,7 +2955,8 @@
       "Net + Flying fish"
     ],
     "image": "images/Meat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tool"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tool",
+    "tier": 8
   },
   {
     "name": "Microscope",
@@ -2752,7 +2968,8 @@
       "Tool + Lens"
     ],
     "image": "images/Microscope.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bacteria"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bacteria",
+    "tier": 8
   },
   {
     "name": "Monarch",
@@ -2761,7 +2978,8 @@
       "Human + Excalibur"
     ],
     "image": "images/Monarch.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Mummy",
@@ -2774,7 +2992,8 @@
       "Human + Book of the dead"
     ],
     "image": "images/Mummy.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pyramid"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pyramid",
+    "tier": 8
   },
   {
     "name": "Organic matter",
@@ -2785,7 +3004,8 @@
       "Corpse + Science"
     ],
     "image": "images/Organic matter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Life"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Life",
+    "tier": 8
   },
   {
     "name": "Painter",
@@ -2795,7 +3015,8 @@
       "Human + Painting"
     ],
     "image": "images/Painter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Pig",
@@ -2805,7 +3026,8 @@
       "Mud + Cow"
     ],
     "image": "images/Pig.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mud"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mud",
+    "tier": 8
   },
   {
     "name": "Plant",
@@ -2822,7 +3044,8 @@
       "Rain + Soil"
     ],
     "image": "images/Plant.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 8
   },
   {
     "name": "Potter",
@@ -2831,7 +3054,8 @@
       "Human + Pottery"
     ],
     "image": "images/Potter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Sailor",
@@ -2844,7 +3068,8 @@
       "Human + Lake"
     ],
     "image": "images/Sailor.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Samurai",
@@ -2852,7 +3077,8 @@
       "Human + Katana"
     ],
     "image": "images/Samurai.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Science",
@@ -2862,7 +3088,8 @@
       "Human + Universe"
     ],
     "image": "images/Science.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Scorpion",
@@ -2874,7 +3101,8 @@
       "Spider + Desert"
     ],
     "image": "images/Scorpion.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Shuriken",
@@ -2886,7 +3114,8 @@
       "Ninja + Blade"
     ],
     "image": "images/Shuriken.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Star"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Star",
+    "tier": 8
   },
   {
     "name": "Sickness",
@@ -2896,7 +3125,8 @@
       "Human + Sickness"
     ],
     "image": "images/Sickness.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Ski goggles",
@@ -2911,7 +3141,8 @@
       "Skier + Sunglasses"
     ],
     "image": "images/Ski goggles.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Snow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Snow",
+    "tier": 8
   },
   {
     "name": "Skier",
@@ -2921,7 +3152,8 @@
       "Human + Mountain range"
     ],
     "image": "images/Skier.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Sloth",
@@ -2930,7 +3162,8 @@
       "Tree + Manatee"
     ],
     "image": "images/Sloth.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Snake",
@@ -2940,7 +3173,8 @@
       "Electric eel + Land"
     ],
     "image": "images/Snake.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Snow globe",
@@ -2965,7 +3199,8 @@
       "Glass + Blizzard"
     ],
     "image": "images/Snow globe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Crystal_ball"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Crystal_ball",
+    "tier": 8
   },
   {
     "name": "Snowball",
@@ -2976,7 +3211,8 @@
       "Snow + Earth"
     ],
     "image": "images/Snowball.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Snow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Snow",
+    "tier": 8
   },
   {
     "name": "Snowman",
@@ -2989,7 +3225,8 @@
       "Snowball + Snowball"
     ],
     "image": "images/Snowman.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Snow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Snow",
+    "tier": 8
   },
   {
     "name": "Starfish",
@@ -2999,7 +3236,8 @@
       "Star + Sea"
     ],
     "image": "images/Starfish.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Star"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Star",
+    "tier": 8
   },
   {
     "name": "Sundial",
@@ -3016,7 +3254,8 @@
       "Day + Tool"
     ],
     "image": "images/Sundial.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sun",
+    "tier": 8
   },
   {
     "name": "Surfer",
@@ -3025,7 +3264,8 @@
       "Human + Beach"
     ],
     "image": "images/Surfer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Swimmer",
@@ -3036,7 +3276,8 @@
       "Human + Swimming pool"
     ],
     "image": "images/Swimmer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Tool",
@@ -3052,7 +3293,8 @@
       "Wood + Rock"
     ],
     "image": "images/Tool.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Turtle",
@@ -3062,7 +3304,8 @@
       "Animal + Beach"
     ],
     "image": "images/Turtle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Egg"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Egg",
+    "tier": 8
   },
   {
     "name": "Ufo",
@@ -3075,7 +3318,8 @@
       "Alien + Container"
     ],
     "image": "images/Ufo.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Alien"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Alien",
+    "tier": 8
   },
   {
     "name": "Warrior",
@@ -3084,7 +3328,8 @@
       "Human + Bow"
     ],
     "image": "images/Warrior.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Watch",
@@ -3093,7 +3338,8 @@
       "Clock + Small"
     ],
     "image": "images/Watch.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Clock"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Clock",
+    "tier": 8
   },
   {
     "name": "Wizard",
@@ -3104,7 +3350,8 @@
       "Human + Double rainbow!"
     ],
     "image": "images/Wizard.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 8
   },
   {
     "name": "Wolf",
@@ -3115,7 +3362,8 @@
       "Dog + Blood"
     ],
     "image": "images/Wolf.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 8
   },
   {
     "name": "Airplane",
@@ -3160,7 +3408,8 @@
       "Pilot + Container"
     ],
     "image": "images/Airplane.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Algae",
@@ -3171,7 +3420,8 @@
       "Grass + Lake"
     ],
     "image": "images/Algae.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 9
   },
   {
     "name": "Alligator",
@@ -3181,7 +3431,8 @@
       "Lizard + Lake"
     ],
     "image": "images/Alligator.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lizard"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lizard",
+    "tier": 9
   },
   {
     "name": "Angel",
@@ -3194,7 +3445,8 @@
       "Good + Deity"
     ],
     "image": "images/Angel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Arctic",
@@ -3203,7 +3455,8 @@
       "Cold + Ocean"
     ],
     "image": "images/Arctic.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cold"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cold",
+    "tier": 9
   },
   {
     "name": "Ash",
@@ -3223,7 +3476,8 @@
       "Vampire + Holy water"
     ],
     "image": "images/Ash.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 9
   },
   {
     "name": "Bacon",
@@ -3234,7 +3488,8 @@
       "Ham + Campfire"
     ],
     "image": "images/Bacon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pig"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pig",
+    "tier": 9
   },
   {
     "name": "Birdcage",
@@ -3245,7 +3500,8 @@
       "Bird + Cage"
     ],
     "image": "images/Birdcage.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Birdhouse",
@@ -3255,7 +3511,8 @@
       "Egg + Container"
     ],
     "image": "images/Birdhouse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Bone",
@@ -3267,7 +3524,8 @@
       "Wolf + Meat"
     ],
     "image": "images/Bone.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Time"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Time",
+    "tier": 9
   },
   {
     "name": "Butcher",
@@ -3276,7 +3534,8 @@
       "Human + Ham"
     ],
     "image": "images/Butcher.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Cactus",
@@ -3287,7 +3546,8 @@
       "Desert + Tree"
     ],
     "image": "images/Cactus.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 9
   },
   {
     "name": "Cage",
@@ -3306,7 +3566,8 @@
       "Hamster + Wall"
     ],
     "image": "images/Cage.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wolf"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wolf",
+    "tier": 9
   },
   {
     "name": "Carbon dioxide",
@@ -3320,7 +3581,8 @@
       "Grass + Night"
     ],
     "image": "images/Carbon dioxide.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Carrot",
@@ -3331,7 +3593,8 @@
       "Snowman + Sun"
     ],
     "image": "images/Carrot.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Vegetable"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Vegetable",
+    "tier": 9
   },
   {
     "name": "Castle",
@@ -3354,7 +3617,8 @@
       "Paladin + Container"
     ],
     "image": "images/Castle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Knight"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Knight",
+    "tier": 9
   },
   {
     "name": "Catnip",
@@ -3365,7 +3629,8 @@
       "Baast + Plant"
     ],
     "image": "images/Catnip.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cat",
+    "tier": 9
   },
   {
     "name": "Cave",
@@ -3380,7 +3645,8 @@
       "Container + Bat"
     ],
     "image": "images/Cave.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 9
   },
   {
     "name": "Centaur",
@@ -3389,7 +3655,8 @@
       "Horse + Story"
     ],
     "image": "images/Centaur.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Horse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Horse",
+    "tier": 9
   },
   {
     "name": "Chameleon",
@@ -3402,7 +3669,8 @@
       "Turtle + Double rainbow!"
     ],
     "image": "images/Chameleon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lizard"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lizard",
+    "tier": 9
   },
   {
     "name": "Charcoal",
@@ -3413,7 +3681,8 @@
       "Fire + Organic matter"
     ],
     "image": "images/Charcoal.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 9
   },
   {
     "name": "Chicken",
@@ -3430,7 +3699,8 @@
       "Egg + Farm"
     ],
     "image": "images/Chicken.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Chill",
@@ -3440,7 +3710,8 @@
       "Human + Ice"
     ],
     "image": "images/Chill.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Air"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Air",
+    "tier": 9
   },
   {
     "name": "Coal",
@@ -3453,7 +3724,8 @@
       "Pressure + Peat"
     ],
     "image": "images/Coal.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pressure",
+    "tier": 9
   },
   {
     "name": "Computer",
@@ -3465,7 +3737,8 @@
       "Email + Container"
     ],
     "image": "images/Computer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Hacker"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Hacker",
+    "tier": 9
   },
   {
     "name": "Cotton",
@@ -3477,7 +3750,8 @@
       "Plant + Sheep"
     ],
     "image": "images/Cotton.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Cow",
@@ -3488,7 +3762,8 @@
       "Livestock + Grass"
     ],
     "image": "images/Cow.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Livestock"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Livestock",
+    "tier": 9
   },
   {
     "name": "Crow",
@@ -3503,7 +3778,8 @@
       "Hummingbird + Field"
     ],
     "image": "images/Crow.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Cuckoo",
@@ -3516,7 +3792,8 @@
       "Hummingbird + Alarm clock"
     ],
     "image": "images/Cuckoo.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Dinosaur",
@@ -3525,7 +3802,8 @@
       "Lizard + Big"
     ],
     "image": "images/Dinosaur.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lizard"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lizard",
+    "tier": 9
   },
   {
     "name": "Dog",
@@ -3539,7 +3817,8 @@
       "Wolf + Campfire"
     ],
     "image": "images/Dog.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wolf"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wolf",
+    "tier": 9
   },
   {
     "name": "Don quixote",
@@ -3550,7 +3829,8 @@
       "Windmill + Hero"
     ],
     "image": "images/Don quixote.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Windmill"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Windmill",
+    "tier": 9
   },
   {
     "name": "Dragon",
@@ -3564,7 +3844,8 @@
       "Dinosaur + Monster"
     ],
     "image": "images/Dragon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lizard"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lizard",
+    "tier": 9
   },
   {
     "name": "Duck",
@@ -3585,7 +3866,8 @@
       "Chicken + Lake"
     ],
     "image": "images/Duck.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Eagle",
@@ -3594,7 +3876,8 @@
       "Bird + Mountain range"
     ],
     "image": "images/Eagle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Egg timer",
@@ -3604,7 +3887,8 @@
       "Egg + Watch"
     ],
     "image": "images/Egg timer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Egg"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Egg",
+    "tier": 9
   },
   {
     "name": "Electric eel",
@@ -3612,7 +3896,8 @@
       "Fish + Electricity"
     ],
     "image": "images/Electric eel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fish"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fish",
+    "tier": 9
   },
   {
     "name": "Family tree",
@@ -3622,7 +3907,8 @@
       "Time + Family"
     ],
     "image": "images/Family tree.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 9
   },
   {
     "name": "Firestation",
@@ -3634,7 +3920,8 @@
       "Firefighter + City"
     ],
     "image": "images/Firestation.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 9
   },
   {
     "name": "Fishing rod",
@@ -3653,7 +3940,8 @@
       "Piranha + Thread"
     ],
     "image": "images/Fishing rod.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fish"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fish",
+    "tier": 9
   },
   {
     "name": "Flashlight",
@@ -3664,7 +3952,8 @@
       "Human + Lamp"
     ],
     "image": "images/Flashlight.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tool"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tool",
+    "tier": 9
   },
   {
     "name": "Flower",
@@ -3679,7 +3968,8 @@
       "Garden + Seed"
     ],
     "image": "images/Flower.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Flying fish",
@@ -3689,7 +3979,8 @@
       "Fish + Air"
     ],
     "image": "images/Flying fish.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fish"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fish",
+    "tier": 9
   },
   {
     "name": "Fossil",
@@ -3711,7 +4002,8 @@
       "Skeleton + Time"
     ],
     "image": "images/Fossil.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dinosaur"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dinosaur",
+    "tier": 9
   },
   {
     "name": "Frankenstein's monster",
@@ -3726,7 +4018,8 @@
       "Monster + Corpse"
     ],
     "image": "images/Frankenstein's monster.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Corpse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Corpse",
+    "tier": 9
   },
   {
     "name": "Fridge",
@@ -3742,7 +4035,8 @@
       "Ice cream + Container"
     ],
     "image": "images/Fridge.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cold"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cold",
+    "tier": 9
   },
   {
     "name": "Garden",
@@ -3758,7 +4052,8 @@
       "Flower + Container"
     ],
     "image": "images/Garden.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Gas",
@@ -3768,7 +4063,8 @@
       "Energy + Liquid"
     ],
     "image": "images/Gas.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Air"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Air",
+    "tier": 9
   },
   {
     "name": "Ghost",
@@ -3789,7 +4085,8 @@
       "Night + Legend"
     ],
     "image": "images/Ghost.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Graveyard"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Graveyard",
+    "tier": 9
   },
   {
     "name": "Goat",
@@ -3802,7 +4099,8 @@
       "Cow + Hill"
     ],
     "image": "images/Goat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Livestock"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Livestock",
+    "tier": 9
   },
   {
     "name": "Grass",
@@ -3811,7 +4109,8 @@
       "Plant + Land"
     ],
     "image": "images/Grass.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Grave",
@@ -3827,7 +4126,8 @@
       "Coffin + Container"
     ],
     "image": "images/Grave.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 9
   },
   {
     "name": "Graveyard",
@@ -3841,7 +4141,8 @@
       "Gravestone + Container"
     ],
     "image": "images/Graveyard.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Grave"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Grave",
+    "tier": 9
   },
   {
     "name": "Greenhouse",
@@ -3856,7 +4157,8 @@
       "Plant + Container"
     ],
     "image": "images/Greenhouse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 9
   },
   {
     "name": "Ham",
@@ -3865,7 +4167,8 @@
       "Smoke + Pig"
     ],
     "image": "images/Ham.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Smoke"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Smoke",
+    "tier": 9
   },
   {
     "name": "Hammer",
@@ -3877,7 +4180,8 @@
       "Tool + Woodpecker"
     ],
     "image": "images/Hammer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tool"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tool",
+    "tier": 9
   },
   {
     "name": "Hedge",
@@ -3890,7 +4194,8 @@
       "Garden + Wall"
     ],
     "image": "images/Hedge.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Hippo",
@@ -3901,7 +4206,8 @@
       "Cow + Water"
     ],
     "image": "images/Hippo.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Horse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Horse",
+    "tier": 9
   },
   {
     "name": "Horseshoe",
@@ -3910,7 +4216,8 @@
       "Horse + Steel"
     ],
     "image": "images/Horseshoe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Horse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Horse",
+    "tier": 9
   },
   {
     "name": "Hospital",
@@ -3924,7 +4231,8 @@
       "Doctor + Container"
     ],
     "image": "images/Hospital.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 9
   },
   {
     "name": "Hummingbird",
@@ -3942,7 +4250,8 @@
       "Garden + Seagull"
     ],
     "image": "images/Hummingbird.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Ice",
@@ -3953,7 +4262,8 @@
       "Puddle + Solid"
     ],
     "image": "images/Ice.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 9
   },
   {
     "name": "Iceberg",
@@ -3966,7 +4276,8 @@
       "Ocean + Arctic"
     ],
     "image": "images/Iceberg.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sea"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sea",
+    "tier": 9
   },
   {
     "name": "Ivy",
@@ -3975,7 +4286,8 @@
       "Grass + Wall"
     ],
     "image": "images/Ivy.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Jerky",
@@ -3986,7 +4298,8 @@
       "Steak + Heat"
     ],
     "image": "images/Jerky.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Meat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Meat",
+    "tier": 9
   },
   {
     "name": "Knight",
@@ -3997,7 +4310,8 @@
       "Warrior + Horse"
     ],
     "image": "images/Knight.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Lava lamp",
@@ -4007,7 +4321,8 @@
       "Lamp + Volcano"
     ],
     "image": "images/Lava lamp.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lamp"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lamp",
+    "tier": 9
   },
   {
     "name": "Leather",
@@ -4023,7 +4338,8 @@
       "Tool + Sheep"
     ],
     "image": "images/Leather.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 9
   },
   {
     "name": "Lens",
@@ -4032,7 +4348,8 @@
       "Glass + Engineer"
     ],
     "image": "images/Lens.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Glass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Glass",
+    "tier": 9
   },
   {
     "name": "Lighthouse",
@@ -4047,7 +4364,8 @@
       "Spotlight + Beach"
     ],
     "image": "images/Lighthouse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Light"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Light",
+    "tier": 9
   },
   {
     "name": "Lion",
@@ -4058,7 +4376,8 @@
       "Cat + Monarch"
     ],
     "image": "images/Lion.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cat",
+    "tier": 9
   },
   {
     "name": "Liquid",
@@ -4068,7 +4387,8 @@
       "Energy + Solid"
     ],
     "image": "images/Liquid.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 9
   },
   {
     "name": "Machine",
@@ -4082,7 +4402,8 @@
       "Boiler + Chain"
     ],
     "image": "images/Machine.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tool"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tool",
+    "tier": 9
   },
   {
     "name": "Magma",
@@ -4091,7 +4412,8 @@
       "Volcano + Science"
     ],
     "image": "images/Magma.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lava"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lava",
+    "tier": 9
   },
   {
     "name": "Medusa",
@@ -4102,7 +4424,8 @@
       "Snake + Hero"
     ],
     "image": "images/Medusa.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Snake"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Snake",
+    "tier": 9
   },
   {
     "name": "Mermaid",
@@ -4115,7 +4438,8 @@
       "Swimmer + Magic"
     ],
     "image": "images/Mermaid.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fish"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fish",
+    "tier": 9
   },
   {
     "name": "Mineral",
@@ -4128,7 +4452,8 @@
       "Organic matter + Mountain"
     ],
     "image": "images/Mineral.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Organic_matter"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Organic_matter",
+    "tier": 9
   },
   {
     "name": "Moss",
@@ -4144,7 +4469,8 @@
       "Boulder + Algae"
     ],
     "image": "images/Moss.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Stone"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Stone",
+    "tier": 9
   },
   {
     "name": "Moth",
@@ -4157,7 +4483,8 @@
       "Butterfly + Flashlight"
     ],
     "image": "images/Moth.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Butterfly"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Butterfly",
+    "tier": 9
   },
   {
     "name": "Motion",
@@ -4173,7 +4500,8 @@
       "River + Philosophy"
     ],
     "image": "images/Motion.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wind"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wind",
+    "tier": 9
   },
   {
     "name": "Nest",
@@ -4188,7 +4516,8 @@
       "Egg + Container"
     ],
     "image": "images/Nest.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Ninja",
@@ -4196,7 +4525,8 @@
       "Human + Shuriken"
     ],
     "image": "images/Ninja.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Ninja turtle",
@@ -4206,7 +4536,8 @@
       "Turtle + Katana"
     ],
     "image": "images/Ninja turtle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Turtle"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Turtle",
+    "tier": 9
   },
   {
     "name": "Omelette",
@@ -4216,7 +4547,8 @@
       "Egg + Tool"
     ],
     "image": "images/Omelette.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Egg"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Egg",
+    "tier": 9
   },
   {
     "name": "Optical fiber",
@@ -4226,7 +4558,8 @@
       "Light + Internet"
     ],
     "image": "images/Optical fiber.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wire",
+    "tier": 9
   },
   {
     "name": "Ostrich",
@@ -4236,7 +4569,8 @@
       "Bird + Big"
     ],
     "image": "images/Ostrich.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Owl",
@@ -4247,7 +4581,8 @@
       "Bird + Twilight"
     ],
     "image": "images/Owl.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Oxygen",
@@ -4262,7 +4597,8 @@
       "Carbon dioxide + Algae"
     ],
     "image": "images/Oxygen.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sun",
+    "tier": 9
   },
   {
     "name": "Peacock",
@@ -4272,7 +4608,8 @@
       "Bird + Double rainbow!"
     ],
     "image": "images/Peacock.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Pegasus",
@@ -4283,7 +4620,8 @@
       "Unicorn + Sky"
     ],
     "image": "images/Pegasus.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Horse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Horse",
+    "tier": 9
   },
   {
     "name": "Penguin",
@@ -4295,7 +4633,8 @@
       "Animal + Antarctica"
     ],
     "image": "images/Penguin.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Philosophy",
@@ -4305,7 +4644,8 @@
       "Egg + Chicken"
     ],
     "image": "images/Philosophy.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Pigeon",
@@ -4317,7 +4657,8 @@
       "Bird + Village"
     ],
     "image": "images/Pigeon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Piggy bank",
@@ -4327,7 +4668,8 @@
       "Pig + Gold"
     ],
     "image": "images/Piggy bank.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pig"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pig",
+    "tier": 9
   },
   {
     "name": "Piranha",
@@ -4336,7 +4678,8 @@
       "Fish + Wolf"
     ],
     "image": "images/Piranha.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fish"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fish",
+    "tier": 9
   },
   {
     "name": "Pirate",
@@ -4347,7 +4690,8 @@
       "Sailor + Gun"
     ],
     "image": "images/Pirate.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sailor"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sailor",
+    "tier": 9
   },
   {
     "name": "Platypus",
@@ -4357,7 +4701,8 @@
       "Beaver + Seagull"
     ],
     "image": "images/Platypus.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Beaver"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Beaver",
+    "tier": 9
   },
   {
     "name": "Pollen",
@@ -4368,7 +4713,8 @@
       "Flower + Wind"
     ],
     "image": "images/Pollen.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Pottery",
@@ -4377,7 +4723,8 @@
       "Clay + Tool"
     ],
     "image": "images/Pottery.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Clay"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Clay",
+    "tier": 9
   },
   {
     "name": "Reed",
@@ -4392,7 +4739,8 @@
       "Grass + River"
     ],
     "image": "images/Reed.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Ring",
@@ -4406,7 +4754,8 @@
       "Love + Steel"
     ],
     "image": "images/Ring.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Diamond"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Diamond",
+    "tier": 9
   },
   {
     "name": "Roe",
@@ -4419,7 +4768,8 @@
       "Egg + Flying fish"
     ],
     "image": "images/Roe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Egg"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Egg",
+    "tier": 9
   },
   {
     "name": "Rope",
@@ -4432,7 +4782,8 @@
       "Tool + Pirate ship"
     ],
     "image": "images/Rope.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Thread"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Thread",
+    "tier": 9
   },
   {
     "name": "Rose",
@@ -4443,7 +4794,8 @@
       "Blade + Flower"
     ],
     "image": "images/Rose.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Love"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Love",
+    "tier": 9
   },
   {
     "name": "Saddle",
@@ -4453,7 +4805,8 @@
       "Horse + Fabric"
     ],
     "image": "images/Saddle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Horse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Horse",
+    "tier": 9
   },
   {
     "name": "Seagull",
@@ -4469,7 +4822,8 @@
       "Rat + Beach"
     ],
     "image": "images/Seagull.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Seahorse",
@@ -4481,7 +4835,8 @@
       "Horse + Fish"
     ],
     "image": "images/Seahorse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Horse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Horse",
+    "tier": 9
   },
   {
     "name": "Seasickness",
@@ -4494,7 +4849,8 @@
       "Sickness + Steamboat"
     ],
     "image": "images/Seasickness.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sickness"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sickness",
+    "tier": 9
   },
   {
     "name": "Seaweed",
@@ -4506,7 +4862,8 @@
       "Grass + Ocean"
     ],
     "image": "images/Seaweed.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Shark",
@@ -4519,7 +4876,8 @@
       "Blood + Fish"
     ],
     "image": "images/Shark.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wolf"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wolf",
+    "tier": 9
   },
   {
     "name": "Sheep",
@@ -4532,7 +4890,8 @@
       "Mountain goat + Domestication"
     ],
     "image": "images/Sheep.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Livestock"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Livestock",
+    "tier": 9
   },
   {
     "name": "Skeleton",
@@ -4542,7 +4901,8 @@
       "Bone + Corpse"
     ],
     "image": "images/Skeleton.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Time"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Time",
+    "tier": 9
   },
   {
     "name": "Snowboard",
@@ -4555,7 +4915,8 @@
       "Surfer + Mountain range"
     ],
     "image": "images/Snowboard.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Snow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Snow",
+    "tier": 9
   },
   {
     "name": "Solid",
@@ -4564,7 +4925,8 @@
       "Earth + Science"
     ],
     "image": "images/Solid.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 9
   },
   {
     "name": "Spotlight",
@@ -4574,7 +4936,8 @@
       "Light + Steel"
     ],
     "image": "images/Spotlight.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Light"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Light",
+    "tier": 9
   },
   {
     "name": "Steak",
@@ -4585,7 +4948,8 @@
       "Cow + Fire"
     ],
     "image": "images/Steak.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Meat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Meat",
+    "tier": 9
   },
   {
     "name": "Stethoscope",
@@ -4597,7 +4961,8 @@
       "Tool + Hospital"
     ],
     "image": "images/Stethoscope.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Doctor"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Doctor",
+    "tier": 9
   },
   {
     "name": "Story",
@@ -4606,7 +4971,8 @@
       "Human + Hero"
     ],
     "image": "images/Story.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Sunflower",
@@ -4615,7 +4981,8 @@
       "Sun + Flower"
     ],
     "image": "images/Sunflower.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sun"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sun",
+    "tier": 9
   },
   {
     "name": "Swordfish",
@@ -4626,7 +4993,8 @@
       "Shark + Blade"
     ],
     "image": "images/Swordfish.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fish"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fish",
+    "tier": 9
   },
   {
     "name": "Tobacco",
@@ -4636,7 +5004,8 @@
       "Grass + Smoke"
     ],
     "image": "images/Tobacco.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Toolbox",
@@ -4654,7 +5023,8 @@
       "Chain + Container"
     ],
     "image": "images/Toolbox.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tool"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tool",
+    "tier": 9
   },
   {
     "name": "Toucan",
@@ -4667,7 +5037,8 @@
       "Palm + Pigeon"
     ],
     "image": "images/Toucan.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 9
   },
   {
     "name": "Tree",
@@ -4678,7 +5049,8 @@
       "Nest + Container"
     ],
     "image": "images/Tree.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Plant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Plant",
+    "tier": 9
   },
   {
     "name": "Umbrella",
@@ -4689,7 +5061,8 @@
       "Storm + Fabric"
     ],
     "image": "images/Umbrella.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rain",
+    "tier": 9
   },
   {
     "name": "Unicorn",
@@ -4701,7 +5074,8 @@
       "Horse + Double rainbow!"
     ],
     "image": "images/Unicorn.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Horse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Horse",
+    "tier": 9
   },
   {
     "name": "Vampire",
@@ -4711,7 +5085,8 @@
       "Human + Bat"
     ],
     "image": "images/Vampire.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Vegetable",
@@ -4723,7 +5098,8 @@
       "Plant + Domestication"
     ],
     "image": "images/Vegetable.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Farmer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Farmer",
+    "tier": 9
   },
   {
     "name": "Vulture",
@@ -4745,7 +5121,8 @@
       "Desert + Duck"
     ],
     "image": "images/Vulture.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Corpse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Corpse",
+    "tier": 9
   },
   {
     "name": "Wand",
@@ -4756,7 +5133,8 @@
       "Wizard + Pencil"
     ],
     "image": "images/Wand.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wizard"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wizard",
+    "tier": 9
   },
   {
     "name": "Werewolf",
@@ -4766,7 +5144,8 @@
       "Wolf + Monster"
     ],
     "image": "images/Werewolf.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 9
   },
   {
     "name": "Wheel",
@@ -4780,7 +5159,8 @@
       "Tool + River"
     ],
     "image": "images/Wheel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Motion"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Motion",
+    "tier": 9
   },
   {
     "name": "Wild boar",
@@ -4790,7 +5170,8 @@
       "Pig + Hill"
     ],
     "image": "images/Wild boar.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pig"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pig",
+    "tier": 9
   },
   {
     "name": "Windsurfer",
@@ -4798,7 +5179,8 @@
       "Wind + Surfer"
     ],
     "image": "images/Windsurfer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wind"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wind",
+    "tier": 9
   },
   {
     "name": "Zombie",
@@ -4810,7 +5192,8 @@
       "Corpse + Necromancer"
     ],
     "image": "images/Zombie.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Corpse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Corpse",
+    "tier": 9
   },
   {
     "name": "Alpaca",
@@ -4820,7 +5203,8 @@
       "Sheep + Mountain goat"
     ],
     "image": "images/Alpaca.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sheep"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sheep",
+    "tier": 10
   },
   {
     "name": "Angler",
@@ -4829,7 +5213,8 @@
       "Sailor + Fishing rod"
     ],
     "image": "images/Angler.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Ant",
@@ -4838,7 +5223,8 @@
       "Grass + Spider"
     ],
     "image": "images/Ant.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Grass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Grass",
+    "tier": 10
   },
   {
     "name": "Battery",
@@ -4849,7 +5235,8 @@
       "Electricity + Ore"
     ],
     "image": "images/Battery.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Container"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Container",
+    "tier": 10
   },
   {
     "name": "Bee",
@@ -4858,7 +5245,8 @@
       "Animal + Garden"
     ],
     "image": "images/Bee.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 10
   },
   {
     "name": "Bicycle",
@@ -4868,7 +5256,8 @@
       "Wheel + Machine"
     ],
     "image": "images/Bicycle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wheel"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wheel",
+    "tier": 10
   },
   {
     "name": "Big",
@@ -4881,7 +5270,8 @@
       "Planet + Philosophy"
     ],
     "image": "images/Big.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Universe"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Universe",
+    "tier": 10
   },
   {
     "name": "Bonsai tree",
@@ -4892,7 +5282,8 @@
       "Tree + Small"
     ],
     "image": "images/Bonsai tree.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Cannon",
@@ -4903,7 +5294,8 @@
       "Gun + Castle"
     ],
     "image": "images/Cannon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Gunpowder"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Gunpowder",
+    "tier": 10
   },
   {
     "name": "Car",
@@ -4919,7 +5311,8 @@
       "Cart + Combustion engine"
     ],
     "image": "images/Car.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wheel"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wheel",
+    "tier": 10
   },
   {
     "name": "Cauldron",
@@ -4932,7 +5325,8 @@
       "Pottery + Steel"
     ],
     "image": "images/Cauldron.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Witch"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Witch",
+    "tier": 10
   },
   {
     "name": "Caviar",
@@ -4941,7 +5335,8 @@
       "Roe + Cook"
     ],
     "image": "images/Caviar.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Roe"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Roe",
+    "tier": 10
   },
   {
     "name": "Chicken coop",
@@ -4955,7 +5350,8 @@
       "Cockatrice + Container"
     ],
     "image": "images/Chicken coop.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Chicken"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Chicken",
+    "tier": 10
   },
   {
     "name": "Chicken soup",
@@ -4966,7 +5362,8 @@
       "Chicken wing + Liquid"
     ],
     "image": "images/Chicken soup.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Chicken"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Chicken",
+    "tier": 10
   },
   {
     "name": "Chicken wing",
@@ -4975,7 +5372,8 @@
       "Chicken + Bbq"
     ],
     "image": "images/Chicken wing.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Chicken"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Chicken",
+    "tier": 10
   },
   {
     "name": "Christmas tree",
@@ -4987,7 +5385,8 @@
       "Tree + Gift"
     ],
     "image": "images/Christmas tree.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Coconut",
@@ -5000,7 +5399,8 @@
       "Beach + Vegetable"
     ],
     "image": "images/Coconut.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Palm"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Palm",
+    "tier": 10
   },
   {
     "name": "Combustion engine",
@@ -5012,7 +5412,8 @@
       "Explosion + Steam engine"
     ],
     "image": "images/Combustion engine.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Petroleum"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Petroleum",
+    "tier": 10
   },
   {
     "name": "Computer mouse",
@@ -5021,7 +5422,8 @@
       "Computer + Animal"
     ],
     "image": "images/Computer mouse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Computer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Computer",
+    "tier": 10
   },
   {
     "name": "Container",
@@ -5034,7 +5436,8 @@
       "Philosophy + Bucket"
     ],
     "image": "images/Container.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Philosophy"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Philosophy",
+    "tier": 10
   },
   {
     "name": "Cook",
@@ -5045,7 +5448,8 @@
       "Human + Nuts"
     ],
     "image": "images/Cook.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Coral",
@@ -5058,7 +5462,8 @@
       "Bone + Ocean"
     ],
     "image": "images/Coral.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Cyclist",
@@ -5067,7 +5472,8 @@
       "Human + Bicycle"
     ],
     "image": "images/Cyclist.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Diamond",
@@ -5075,7 +5481,8 @@
       "Coal + Pressure"
     ],
     "image": "images/Diamond.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Coal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Coal",
+    "tier": 10
   },
   {
     "name": "Doctor",
@@ -5084,7 +5491,8 @@
       "Human + Stethoscope"
     ],
     "image": "images/Doctor.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Doge",
@@ -5093,7 +5501,8 @@
       "Dog + Computer"
     ],
     "image": "images/Doge.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dog"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dog",
+    "tier": 10
   },
   {
     "name": "Doghouse",
@@ -5106,7 +5515,8 @@
       "Husky + Container"
     ],
     "image": "images/Doghouse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dog"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dog",
+    "tier": 10
   },
   {
     "name": "Drone",
@@ -5117,7 +5527,8 @@
       "Robot + Seaplane"
     ],
     "image": "images/Drone.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Robot"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Robot",
+    "tier": 10
   },
   {
     "name": "Dry ice",
@@ -5126,7 +5537,8 @@
       "Carbon dioxide + Ice"
     ],
     "image": "images/Dry ice.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Carbon_dioxide"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Carbon_dioxide",
+    "tier": 10
   },
   {
     "name": "Duckling",
@@ -5134,7 +5546,8 @@
       "Egg + Duck"
     ],
     "image": "images/Duckling.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Egg"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Egg",
+    "tier": 10
   },
   {
     "name": "Engineer",
@@ -5143,7 +5556,8 @@
       "Human + Steam engine"
     ],
     "image": "images/Engineer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Fairy tale",
@@ -5157,7 +5571,8 @@
       "Story + Elf"
     ],
     "image": "images/Fairy tale.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Story"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Story",
+    "tier": 10
   },
   {
     "name": "Faun",
@@ -5172,7 +5587,8 @@
       "Magic + Mountain goat"
     ],
     "image": "images/Faun.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Fire extinguisher",
@@ -5184,7 +5600,8 @@
       "Carbon dioxide + Boiler"
     ],
     "image": "images/Fire extinguisher.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Carbon_dioxide"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Carbon_dioxide",
+    "tier": 10
   },
   {
     "name": "Forest",
@@ -5195,7 +5612,8 @@
       "Tree + Container"
     ],
     "image": "images/Forest.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Fox",
@@ -5208,7 +5626,8 @@
       "Chicken coop + Dog"
     ],
     "image": "images/Fox.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Chicken"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Chicken",
+    "tier": 10
   },
   {
     "name": "Fruit",
@@ -5221,7 +5640,8 @@
       "Farmer + Orchard"
     ],
     "image": "images/Fruit.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Flower"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Flower",
+    "tier": 10
   },
   {
     "name": "Gardener",
@@ -5230,7 +5650,8 @@
       "Farmer + Garden"
     ],
     "image": "images/Gardener.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Gnome",
@@ -5241,7 +5662,8 @@
       "Garden + Fairy tale"
     ],
     "image": "images/Gnome.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Garden"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Garden",
+    "tier": 10
   },
   {
     "name": "Golem",
@@ -5253,7 +5675,8 @@
       "Statue + Legend"
     ],
     "image": "images/Golem.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Clay"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Clay",
+    "tier": 10
   },
   {
     "name": "Hail",
@@ -5266,7 +5689,8 @@
       "Ice + Sky"
     ],
     "image": "images/Hail.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ice"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ice",
+    "tier": 10
   },
   {
     "name": "Harp",
@@ -5277,7 +5701,8 @@
       "Wire + Music"
     ],
     "image": "images/Harp.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Angel"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Angel",
+    "tier": 10
   },
   {
     "name": "Hay",
@@ -5294,7 +5719,8 @@
       "Pitchfork + Farmer"
     ],
     "image": "images/Hay.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Grass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Grass",
+    "tier": 10
   },
   {
     "name": "Helicopter",
@@ -5307,7 +5733,8 @@
       "Seaplane + Wind turbine"
     ],
     "image": "images/Helicopter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Airplane"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Airplane",
+    "tier": 10
   },
   {
     "name": "Husky",
@@ -5320,7 +5747,8 @@
       "Dog + Glacier"
     ],
     "image": "images/Husky.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dog"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dog",
+    "tier": 10
   },
   {
     "name": "Internet",
@@ -5331,7 +5759,8 @@
       "Computer + Net"
     ],
     "image": "images/Internet.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Computer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Computer",
+    "tier": 10
   },
   {
     "name": "Jack-o'-lantern",
@@ -5347,7 +5776,8 @@
       "Vegetable + Night"
     ],
     "image": "images/Jack-o'-lantern.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pumpkin"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pumpkin",
+    "tier": 10
   },
   {
     "name": "Juice",
@@ -5365,7 +5795,8 @@
       "Vegetable + Water"
     ],
     "image": "images/Juice.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit",
+    "tier": 10
   },
   {
     "name": "Kaiju",
@@ -5378,7 +5809,8 @@
       "Monster + Skyscraper"
     ],
     "image": "images/Kaiju.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dinosaur"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dinosaur",
+    "tier": 10
   },
   {
     "name": "Lasso",
@@ -5391,7 +5823,8 @@
       "Rope + Goat"
     ],
     "image": "images/Lasso.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rope"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rope",
+    "tier": 10
   },
   {
     "name": "Lawn",
@@ -5402,7 +5835,8 @@
       "Field + Lawn mower"
     ],
     "image": "images/Lawn.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Grass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Grass",
+    "tier": 10
   },
   {
     "name": "Lawn mower",
@@ -5418,7 +5852,8 @@
       "Helicopter + Field"
     ],
     "image": "images/Lawn mower.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Grass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Grass",
+    "tier": 10
   },
   {
     "name": "Leaf",
@@ -5429,7 +5864,8 @@
       "Forest + Wind"
     ],
     "image": "images/Leaf.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Legend",
@@ -5442,7 +5878,8 @@
       "Fairy tale + Big"
     ],
     "image": "images/Legend.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Story"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Story",
+    "tier": 10
   },
   {
     "name": "Lumberjack",
@@ -5453,7 +5890,8 @@
       "Human + Tree"
     ],
     "image": "images/Lumberjack.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Manatee",
@@ -5465,7 +5903,8 @@
       "Cow + River"
     ],
     "image": "images/Manatee.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cow",
+    "tier": 10
   },
   {
     "name": "Milk",
@@ -5480,7 +5919,8 @@
       "Goat + Liquid"
     ],
     "image": "images/Milk.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cow",
+    "tier": 10
   },
   {
     "name": "Minotaur",
@@ -5492,7 +5932,8 @@
       "Cow + Monster"
     ],
     "image": "images/Minotaur.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Mold",
@@ -5505,7 +5946,8 @@
       "Vegetable + Bacteria"
     ],
     "image": "images/Mold.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bread"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bread",
+    "tier": 10
   },
   {
     "name": "Monkey",
@@ -5513,7 +5955,8 @@
       "Animal + Tree"
     ],
     "image": "images/Monkey.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 10
   },
   {
     "name": "Mountain goat",
@@ -5522,7 +5965,8 @@
       "Goat + Mountain range"
     ],
     "image": "images/Mountain goat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Goat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Goat",
+    "tier": 10
   },
   {
     "name": "Narwhal",
@@ -5536,7 +5980,8 @@
       "Unicorn + Flying fish"
     ],
     "image": "images/Narwhal.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Unicorn"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Unicorn",
+    "tier": 10
   },
   {
     "name": "Nessie",
@@ -5547,7 +5992,8 @@
       "Dinosaur + Story"
     ],
     "image": "images/Nessie.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Lake"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Lake",
+    "tier": 10
   },
   {
     "name": "Net",
@@ -5559,7 +6005,8 @@
       "Flying fish + Rope"
     ],
     "image": "images/Net.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Angler"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Angler",
+    "tier": 10
   },
   {
     "name": "Nuts",
@@ -5569,7 +6016,8 @@
       "Tree + Domestication"
     ],
     "image": "images/Nuts.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Oil",
@@ -5580,7 +6028,8 @@
       "Sunflower + Windmill"
     ],
     "image": "images/Oil.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sunflower"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sunflower",
+    "tier": 10
   },
   {
     "name": "Ore",
@@ -5593,7 +6042,8 @@
       "Hammer + Mountain"
     ],
     "image": "images/Ore.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Hammer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Hammer",
+    "tier": 10
   },
   {
     "name": "Paleontologist",
@@ -5604,7 +6054,8 @@
       "Science + Fossil"
     ],
     "image": "images/Paleontologist.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Palm",
@@ -5614,7 +6065,8 @@
       "Tree + Sand"
     ],
     "image": "images/Palm.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Parachute",
@@ -5627,7 +6079,8 @@
       "Umbrella + Atmosphere"
     ],
     "image": "images/Parachute.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pilot"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pilot",
+    "tier": 10
   },
   {
     "name": "Parrot",
@@ -5638,7 +6091,8 @@
       "Pigeon + Pirate ship"
     ],
     "image": "images/Parrot.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 10
   },
   {
     "name": "Peat",
@@ -5649,7 +6103,8 @@
       "Time + Grass"
     ],
     "image": "images/Peat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Swamp"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Swamp",
+    "tier": 10
   },
   {
     "name": "Perfume",
@@ -5665,7 +6120,8 @@
       "Sunflower + Alcohol"
     ],
     "image": "images/Perfume.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Flower"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Flower",
+    "tier": 10
   },
   {
     "name": "Petroleum",
@@ -5676,7 +6132,8 @@
       "Fossil + Water"
     ],
     "image": "images/Petroleum.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fossil"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fossil",
+    "tier": 10
   },
   {
     "name": "Pilot",
@@ -5685,7 +6142,8 @@
       "Human + Seaplane"
     ],
     "image": "images/Pilot.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Pipe",
@@ -5694,7 +6152,8 @@
       "Tobacco + Tool"
     ],
     "image": "images/Pipe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tobacco"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tobacco",
+    "tier": 10
   },
   {
     "name": "Pirate ship",
@@ -5706,7 +6165,8 @@
       "Pirate + House"
     ],
     "image": "images/Pirate ship.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sailboat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sailboat",
+    "tier": 10
   },
   {
     "name": "Polar bear",
@@ -5715,7 +6175,8 @@
       "Animal + Arctic"
     ],
     "image": "images/Polar bear.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 10
   },
   {
     "name": "Potato",
@@ -5723,7 +6184,8 @@
       "Earth + Vegetable"
     ],
     "image": "images/Potato.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Earth"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Earth",
+    "tier": 10
   },
   {
     "name": "Pterodactyl",
@@ -5736,7 +6198,8 @@
       "Dinosaur + Airplane"
     ],
     "image": "images/Pterodactyl.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dinosaur"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dinosaur",
+    "tier": 10
   },
   {
     "name": "Pumpkin",
@@ -5747,7 +6210,8 @@
       "Plant + Jack-o'-lantern"
     ],
     "image": "images/Pumpkin.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Vegetable"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Vegetable",
+    "tier": 10
   },
   {
     "name": "Quicksilver",
@@ -5755,7 +6219,8 @@
       "Metal + Liquid"
     ],
     "image": "images/Quicksilver.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Metal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Metal",
+    "tier": 10
   },
   {
     "name": "Rabbit",
@@ -5764,7 +6229,8 @@
       "Rabbit + Rabbit"
     ],
     "image": "images/Rabbit.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 10
   },
   {
     "name": "Rivulet",
@@ -5773,7 +6239,8 @@
       "Puddle + Motion"
     ],
     "image": "images/Rivulet.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Stream"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Stream",
+    "tier": 10
   },
   {
     "name": "Sand castle",
@@ -5784,7 +6251,8 @@
       "Castle + Dune"
     ],
     "image": "images/Sand castle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Castle"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Castle",
+    "tier": 10
   },
   {
     "name": "Sap",
@@ -5792,7 +6260,8 @@
       "Tree + Blade"
     ],
     "image": "images/Sap.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Saturn",
@@ -5801,7 +6270,8 @@
       "Jupiter + Small"
     ],
     "image": "images/Saturn.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ring"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ring",
+    "tier": 10
   },
   {
     "name": "Scalpel",
@@ -5814,7 +6284,8 @@
       "Sword + Ambulance"
     ],
     "image": "images/Scalpel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 10
   },
   {
     "name": "Scythe",
@@ -5827,7 +6298,8 @@
       "Axe + Wheat"
     ],
     "image": "images/Scythe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 10
   },
   {
     "name": "Seal",
@@ -5839,7 +6311,8 @@
       "Dog + Lake"
     ],
     "image": "images/Seal.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dog"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dog",
+    "tier": 10
   },
   {
     "name": "Seaplane",
@@ -5850,7 +6323,8 @@
       "Airplane + Lake"
     ],
     "image": "images/Seaplane.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Airplane"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Airplane",
+    "tier": 10
   },
   {
     "name": "Seed",
@@ -5860,7 +6334,8 @@
       "Time + Flower"
     ],
     "image": "images/Seed.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pollen"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pollen",
+    "tier": 10
   },
   {
     "name": "Skateboard",
@@ -5870,7 +6345,8 @@
       "Wheel + Ski goggles"
     ],
     "image": "images/Skateboard.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wheel"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wheel",
+    "tier": 10
   },
   {
     "name": "Small",
@@ -5889,7 +6365,8 @@
       "Philosophy + Seahorse"
     ],
     "image": "images/Small.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Philosophy"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Philosophy",
+    "tier": 10
   },
   {
     "name": "Snowboarder",
@@ -5897,7 +6374,8 @@
       "Human + Snowboard"
     ],
     "image": "images/Snowboarder.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 10
   },
   {
     "name": "Soda",
@@ -5907,7 +6385,8 @@
       "Carbon dioxide + Tea"
     ],
     "image": "images/Soda.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Carbon_dioxide"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Carbon_dioxide",
+    "tier": 10
   },
   {
     "name": "Sphinx",
@@ -5918,7 +6397,8 @@
       "Lion + Stone"
     ],
     "image": "images/Sphinx.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Statue"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Statue",
+    "tier": 10
   },
   {
     "name": "Statue",
@@ -5959,7 +6439,8 @@
       "Cockatrice + Mirror"
     ],
     "image": "images/Statue.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Stone"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Stone",
+    "tier": 10
   },
   {
     "name": "Steam engine",
@@ -5969,7 +6450,8 @@
       "Boiler + Wheel"
     ],
     "image": "images/Steam engine.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Steam"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Steam",
+    "tier": 10
   },
   {
     "name": "Steel",
@@ -5980,7 +6462,8 @@
       "Metal + Ash"
     ],
     "image": "images/Steel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Metal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Metal",
+    "tier": 10
   },
   {
     "name": "Stream",
@@ -5990,7 +6473,8 @@
       "River + Small"
     ],
     "image": "images/Stream.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pond"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pond",
+    "tier": 10
   },
   {
     "name": "Sushi",
@@ -5999,7 +6483,8 @@
       "Caviar + Seaweed"
     ],
     "image": "images/Sushi.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fish"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fish",
+    "tier": 10
   },
   {
     "name": "Swamp",
@@ -6014,7 +6499,8 @@
       "Reed + Mud"
     ],
     "image": "images/Swamp.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mud"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mud",
+    "tier": 10
   },
   {
     "name": "The one ring",
@@ -6023,7 +6509,8 @@
       "Ring + Magic"
     ],
     "image": "images/The one ring.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ring"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ring",
+    "tier": 10
   },
   {
     "name": "Thread",
@@ -6034,7 +6521,8 @@
       "Cotton + Machine"
     ],
     "image": "images/Thread.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cotton"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cotton",
+    "tier": 10
   },
   {
     "name": "Treehouse",
@@ -6043,7 +6531,8 @@
       "Tree + Wood"
     ],
     "image": "images/Treehouse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Trojan horse",
@@ -6053,7 +6542,8 @@
       "Horse + Statue"
     ],
     "image": "images/Trojan horse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Horse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Horse",
+    "tier": 10
   },
   {
     "name": "Tunnel",
@@ -6069,7 +6559,8 @@
       "Cave + Hill"
     ],
     "image": "images/Tunnel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Engineer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Engineer",
+    "tier": 10
   },
   {
     "name": "Tyrannosaurus rex",
@@ -6079,7 +6570,8 @@
       "Dinosaur + Monarch"
     ],
     "image": "images/Tyrannosaurus rex.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dinosaur"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dinosaur",
+    "tier": 10
   },
   {
     "name": "Vase",
@@ -6094,7 +6586,8 @@
       "Bottle + Rose"
     ],
     "image": "images/Vase.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pottery"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pottery",
+    "tier": 10
   },
   {
     "name": "Water lily",
@@ -6105,7 +6598,8 @@
       "Flower + Stream"
     ],
     "image": "images/Water lily.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Flower"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Flower",
+    "tier": 10
   },
   {
     "name": "Wheat",
@@ -6115,7 +6609,8 @@
       "Grass + Field"
     ],
     "image": "images/Wheat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Grass"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Grass",
+    "tier": 10
   },
   {
     "name": "Wood",
@@ -6134,7 +6629,8 @@
       "Forest + Paul bunyan"
     ],
     "image": "images/Wood.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tree",
+    "tier": 10
   },
   {
     "name": "Woodpecker",
@@ -6144,7 +6640,8 @@
       "Bird + Forest"
     ],
     "image": "images/Woodpecker.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bird"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bird",
+    "tier": 10
   },
   {
     "name": "Wool",
@@ -6154,7 +6651,8 @@
       "Sheep + Blade"
     ],
     "image": "images/Wool.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sheep"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sheep",
+    "tier": 10
   },
   {
     "name": "Yeti",
@@ -6173,7 +6671,8 @@
       "Monster + Antarctica"
     ],
     "image": "images/Yeti.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain",
+    "tier": 10
   },
   {
     "name": "Zoo",
@@ -6182,7 +6681,8 @@
       "Animal + Cage"
     ],
     "image": "images/Zoo.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 10
   },
   {
     "name": "Alcohol",
@@ -6193,7 +6693,8 @@
       "Fruit + Sun"
     ],
     "image": "images/Alcohol.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Time"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Time",
+    "tier": 11
   },
   {
     "name": "Ambulance",
@@ -6202,7 +6703,8 @@
       "Car + Doctor"
     ],
     "image": "images/Ambulance.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Car"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Car",
+    "tier": 11
   },
   {
     "name": "Ant farm",
@@ -6214,7 +6716,8 @@
       "Anthill + Jar"
     ],
     "image": "images/Ant farm.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Farm"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Farm",
+    "tier": 11
   },
   {
     "name": "Anthill",
@@ -6227,7 +6730,8 @@
       "Ant + Soil"
     ],
     "image": "images/Anthill.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ant"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ant",
+    "tier": 11
   },
   {
     "name": "Arrow",
@@ -6236,7 +6740,8 @@
       "Wood + Bow"
     ],
     "image": "images/Arrow.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Aviary",
@@ -6244,7 +6749,8 @@
       "Big + Birdcage"
     ],
     "image": "images/Aviary.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Big"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Big",
+    "tier": 11
   },
   {
     "name": "Axe",
@@ -6256,7 +6762,8 @@
       "Tool + Paul bunyan"
     ],
     "image": "images/Axe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Banana",
@@ -6264,7 +6771,8 @@
       "Fruit + Monkey"
     ],
     "image": "images/Banana.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit",
+    "tier": 11
   },
   {
     "name": "Beehive",
@@ -6277,7 +6785,8 @@
       "Container + Bee"
     ],
     "image": "images/Beehive.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 11
   },
   {
     "name": "Beekeeper",
@@ -6288,7 +6797,8 @@
       "Farmer + Bee"
     ],
     "image": "images/Beekeeper.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 11
   },
   {
     "name": "Blood bag",
@@ -6298,7 +6808,8 @@
       "Blood + Bottle"
     ],
     "image": "images/Blood bag.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blood",
+    "tier": 11
   },
   {
     "name": "Boat",
@@ -6310,7 +6821,8 @@
       "Wood + River"
     ],
     "image": "images/Boat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Book",
@@ -6324,7 +6836,8 @@
       "Container + Idea"
     ],
     "image": "images/Book.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Newspaper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Newspaper",
+    "tier": 11
   },
   {
     "name": "Bottle",
@@ -6343,7 +6856,8 @@
       "Container + Liquid"
     ],
     "image": "images/Bottle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Container"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Container",
+    "tier": 11
   },
   {
     "name": "Boulder",
@@ -6356,7 +6870,8 @@
       "Rock + Earth"
     ],
     "image": "images/Boulder.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Big"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Big",
+    "tier": 11
   },
   {
     "name": "Bow",
@@ -6367,7 +6882,8 @@
       "Tool + Cupid"
     ],
     "image": "images/Bow.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Broom",
@@ -6376,7 +6892,8 @@
       "Tool + Baba yaga"
     ],
     "image": "images/Broom.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Bucket",
@@ -6390,7 +6907,8 @@
       "Chicken wing + Box"
     ],
     "image": "images/Bucket.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Container"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Container",
+    "tier": 11
   },
   {
     "name": "Bus",
@@ -6401,7 +6919,8 @@
       "Car + Big"
     ],
     "image": "images/Bus.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Car"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Car",
+    "tier": 11
   },
   {
     "name": "Butter",
@@ -6412,7 +6931,8 @@
       "Milk + Tool"
     ],
     "image": "images/Butter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Milk"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Milk",
+    "tier": 11
   },
   {
     "name": "Butterfly net",
@@ -6421,7 +6941,8 @@
       "Bee + Net"
     ],
     "image": "images/Butterfly net.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Butterfly"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Butterfly",
+    "tier": 11
   },
   {
     "name": "Campfire",
@@ -6429,7 +6950,8 @@
       "Fire + Wood"
     ],
     "image": "images/Campfire.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fire",
+    "tier": 11
   },
   {
     "name": "Cart",
@@ -6437,7 +6959,8 @@
       "Wheel + Wood"
     ],
     "image": "images/Cart.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wheel"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wheel",
+    "tier": 11
   },
   {
     "name": "Cashmere",
@@ -6449,7 +6972,8 @@
       "Mountain goat + Wool"
     ],
     "image": "images/Cashmere.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain_goat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mountain_goat",
+    "tier": 11
   },
   {
     "name": "Cereal",
@@ -6459,7 +6983,8 @@
       "Wheat + Coconut milk"
     ],
     "image": "images/Cereal.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wheat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wheat",
+    "tier": 11
   },
   {
     "name": "Chainsaw",
@@ -6471,7 +6996,8 @@
       "Lumberjack + Electricity"
     ],
     "image": "images/Chainsaw.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Axe"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Axe",
+    "tier": 11
   },
   {
     "name": "Cheese",
@@ -6482,7 +7008,8 @@
       "Milk + Bacteria"
     ],
     "image": "images/Cheese.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Milk"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Milk",
+    "tier": 11
   },
   {
     "name": "Christmas stocking",
@@ -6493,7 +7020,8 @@
       "Santa + Wool"
     ],
     "image": "images/Christmas stocking.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fireplace"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fireplace",
+    "tier": 11
   },
   {
     "name": "Closet",
@@ -6505,7 +7033,8 @@
       "Container + Vacuum cleaner"
     ],
     "image": "images/Closet.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Container"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Container",
+    "tier": 11
   },
   {
     "name": "Coconut milk",
@@ -6518,7 +7047,8 @@
       "Coconut + Axe"
     ],
     "image": "images/Coconut milk.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Coconut"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Coconut",
+    "tier": 11
   },
   {
     "name": "Coffin",
@@ -6528,7 +7058,8 @@
       "Container + Vampire"
     ],
     "image": "images/Coffin.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Cutting board",
@@ -6536,7 +7067,8 @@
       "Wood + Cook"
     ],
     "image": "images/Cutting board.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Drum",
@@ -6546,7 +7078,8 @@
       "Wood + Music"
     ],
     "image": "images/Drum.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Electric car",
@@ -6559,7 +7092,8 @@
       "Solar cell + Wagon"
     ],
     "image": "images/Electric car.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Electricity"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Electricity",
+    "tier": 11
   },
   {
     "name": "Fabric",
@@ -6569,7 +7103,8 @@
       "Thread + Wheel"
     ],
     "image": "images/Fabric.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Thread"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Thread",
+    "tier": 11
   },
   {
     "name": "Fireplace",
@@ -6581,7 +7116,8 @@
       "Wood + Container"
     ],
     "image": "images/Fireplace.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Campfire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Campfire",
+    "tier": 11
   },
   {
     "name": "Firetruck",
@@ -6594,7 +7130,8 @@
       "Fire extinguisher + Wagon"
     ],
     "image": "images/Firetruck.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Firefighter"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Firefighter",
+    "tier": 11
   },
   {
     "name": "Flour",
@@ -6606,7 +7143,8 @@
       "Wheat + Rock"
     ],
     "image": "images/Flour.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wheat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wheat",
+    "tier": 11
   },
   {
     "name": "Flute",
@@ -6615,7 +7153,8 @@
       "Wood + Air"
     ],
     "image": "images/Flute.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Fountain",
@@ -6624,7 +7163,8 @@
       "Statue + Stream"
     ],
     "image": "images/Fountain.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Statue"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Statue",
+    "tier": 11
   },
   {
     "name": "French fries",
@@ -6634,7 +7174,8 @@
       "Fire + Potato"
     ],
     "image": "images/French fries.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Oil"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Oil",
+    "tier": 11
   },
   {
     "name": "Fruit tree",
@@ -6644,7 +7185,8 @@
       "Fruit + Wood"
     ],
     "image": "images/Fruit tree.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit",
+    "tier": 11
   },
   {
     "name": "Garage",
@@ -6691,7 +7233,8 @@
       "Ice cream truck + Barn"
     ],
     "image": "images/Garage.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Car"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Car",
+    "tier": 11
   },
   {
     "name": "Grim reaper",
@@ -6705,7 +7248,8 @@
       "Scythe + Deity"
     ],
     "image": "images/Grim reaper.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 11
   },
   {
     "name": "Gust",
@@ -6714,7 +7258,8 @@
       "Air + Small"
     ],
     "image": "images/Gust.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wind"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wind",
+    "tier": 11
   },
   {
     "name": "Hay bale",
@@ -6725,7 +7270,8 @@
       "Hay + Machine"
     ],
     "image": "images/Hay bale.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Hay"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Hay",
+    "tier": 11
   },
   {
     "name": "Hill",
@@ -6737,7 +7283,8 @@
       "Mountain + Small"
     ],
     "image": "images/Hill.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Big"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Big",
+    "tier": 11
   },
   {
     "name": "Honey",
@@ -6749,7 +7296,8 @@
       "Beehive + Beekeeper"
     ],
     "image": "images/Honey.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bee"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bee",
+    "tier": 11
   },
   {
     "name": "Ice cream",
@@ -6759,7 +7307,8 @@
       "Milk + Snow"
     ],
     "image": "images/Ice cream.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Milk"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Milk",
+    "tier": 11
   },
   {
     "name": "Ice sculpture",
@@ -6767,7 +7316,8 @@
       "Ice + Statue"
     ],
     "image": "images/Ice sculpture.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ice"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ice",
+    "tier": 11
   },
   {
     "name": "Jam",
@@ -6779,7 +7329,8 @@
       "Fruit + Heat"
     ],
     "image": "images/Jam.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Juice"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Juice",
+    "tier": 11
   },
   {
     "name": "Knife",
@@ -6788,7 +7339,8 @@
       "Sword + Cook"
     ],
     "image": "images/Knife.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 11
   },
   {
     "name": "Laptop",
@@ -6796,7 +7348,8 @@
       "Computer + Small"
     ],
     "image": "images/Laptop.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Computer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Computer",
+    "tier": 11
   },
   {
     "name": "Little alchemy (element)",
@@ -6804,7 +7357,8 @@
       "Small + Alchemist"
     ],
     "image": "images/Little alchemy (element).png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Small"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Small",
+    "tier": 11
   },
   {
     "name": "Log cabin",
@@ -6812,7 +7366,8 @@
       "Wood + House"
     ],
     "image": "images/Log cabin.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Maple syrup",
@@ -6821,7 +7376,8 @@
       "Sap + Sugar"
     ],
     "image": "images/Maple syrup.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sap"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sap",
+    "tier": 11
   },
   {
     "name": "Mayonnaise",
@@ -6829,7 +7385,8 @@
       "Egg + Oil"
     ],
     "image": "images/Mayonnaise.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Egg"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Egg",
+    "tier": 11
   },
   {
     "name": "Moon rover",
@@ -6838,7 +7395,8 @@
       "Moon + Electric car"
     ],
     "image": "images/Moon rover.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Moon"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Moon",
+    "tier": 11
   },
   {
     "name": "Motorcycle",
@@ -6850,7 +7408,8 @@
       "Bicycle + Combustion engine"
     ],
     "image": "images/Motorcycle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bicycle"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bicycle",
+    "tier": 11
   },
   {
     "name": "Needle",
@@ -6860,7 +7419,8 @@
       "Thread + Tool"
     ],
     "image": "images/Needle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Thread"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Thread",
+    "tier": 11
   },
   {
     "name": "Paper",
@@ -6871,7 +7431,8 @@
       "Wood + Machine"
     ],
     "image": "images/Paper.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Peanut butter",
@@ -6880,7 +7441,8 @@
       "Nuts + Pressure"
     ],
     "image": "images/Peanut butter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Nuts"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Nuts",
+    "tier": 11
   },
   {
     "name": "Pebble",
@@ -6890,7 +7452,8 @@
       "Small + Rock"
     ],
     "image": "images/Pebble.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Small"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Small",
+    "tier": 11
   },
   {
     "name": "Pencil",
@@ -6899,7 +7462,8 @@
       "Wood + Charcoal"
     ],
     "image": "images/Pencil.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Penicillin",
@@ -6910,7 +7474,8 @@
       "Mold + Hospital"
     ],
     "image": "images/Penicillin.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mold"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mold",
+    "tier": 11
   },
   {
     "name": "Pinocchio",
@@ -6920,7 +7485,8 @@
       "Golem + Story"
     ],
     "image": "images/Pinocchio.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 11
   },
   {
     "name": "Pitchfork",
@@ -6931,7 +7497,8 @@
       "Tool + Demon"
     ],
     "image": "images/Pitchfork.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Hay"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Hay",
+    "tier": 11
   },
   {
     "name": "Popsicle",
@@ -6942,7 +7509,8 @@
       "Juice + Wood"
     ],
     "image": "images/Popsicle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Juice"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Juice",
+    "tier": 11
   },
   {
     "name": "Quicksand",
@@ -6950,7 +7518,8 @@
       "Sand + Swamp"
     ],
     "image": "images/Quicksand.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 11
   },
   {
     "name": "Rainforest",
@@ -6958,7 +7527,8 @@
       "Rain + Forest"
     ],
     "image": "images/Rainforest.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rain"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rain",
+    "tier": 11
   },
   {
     "name": "Rat",
@@ -6973,7 +7543,8 @@
       "Mouse + Big"
     ],
     "image": "images/Rat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 11
   },
   {
     "name": "Reindeer",
@@ -6985,7 +7556,8 @@
       "Animal + Christmas stocking"
     ],
     "image": "images/Reindeer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 11
   },
   {
     "name": "Restaurant",
@@ -6993,7 +7565,8 @@
       "House + Cook"
     ],
     "image": "images/Restaurant.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 11
   },
   {
     "name": "Roller coaster",
@@ -7004,7 +7577,8 @@
       "Park + Wagon"
     ],
     "image": "images/Roller coaster.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Park"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Park",
+    "tier": 11
   },
   {
     "name": "Rv",
@@ -7013,7 +7587,8 @@
       "House + Bus"
     ],
     "image": "images/Rv.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 11
   },
   {
     "name": "Sack",
@@ -7023,7 +7598,8 @@
       "Container + Letter"
     ],
     "image": "images/Sack.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Container"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Container",
+    "tier": 11
   },
   {
     "name": "Santa",
@@ -7036,7 +7612,8 @@
       "Christmas stocking + Story"
     ],
     "image": "images/Santa.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Christmas_tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Christmas_tree",
+    "tier": 11
   },
   {
     "name": "Scarecrow",
@@ -7051,7 +7628,8 @@
       "Jack-o'-lantern + Sack"
     ],
     "image": "images/Scarecrow.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Hay"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Hay",
+    "tier": 11
   },
   {
     "name": "Scuba tank",
@@ -7061,7 +7639,8 @@
       "Container + Oxygen"
     ],
     "image": "images/Scuba tank.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Container"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Container",
+    "tier": 11
   },
   {
     "name": "Sewing machine",
@@ -7074,7 +7653,8 @@
       "Thread + Robot"
     ],
     "image": "images/Sewing machine.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Needle"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Needle",
+    "tier": 11
   },
   {
     "name": "Shovel",
@@ -7082,7 +7662,8 @@
       "Tool + Gardener"
     ],
     "image": "images/Shovel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tool"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tool",
+    "tier": 11
   },
   {
     "name": "Silo",
@@ -7096,7 +7677,8 @@
       "Wheat + Bank"
     ],
     "image": "images/Silo.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wheat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wheat",
+    "tier": 11
   },
   {
     "name": "Smoothie",
@@ -7106,7 +7688,8 @@
       "Fruit + Cold"
     ],
     "image": "images/Smoothie.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit",
+    "tier": 11
   },
   {
     "name": "Snowmobile",
@@ -7119,7 +7702,8 @@
       "Ice + Car"
     ],
     "image": "images/Snowmobile.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Snow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Snow",
+    "tier": 11
   },
   {
     "name": "Soap",
@@ -7131,7 +7715,8 @@
       "Wax + Clay"
     ],
     "image": "images/Soap.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Oil"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Oil",
+    "tier": 11
   },
   {
     "name": "Spider",
@@ -7141,7 +7726,8 @@
       "Animal + Net"
     ],
     "image": "images/Spider.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 11
   },
   {
     "name": "Squirrel",
@@ -7152,7 +7738,8 @@
       "Animal + Nuts"
     ],
     "image": "images/Squirrel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mouse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mouse",
+    "tier": 11
   },
   {
     "name": "Steamboat",
@@ -7164,7 +7751,8 @@
       "Steam engine + Sea"
     ],
     "image": "images/Steamboat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Steam_engine"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Steam_engine",
+    "tier": 11
   },
   {
     "name": "Steel wool",
@@ -7174,7 +7762,8 @@
       "Wool + Wire"
     ],
     "image": "images/Steel wool.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wool"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wool",
+    "tier": 11
   },
   {
     "name": "Sugar",
@@ -7191,7 +7780,8 @@
       "Wine + Energy"
     ],
     "image": "images/Sugar.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit",
+    "tier": 11
   },
   {
     "name": "Sweater",
@@ -7200,7 +7790,8 @@
       "Wool + Human"
     ],
     "image": "images/Sweater.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wool"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wool",
+    "tier": 11
   },
   {
     "name": "Tailor",
@@ -7210,7 +7801,8 @@
       "Human + Thread"
     ],
     "image": "images/Tailor.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 11
   },
   {
     "name": "Tank",
@@ -7221,7 +7813,8 @@
       "Car + Steel"
     ],
     "image": "images/Tank.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Car"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Car",
+    "tier": 11
   },
   {
     "name": "Tea",
@@ -7231,7 +7824,8 @@
       "Leaf + Heat"
     ],
     "image": "images/Tea.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Leaf"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Leaf",
+    "tier": 11
   },
   {
     "name": "Thermometer",
@@ -7241,7 +7835,8 @@
       "Quicksilver + Engineer"
     ],
     "image": "images/Thermometer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Quicksilver"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Quicksilver",
+    "tier": 11
   },
   {
     "name": "Titanic",
@@ -7252,7 +7847,8 @@
       "Steamboat + Legend"
     ],
     "image": "images/Titanic.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Boat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Boat",
+    "tier": 11
   },
   {
     "name": "Tractor",
@@ -7265,7 +7861,8 @@
       "Wagon + Cow"
     ],
     "image": "images/Tractor.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Car"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Car",
+    "tier": 11
   },
   {
     "name": "Train",
@@ -7276,7 +7873,8 @@
       "Steam engine + Wagon"
     ],
     "image": "images/Train.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Steam_engine"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Steam_engine",
+    "tier": 11
   },
   {
     "name": "Vault",
@@ -7284,7 +7882,8 @@
       "Safe + Big"
     ],
     "image": "images/Vault.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Safe"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Safe",
+    "tier": 11
   },
   {
     "name": "Water pipe",
@@ -7292,7 +7891,8 @@
       "Water + Pipe"
     ],
     "image": "images/Water pipe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Water"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Water",
+    "tier": 11
   },
   {
     "name": "Witch",
@@ -7307,7 +7907,8 @@
       "Cauldron + Legend"
     ],
     "image": "images/Witch.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Broom"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Broom",
+    "tier": 11
   },
   {
     "name": "Yogurt",
@@ -7316,7 +7917,8 @@
       "Bacteria + Ice cream"
     ],
     "image": "images/Yogurt.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bacteria"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bacteria",
+    "tier": 11
   },
   {
     "name": "Apron",
@@ -7325,7 +7927,8 @@
       "Fabric + Baker"
     ],
     "image": "images/Apron.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric",
+    "tier": 12
   },
   {
     "name": "Armor",
@@ -7334,7 +7937,8 @@
       "Steel + Fabric"
     ],
     "image": "images/Armor.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Metal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Metal",
+    "tier": 12
   },
   {
     "name": "Bandage",
@@ -7344,7 +7948,8 @@
       "Fabric + Blade"
     ],
     "image": "images/Bandage.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric",
+    "tier": 12
   },
   {
     "name": "Batter",
@@ -7353,7 +7958,8 @@
       "Coconut milk + Flour"
     ],
     "image": "images/Batter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Milk"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Milk",
+    "tier": 12
   },
   {
     "name": "Bbq",
@@ -7365,7 +7971,8 @@
       "Campfire + Meat"
     ],
     "image": "images/Bbq.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Campfire"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Campfire",
+    "tier": 12
   },
   {
     "name": "Beer",
@@ -7373,7 +7980,8 @@
       "Alcohol + Wheat"
     ],
     "image": "images/Beer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Alcohol"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Alcohol",
+    "tier": 12
   },
   {
     "name": "Box",
@@ -7387,7 +7995,8 @@
       "Container + Crayon"
     ],
     "image": "images/Box.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Container"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Container",
+    "tier": 12
   },
   {
     "name": "Candy cane",
@@ -7398,7 +8007,8 @@
       "Sugar + Reindeer"
     ],
     "image": "images/Candy cane.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar",
+    "tier": 12
   },
   {
     "name": "Canvas",
@@ -7406,7 +8016,8 @@
       "Fabric + Paint"
     ],
     "image": "images/Canvas.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric",
+    "tier": 12
   },
   {
     "name": "Caramel",
@@ -7414,7 +8025,8 @@
       "Sugar + Heat"
     ],
     "image": "images/Caramel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar",
+    "tier": 12
   },
   {
     "name": "Chocolate",
@@ -7425,7 +8037,8 @@
       "Sugar + Seed"
     ],
     "image": "images/Chocolate.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar",
+    "tier": 12
   },
   {
     "name": "Cigarette",
@@ -7433,7 +8046,8 @@
       "Tobacco + Paper"
     ],
     "image": "images/Cigarette.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tobacco"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tobacco",
+    "tier": 12
   },
   {
     "name": "Confetti",
@@ -7442,7 +8056,8 @@
       "Paper + Blade"
     ],
     "image": "images/Confetti.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Cookbook",
@@ -7451,7 +8066,8 @@
       "Book + Cook"
     ],
     "image": "images/Cookbook.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Recipe"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Recipe",
+    "tier": 12
   },
   {
     "name": "Cotton candy",
@@ -7461,7 +8077,8 @@
       "Sugar + Cloud"
     ],
     "image": "images/Cotton candy.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar",
+    "tier": 12
   },
   {
     "name": "Crayon",
@@ -7474,7 +8091,8 @@
       "Wax + Paint"
     ],
     "image": "images/Crayon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rainbow"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rainbow",
+    "tier": 12
   },
   {
     "name": "Cup",
@@ -7487,7 +8105,8 @@
       "Bottle + Milk shake"
     ],
     "image": "images/Cup.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Container"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Container",
+    "tier": 12
   },
   {
     "name": "Diver",
@@ -7499,7 +8118,8 @@
       "Scuba tank + Lake"
     ],
     "image": "images/Diver.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Scuba_tank"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Scuba_tank",
+    "tier": 12
   },
   {
     "name": "Dough",
@@ -7509,7 +8129,8 @@
       "Flour + Rain"
     ],
     "image": "images/Dough.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Flour"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Flour",
+    "tier": 12
   },
   {
     "name": "Drunk",
@@ -7519,7 +8140,8 @@
       "Human + Wine"
     ],
     "image": "images/Drunk.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 12
   },
   {
     "name": "Excavator",
@@ -7528,7 +8150,8 @@
       "Shovel + Car"
     ],
     "image": "images/Excavator.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Shovel"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Shovel",
+    "tier": 12
   },
   {
     "name": "Flying squirrel",
@@ -7543,7 +8166,8 @@
       "Squirrel + Helicopter"
     ],
     "image": "images/Flying squirrel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Squirrel"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Squirrel",
+    "tier": 12
   },
   {
     "name": "Fork",
@@ -7551,7 +8175,8 @@
       "Pitchfork + Small"
     ],
     "image": "images/Fork.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pitchfork"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pitchfork",
+    "tier": 12
   },
   {
     "name": "Frozen yogurt",
@@ -7560,7 +8185,8 @@
       "Yogurt + Ice"
     ],
     "image": "images/Frozen yogurt.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Yogurt"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Yogurt",
+    "tier": 12
   },
   {
     "name": "Gift",
@@ -7577,7 +8203,8 @@
       "Fireplace + Wrapping paper"
     ],
     "image": "images/Gift.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Christmas_tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Christmas_tree",
+    "tier": 12
   },
   {
     "name": "Hamburger",
@@ -7586,7 +8213,8 @@
       "Meat + Cheese"
     ],
     "image": "images/Hamburger.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Meat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Meat",
+    "tier": 12
   },
   {
     "name": "Hamster",
@@ -7597,7 +8225,8 @@
       "Rat + Domestication"
     ],
     "image": "images/Hamster.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mouse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mouse",
+    "tier": 12
   },
   {
     "name": "Hedgehog",
@@ -7607,7 +8236,8 @@
       "Rat + Needle"
     ],
     "image": "images/Hedgehog.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 12
   },
   {
     "name": "Ice cream truck",
@@ -7617,7 +8247,8 @@
       "Ice cream + Wagon"
     ],
     "image": "images/Ice cream truck.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ice_cream"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ice_cream",
+    "tier": 12
   },
   {
     "name": "Iced tea",
@@ -7626,7 +8257,8 @@
       "Tea + Cold"
     ],
     "image": "images/Iced tea.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tea"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tea",
+    "tier": 12
   },
   {
     "name": "Jar",
@@ -7637,7 +8269,8 @@
       "Jam + Bucket"
     ],
     "image": "images/Jar.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Jam"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Jam",
+    "tier": 12
   },
   {
     "name": "Kite",
@@ -7647,7 +8280,8 @@
       "Paper + Air"
     ],
     "image": "images/Kite.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Letter",
@@ -7655,7 +8289,8 @@
       "Paper + Pencil"
     ],
     "image": "images/Letter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Library",
@@ -7664,7 +8299,8 @@
       "Book + House"
     ],
     "image": "images/Library.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Book"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Book",
+    "tier": 12
   },
   {
     "name": "Map",
@@ -7682,7 +8318,8 @@
       "Paper + Village"
     ],
     "image": "images/Map.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Marshmallows",
@@ -7690,7 +8327,8 @@
       "Sugar + Campfire"
     ],
     "image": "images/Marshmallows.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar",
+    "tier": 12
   },
   {
     "name": "Milk shake",
@@ -7700,7 +8338,8 @@
       "Ice cream + Water"
     ],
     "image": "images/Milk shake.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Ice_cream"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Ice_cream",
+    "tier": 12
   },
   {
     "name": "Money",
@@ -7710,7 +8349,8 @@
       "Paper + Bank"
     ],
     "image": "images/Money.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Mouse",
@@ -7722,7 +8362,8 @@
       "Cheese + Wall"
     ],
     "image": "images/Mouse.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Animal"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Animal",
+    "tier": 12
   },
   {
     "name": "Mousetrap",
@@ -7733,7 +8374,8 @@
       "Mouse + Blade"
     ],
     "image": "images/Mousetrap.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese",
+    "tier": 12
   },
   {
     "name": "Musician",
@@ -7745,7 +8387,8 @@
       "Human + Pan flute"
     ],
     "image": "images/Musician.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 12
   },
   {
     "name": "Newspaper",
@@ -7755,7 +8398,8 @@
       "Letter + Letter"
     ],
     "image": "images/Newspaper.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Orchard",
@@ -7769,7 +8413,8 @@
       "Fruit tree + Container"
     ],
     "image": "images/Orchard.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit_tree"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fruit_tree",
+    "tier": 12
   },
   {
     "name": "Origami",
@@ -7792,7 +8437,8 @@
       "Paper + Vulture"
     ],
     "image": "images/Origami.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Pan flute",
@@ -7800,7 +8446,8 @@
       "Flute + Flute"
     ],
     "image": "images/Pan flute.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Flute"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Flute",
+    "tier": 12
   },
   {
     "name": "Paper airplane",
@@ -7808,7 +8455,8 @@
       "Airplane + Paper"
     ],
     "image": "images/Paper airplane.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Airplane"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Airplane",
+    "tier": 12
   },
   {
     "name": "Pasta",
@@ -7816,7 +8464,8 @@
       "Flour + Egg"
     ],
     "image": "images/Pasta.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Flour"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Flour",
+    "tier": 12
   },
   {
     "name": "Pencil sharpener",
@@ -7826,7 +8475,8 @@
       "Pencil + Sword"
     ],
     "image": "images/Pencil sharpener.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pencil"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pencil",
+    "tier": 12
   },
   {
     "name": "Pizza",
@@ -7836,7 +8486,8 @@
       "Cheese + Wheel"
     ],
     "image": "images/Pizza.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese",
+    "tier": 12
   },
   {
     "name": "Printer",
@@ -7845,7 +8496,8 @@
       "Computer + Newspaper"
     ],
     "image": "images/Printer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Computer"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Computer",
+    "tier": 12
   },
   {
     "name": "Recipe",
@@ -7865,7 +8517,8 @@
       "Newspaper + Fruit"
     ],
     "image": "images/Recipe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Robot vacuum",
@@ -7876,7 +8529,8 @@
       "Computer + Broom"
     ],
     "image": "images/Robot vacuum.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Robot"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Robot",
+    "tier": 12
   },
   {
     "name": "Rock",
@@ -7886,7 +8540,8 @@
       "Boulder + Small"
     ],
     "image": "images/Rock.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pebble"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pebble",
+    "tier": 12
   },
   {
     "name": "Ruler",
@@ -7894,7 +8549,8 @@
       "Wood + Pencil"
     ],
     "image": "images/Ruler.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wood"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wood",
+    "tier": 12
   },
   {
     "name": "Sailboat",
@@ -7905,7 +8561,8 @@
       "Steamboat + Fabric"
     ],
     "image": "images/Sailboat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Boat"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Boat",
+    "tier": 12
   },
   {
     "name": "Sandpaper",
@@ -7914,7 +8571,8 @@
       "Sand + Fabric"
     ],
     "image": "images/Sandpaper.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sand"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sand",
+    "tier": 12
   },
   {
     "name": "Sleigh",
@@ -7929,7 +8587,8 @@
       "Wagon + Antarctica"
     ],
     "image": "images/Sleigh.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cart"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cart",
+    "tier": 12
   },
   {
     "name": "Smoke signal",
@@ -7939,7 +8598,8 @@
       "Smoke + Letter"
     ],
     "image": "images/Smoke signal.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric",
+    "tier": 12
   },
   {
     "name": "Spoon",
@@ -7947,7 +8607,8 @@
       "Shovel + Small"
     ],
     "image": "images/Spoon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Shovel"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Shovel",
+    "tier": 12
   },
   {
     "name": "Sprinkles",
@@ -7958,7 +8619,8 @@
       "Sugar + Double rainbow!"
     ],
     "image": "images/Sprinkles.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sugar",
+    "tier": 12
   },
   {
     "name": "Syringe",
@@ -7967,7 +8629,8 @@
       "Tool + Needle"
     ],
     "image": "images/Syringe.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Doctor"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Doctor",
+    "tier": 12
   },
   {
     "name": "Tablet",
@@ -7975,7 +8638,8 @@
       "Laptop + Small"
     ],
     "image": "images/Tablet.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Laptop"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Laptop",
+    "tier": 12
   },
   {
     "name": "Tent",
@@ -7986,7 +8650,8 @@
       "Fabric + Wall"
     ],
     "image": "images/Tent.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Fabric",
+    "tier": 12
   },
   {
     "name": "Trainyard",
@@ -7997,7 +8662,8 @@
       "Train + Garage"
     ],
     "image": "images/Trainyard.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Train"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Train",
+    "tier": 12
   },
   {
     "name": "Vacuum cleaner",
@@ -8006,7 +8672,8 @@
       "Broom + Machine"
     ],
     "image": "images/Vacuum cleaner.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Broom"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Broom",
+    "tier": 12
   },
   {
     "name": "Vine",
@@ -8016,7 +8683,8 @@
       "Rainforest + Wire"
     ],
     "image": "images/Vine.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Rainforest"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Rainforest",
+    "tier": 12
   },
   {
     "name": "Wagon",
@@ -8028,7 +8696,8 @@
       "Cart + Cow"
     ],
     "image": "images/Wagon.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cart"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cart",
+    "tier": 12
   },
   {
     "name": "Wax",
@@ -8041,7 +8710,8 @@
       "Beehive + Beekeeper"
     ],
     "image": "images/Wax.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Beehive"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Beehive",
+    "tier": 12
   },
   {
     "name": "Web",
@@ -8052,7 +8722,8 @@
       "Spider + Net"
     ],
     "image": "images/Web.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Spider"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Spider",
+    "tier": 12
   },
   {
     "name": "Wine",
@@ -8062,7 +8733,8 @@
       "Tool + Dionysus"
     ],
     "image": "images/Wine.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Alcohol"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Alcohol",
+    "tier": 12
   },
   {
     "name": "Wrapping paper",
@@ -8073,7 +8745,8 @@
       "Paper + Santa"
     ],
     "image": "images/Wrapping paper.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 12
   },
   {
     "name": "Writer",
@@ -8082,7 +8755,8 @@
       "Human + Pencil"
     ],
     "image": "images/Writer.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 12
   },
   {
     "name": "Armadillo",
@@ -8092,7 +8766,8 @@
       "Armor + Cat"
     ],
     "image": "images/Armadillo.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Armor"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Armor",
+    "tier": 13
   },
   {
     "name": "Baker",
@@ -8110,7 +8785,8 @@
       "Human + Dough"
     ],
     "image": "images/Baker.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 13
   },
   {
     "name": "Banana bread",
@@ -8119,7 +8795,8 @@
       "Dough + Banana"
     ],
     "image": "images/Banana bread.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bread"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bread",
+    "tier": 13
   },
   {
     "name": "Barrel",
@@ -8128,7 +8805,8 @@
       "Wine + Wood"
     ],
     "image": "images/Barrel.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wine"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wine",
+    "tier": 13
   },
   {
     "name": "Bat",
@@ -8140,7 +8818,8 @@
       "Mouse + Atmosphere"
     ],
     "image": "images/Bat.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mouse"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mouse",
+    "tier": 13
   },
   {
     "name": "Bread",
@@ -8149,7 +8828,8 @@
       "Dough + Energy"
     ],
     "image": "images/Bread.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dough"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dough",
+    "tier": 13
   },
   {
     "name": "Bulletproof vest",
@@ -8158,7 +8838,8 @@
       "Gun + Armor"
     ],
     "image": "images/Bulletproof vest.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bullet"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bullet",
+    "tier": 13
   },
   {
     "name": "Candle",
@@ -8170,7 +8851,8 @@
       "Wax + Lamp"
     ],
     "image": "images/Candle.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wax"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wax",
+    "tier": 13
   },
   {
     "name": "Cheeseburger",
@@ -8179,7 +8861,8 @@
       "Cheese + Sandwich"
     ],
     "image": "images/Cheeseburger.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese",
+    "tier": 13
   },
   {
     "name": "Chocolate milk",
@@ -8188,7 +8871,8 @@
       "Chocolate + Coconut milk"
     ],
     "image": "images/Chocolate milk.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Chocolate"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Chocolate",
+    "tier": 13
   },
   {
     "name": "Circus",
@@ -8197,7 +8881,8 @@
       "Tent + Animal"
     ],
     "image": "images/Circus.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Tent"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Tent",
+    "tier": 13
   },
   {
     "name": "Cookie cutter",
@@ -8206,7 +8891,8 @@
       "Blade + Cookie dough"
     ],
     "image": "images/Cookie cutter.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Blade"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Blade",
+    "tier": 13
   },
   {
     "name": "Cookie dough",
@@ -8216,7 +8902,8 @@
       "Dough + Chocolate"
     ],
     "image": "images/Cookie dough.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dough"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dough",
+    "tier": 13
   },
   {
     "name": "Donut",
@@ -8227,7 +8914,8 @@
       "Cookie dough + Wheel"
     ],
     "image": "images/Donut.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dough"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dough",
+    "tier": 13
   },
   {
     "name": "Email",
@@ -8238,7 +8926,8 @@
       "Letter + Electricity"
     ],
     "image": "images/Email.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Letter"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Letter",
+    "tier": 13
   },
   {
     "name": "Gingerbread house",
@@ -8251,7 +8940,8 @@
       "House + Cake"
     ],
     "image": "images/Gingerbread house.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 13
   },
   {
     "name": "Gingerbread man",
@@ -8267,7 +8957,8 @@
       "Cookie dough + Story"
     ],
     "image": "images/Gingerbread man.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dough"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dough",
+    "tier": 13
   },
   {
     "name": "Hot chocolate",
@@ -8276,7 +8967,8 @@
       "Chocolate + Heat"
     ],
     "image": "images/Hot chocolate.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Chocolate_milk"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Chocolate_milk",
+    "tier": 13
   },
   {
     "name": "Librarian",
@@ -8284,7 +8976,8 @@
       "Human + Library"
     ],
     "image": "images/Librarian.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 13
   },
   {
     "name": "Mac and cheese",
@@ -8292,7 +8985,8 @@
       "Cheese + Pasta"
     ],
     "image": "images/Mac and cheese.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese",
+    "tier": 13
   },
   {
     "name": "Mail truck",
@@ -8302,7 +8996,8 @@
       "Car + Post office"
     ],
     "image": "images/Mail truck.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Car"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Car",
+    "tier": 13
   },
   {
     "name": "Mailbox",
@@ -8317,7 +9012,8 @@
       "Mailman + Wood"
     ],
     "image": "images/Mailbox.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Letter"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Letter",
+    "tier": 13
   },
   {
     "name": "Mailman",
@@ -8327,7 +9023,8 @@
       "Letter + Mailbox"
     ],
     "image": "images/Mailman.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Human"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Human",
+    "tier": 13
   },
   {
     "name": "Music",
@@ -8338,7 +9035,8 @@
       "Musician + Pan flute"
     ],
     "image": "images/Music.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Musician"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Musician",
+    "tier": 13
   },
   {
     "name": "Painting",
@@ -8347,7 +9045,8 @@
       "Canvas + Painter"
     ],
     "image": "images/Painting.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Canvas"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Canvas",
+    "tier": 13
   },
   {
     "name": "Paper cup",
@@ -8355,7 +9054,8 @@
       "Cup + Paper"
     ],
     "image": "images/Paper cup.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cup"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cup",
+    "tier": 13
   },
   {
     "name": "Paraglider",
@@ -8363,7 +9063,8 @@
       "Kite + Big"
     ],
     "image": "images/Paraglider.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Kite"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Kite",
+    "tier": 13
   },
   {
     "name": "Pie",
@@ -8375,7 +9076,8 @@
       "Fruit + Bakery"
     ],
     "image": "images/Pie.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dough"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dough",
+    "tier": 13
   },
   {
     "name": "Post office",
@@ -8389,7 +9091,8 @@
       "Letter + Wall"
     ],
     "image": "images/Post office.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Mailman"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Mailman",
+    "tier": 13
   },
   {
     "name": "Smartphone",
@@ -8397,7 +9100,8 @@
       "Small + Tablet"
     ],
     "image": "images/Smartphone.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Small"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Small",
+    "tier": 13
   },
   {
     "name": "Spaghetti",
@@ -8407,7 +9111,8 @@
       "Pasta + Rope"
     ],
     "image": "images/Spaghetti.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Pasta"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Pasta",
+    "tier": 13
   },
   {
     "name": "String phone",
@@ -8418,7 +9123,8 @@
       "Cup + Thread"
     ],
     "image": "images/String phone.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper_cup"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper_cup",
+    "tier": 13
   },
   {
     "name": "Treasure map",
@@ -8429,7 +9135,8 @@
       "Map + Island"
     ],
     "image": "images/Treasure map.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Map"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Map",
+    "tier": 13
   },
   {
     "name": "Vinegar",
@@ -8439,7 +9146,8 @@
       "Wine + Oxygen"
     ],
     "image": "images/Vinegar.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Wine"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Wine",
+    "tier": 13
   },
   {
     "name": "Bakery",
@@ -8459,7 +9167,8 @@
       "Baker + Container"
     ],
     "image": "images/Bakery.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/House"
+    "page_url": "https://little-alchemy.fandom.com/wiki/House",
+    "tier": 14
   },
   {
     "name": "Cake",
@@ -8469,7 +9178,8 @@
       "Bread + Sugar"
     ],
     "image": "images/Cake.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Dough"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Dough",
+    "tier": 14
   },
   {
     "name": "Cookie",
@@ -8481,7 +9191,8 @@
       "Dough + Cookie cutter"
     ],
     "image": "images/Cookie.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cookie_dough"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cookie_dough",
+    "tier": 14
   },
   {
     "name": "Fortune cookie",
@@ -8491,7 +9202,8 @@
       "Paper + Gingerbread man"
     ],
     "image": "images/Fortune cookie.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Paper"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Paper",
+    "tier": 14
   },
   {
     "name": "Sandwich",
@@ -8503,7 +9215,8 @@
       "Bread + Vegetable"
     ],
     "image": "images/Sandwich.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Bread"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Bread",
+    "tier": 14
   },
   {
     "name": "Sheet music",
@@ -8512,7 +9225,8 @@
       "Music + Book"
     ],
     "image": "images/Sheet music.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Music"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Music",
+    "tier": 14
   },
   {
     "name": "Toast",
@@ -8521,7 +9235,8 @@
       "Bread + Fire"
     ],
     "image": "images/Toast.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sandwich"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sandwich",
+    "tier": 14
   },
   {
     "name": "Treasure",
@@ -8532,7 +9247,8 @@
       "Treasure map + Sailor"
     ],
     "image": "images/Treasure.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Treasure_map"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Treasure_map",
+    "tier": 14
   },
   {
     "name": "Grilled cheese",
@@ -8540,7 +9256,8 @@
       "Cheese + Toast"
     ],
     "image": "images/Grilled cheese.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Cheese",
+    "tier": 15
   },
   {
     "name": "Picnic",
@@ -8552,6 +9269,7 @@
       "Sandwich + Fabric"
     ],
     "image": "images/Picnic.png",
-    "page_url": "https://little-alchemy.fandom.com/wiki/Sandwich"
+    "page_url": "https://little-alchemy.fandom.com/wiki/Sandwich",
+    "tier": 15
   }
 ]
