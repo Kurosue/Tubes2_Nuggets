@@ -106,7 +106,7 @@ func main() {
 
 			// Ambil URL elemen
 			link := ""
-			el.DOM.Find("td:nth-child(2) a").EachWithBreak(func(i int, s *goquery.Selection) bool {
+			el.DOM.Find("td:nth-child(1) a").EachWithBreak(func(i int, s *goquery.Selection) bool {
 				if goquery.NodeName(s.Parent()) != "span" {
 					link, _ = s.Attr("href")
 					return false // stop setelah ketemu yang pertama bukan dalam <span>
