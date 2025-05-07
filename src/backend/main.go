@@ -7,10 +7,11 @@ import (
 )
 
 func main() {
-    recipes, err := utils.LoadRecipes("./scrap/elements.json")
+    recipes, _, err := utils.LoadRecipes("./scrap/elements.json")
     if err != nil {
         log.Fatal(err)
     }
+
     // Example: what *all* elements can you make from Air + Water?
     all := utils.BFS(recipes, "Fire", "Mist")
     fmt.Println("BFS can reach:", all)
