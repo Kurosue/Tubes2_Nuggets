@@ -1,8 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"github.com/Kurosue/Tubes2_Nugget/utils"
+    "fmt"
+    "strings"
+    "github.com/Kurosue/Tubes2_Nugget/utils"
 )
 
 func main() {
@@ -13,7 +14,23 @@ func main() {
 		return
 	}
     // Start BFS from "Nugget"
-    start := "Steam"
-    fmt.Println(recipes[start])
+    start := "Pyramid"
+    tree := utils.BFS_Tree(start, recipes)
 
+    // Print the tree
+    fmt.Printf("Tree for %s:\n", start)
+    printTree(tree, 0)
+
+}
+
+func printTree(node *utils.Tree, level int) {
+    if node == nil {
+        return
+    }
+    fmt.Printf("%s%s (Tier: %d)\n", strings.Repeat(" ", level*2), node.Value, node.Tier)
+    for _, children := range node.Children {
+        for _, child := range children {
+            printTree(child, level+1)
+        }
+    }
 }
