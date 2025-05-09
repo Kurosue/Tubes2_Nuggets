@@ -3,20 +3,27 @@ package utils
 import (
     "encoding/json"
     "os"
+    "strings"
 )
 
-// Struct element sesuai json
 type Element struct {
     Name     string   `json:"name"`
     Recipes  []string `json:"recipes"`
     Image    string   `json:"image"`
     PageURL  string   `json:"page_url"`
+    Tier     int      `json:"tier"`
+    // Nanti dimasukin pas parsing json nya
+    ParsedRecipes []Recipe
 }
 
-// RecipeMap now maps an element's name to its recipes.
-type RecipeMap map[string][]string
+type Recipe struct {
+    First  string
+    Second string
+}
 
-func LoadRecipes(path string) (RecipeMap, error) {
+type ElementMap map[string]*Element
+
+func LoadRecipe(path string) (ElementMap, error) {
     var elems []Element
     data, err := os.ReadFile(path)
     if err != nil {
@@ -26,9 +33,27 @@ func LoadRecipes(path string) (RecipeMap, error) {
         return nil, err
     }
 
-    recipes := make(RecipeMap)
-    for _, e := range elems {
-        recipes[e.Name] = e.Recipes
+    // Create map of elements
+    elementMap := make(ElementMap)
+    
+    // First pass: Add all elements to the map
+    for i := range elems {
+        elementMap[elems[i].Name] = &elems[i]
     }
-    return recipes, nil
+    
+    // Second pass: Parse recipes for each element
+    for _, e := range elems {
+        for _, rec := range e.Recipes {
+            parts := strings.Split(rec, " + ")
+            if len(parts) == 2 {
+                recipe := Recipe{
+                    First:  strings.TrimSpace(parts[0]),
+                    Second: strings.TrimSpace(parts[1]),
+                }
+                elementMap[e.Name].ParsedRecipes = append(elementMap[e.Name].ParsedRecipes, recipe)
+            }
+        }
+    }
+    
+    return elementMap, nil
 }
