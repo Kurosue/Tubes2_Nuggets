@@ -87,8 +87,7 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
     }
     var combos []recipePair
     
-    for combination, product := range recipeMap {
-        if product == targetElement {
+    for _, combination := range recipesEl[targetElement].Recipes {
             ing1, ing2 := DecomposeKey(combination)
             
             // Skip yang ga ada di resepnya
@@ -107,7 +106,6 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
             }
             
             combos = append(combos, recipePair{ing1, ing2})
-        }
     }
     
     if len(combos) > 1 {

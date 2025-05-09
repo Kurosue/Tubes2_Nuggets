@@ -1,7 +1,7 @@
 package utils
 
 import (
-    // "fmt"
+    "fmt"
     "sync"
 )
 
@@ -30,10 +30,10 @@ func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement strin
     result := []Message{}
     
     // Find recipe to create this element
-    for combination, product := range recipeMap {
-        if product == targetElement {
+    for _, combination := range recipesEl[targetElement].Recipes {
             ing1, ing2 := DecomposeKey(combination)
-            // fmt.Printf("Combination: %s, Result: %s\n", combination, product)
+            fmt.Printf("Combination: %s, Result: %s\n", combination, targetElement)
+            fmt.Printf("Ingredients: %s, %s\n", ing1, ing2)
             
             // Skip yang ga ada di resepnya
             if ing1 == "Time" || ing2 == "Time" {
@@ -88,7 +88,6 @@ func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement strin
             result = append(result, subPath2...)
             
             return result
-        }
     }
     
     return result
