@@ -22,11 +22,11 @@ func TestDFS(t *testing.T) {
 	// for key, value := range recipesEl {
 	// 	t.Logf("Key: %s, Value: %v", key, value)
 	// }
-	test := "Gold"
-	pathEl, node := DFS(recipes, recipesEl, recipesEl[test])
-	result := DFSResult{Messages: pathEl, NodesVisited: node}
-	t.Logf("Path to %s: ", test)
-	t.Logf("Nodes visited: %d", node)
+	test := "Pyramid"
+	// pathEl, node := DFS(recipes, recipesEl, recipesEl[test])
+	// // result := DFSResult{Messages: pathEl, NodesVisited: node}
+	// t.Logf("Path to %s: ", test)
+	// t.Logf("Nodes visited: %d", node)
 	// t.Logf("Path: %v", pathEl)
 	// for i, el := range pathEl {
 	// 	t.Logf("Step %d: %s", i, el.result)
@@ -34,7 +34,7 @@ func TestDFS(t *testing.T) {
 	// 	t.Logf("Depth: %d", el.depth)
 	// }
 
-	t.Logf("\n%s", VisualizeDFS(result))
+	// t.Logf("\n%s", VisualizeDFS(result))
 
 
 
@@ -44,7 +44,11 @@ func TestDFS(t *testing.T) {
 	// pathStr := CreateRecipeTree(pathEl,recipes, recipesEl)
 	// t.Log(pathStr)
 
-	// pathElMulti := DFSMulti(recipes, recipesEl, recipesEl[test], 5)
+	pathElMulti := DFSMultiple(recipes, recipesEl, recipesEl[test], 5)
+	for i, el := range pathElMulti {
+		t.Logf("recipe: %v", i+1)
+		t.Log(VisualizeMessageTree(el))
+	}
 	// for i, el := range pathElMulti {
 	// 	t.Logf("recipe: %v", i+1)
 	// 	for j, el2 := range el {

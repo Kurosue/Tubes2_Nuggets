@@ -7,6 +7,10 @@ import (
 
 // VisualizeMessages creates a visual representation of the DFS message path
 func VisualizeMessages(messages []Message) string {
+    if len(messages) == 0 {
+        return "No recipe path found."
+    }
+
     var sb strings.Builder
     sb.WriteString("\n=== Recipe Path ===\n\n")
     
@@ -58,18 +62,39 @@ func VisualizeMessageTree(messages []Message) string {
         }
     }
     
+    // Pre-process messages into a more efficient structure
+    // Map from result -> message for quick lookup
+    messageMap := make(map[string]Message)
+    for _, msg := range messages {
+        if existing, exists := messageMap[msg.result]; !exists || msg.depth < existing.depth {
+            messageMap[msg.result] = msg
+        }
+    }
+    
     var sb strings.Builder
     sb.WriteString("\n=== Recipe Tree ===\n\n")
     
     // Draw the tree starting with the target
-    drawMessageTree(&sb, messages, target, "", "")
+    visited := make(map[string]bool) // Prevent infinite recursion
+    drawMessageTree(&sb, messageMap, target, "", "", visited, 0, 10) // Max depth 10 to prevent excessive rendering
     
     sb.WriteString("\n=== End of Tree ===\n")
     return sb.String()
 }
 
-// Helper function to draw the message tree recursively
-func drawMessageTree(sb *strings.Builder, messages []Message, currentMsg Message, prefix string, childrenPrefix string) {
+// Helper function to draw the message tree recursively with cycle detection and depth limiting
+func drawMessageTree(sb *strings.Builder, messageMap map[string]Message, currentMsg Message, 
+                    prefix string, childrenPrefix string, visited map[string]bool, 
+                    currentDepth int, maxDepth int) {
+    
+    // Check for max depth or cycles
+    if currentDepth > maxDepth || visited[currentMsg.result] {
+        return
+    }
+    
+    // Mark as visited for cycle detection
+    visited[currentMsg.result] = true
+    
     // Print the current node
     sb.WriteString(prefix)
     
@@ -81,46 +106,36 @@ func drawMessageTree(sb *strings.Builder, messages []Message, currentMsg Message
         sb.WriteString(fmt.Sprintf("%s = %s + %s (Depth: %d)\n", 
             currentMsg.result, currentMsg.ingredient1, currentMsg.ingredient2, currentMsg.depth))
         
-        // Find child messages for ingredient1 and ingredient2
-        var ing1Messages []Message
-        var ing2Messages []Message
+        // Draw branches for ingredients if they exist in our map
+        ing1Msg, ing1Exists := messageMap[currentMsg.ingredient1]
+        ing2Msg, ing2Exists := messageMap[currentMsg.ingredient2]
         
-        for _, msg := range messages {
-            if msg.result == currentMsg.ingredient1 {
-                ing1Messages = append(ing1Messages, msg)
-            } else if msg.result == currentMsg.ingredient2 {
-                ing2Messages = append(ing2Messages, msg)
-            }
+        // Create a new visited map for each branch to allow shared ingredients in different branches
+        visited1 := make(map[string]bool)
+        for k, v := range visited {
+            visited1[k] = v
         }
         
         // Draw ingredient1 branch if found
-        if len(ing1Messages) > 0 {
-            // Sort by depth to get the one with the lowest depth
-            var ing1Msg Message = ing1Messages[0]
-            for _, msg := range ing1Messages {
-                if msg.depth < ing1Msg.depth {
-                    ing1Msg = msg
-                }
+        if ing1Exists {
+            branchPrefix := childrenPrefix + "├── "
+            if !ing2Exists {
+                branchPrefix = childrenPrefix + "└── " // Last branch
             }
             
-            // Draw the branch
-            sb.WriteString(childrenPrefix + "├── ")
-            drawMessageTree(sb, messages, ing1Msg, "", childrenPrefix + "│   ")
+            sb.WriteString(branchPrefix)
+            drawMessageTree(sb, messageMap, ing1Msg, "", childrenPrefix + "│   ", visited1, currentDepth+1, maxDepth)
         }
         
         // Draw ingredient2 branch if found
-        if len(ing2Messages) > 0 {
-            // Sort by depth to get the one with the lowest depth
-            var ing2Msg Message = ing2Messages[0]
-            for _, msg := range ing2Messages {
-                if msg.depth < ing2Msg.depth {
-                    ing2Msg = msg
-                }
+        if ing2Exists {
+            visited2 := make(map[string]bool)
+            for k, v := range visited {
+                visited2[k] = v
             }
             
-            // Draw the branch
             sb.WriteString(childrenPrefix + "└── ")
-            drawMessageTree(sb, messages, ing2Msg, "", childrenPrefix + "    ")
+            drawMessageTree(sb, messageMap, ing2Msg, "", childrenPrefix + "    ", visited2, currentDepth+1, maxDepth)
         }
     }
 }
