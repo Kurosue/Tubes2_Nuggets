@@ -1,23 +1,33 @@
 package utils
 
 import (
-    "encoding/json"
-    "os"
-    "strings"
+	"encoding/json"
+	"io/ioutil"
+	"strings"
 )
 
+// Nanti jadi return value ke Front end
+type Message struct {
+    Ingredient1 string
+    Ingredient2 string
+    Result      string
+    Depth       int
+}
+
+// Struct element sesuai json
 type Element struct {
     Name     string   `json:"name"`
     Recipes  []string `json:"recipes"`
     Image    string   `json:"image"`
     PageURL  string   `json:"page_url"`
-    Tier     int      `json:"tier"`
-    ParsedRecipes []Recipe
+    Tier    int      `json:"tier"`
 }
 
-type Recipe struct {
-    First  string
-    Second string
+func PairKey(a, b string) string {
+    if a < b {
+        return a + "|" + b
+    }
+    return b + "|" + a
 }
 
 func DecomposeKey(key string) (string, string) {
@@ -37,11 +47,9 @@ func stringInSlice(a string, list []string) bool {
     return false
 }
 
-func LoadRecipes(path string) (RecipeMap, RecipeElement, error)  {
-//   ElementMap sama recipesElement tuh sama gaksih?
-    type ElementMap map[string]*Element
+func LoadRecipes(path string) (RecipeMap, RecipeElement, error) {
     var elems []Element
-    data, err := os.ReadFile(path)
+    data, err := ioutil.ReadFile(path)
     if err != nil {
         return nil, nil, err
     }
@@ -51,25 +59,15 @@ func LoadRecipes(path string) (RecipeMap, RecipeElement, error)  {
 
     recipes := make(RecipeMap)
     recipesElement := make(RecipeElement)
-    // Create map of elements
-    elementMap := make(ElementMap)
-    
-    // First pass: Add all elements to the map
-    for i := range elems {
-        elementMap[elems[i].Name] = &elems[i]
-    }
-    
-    // Second pass: Parse recipes for each element
     for _, e := range elems {
-        for _, rec := range e.Recipes {
-            parts := strings.Split(rec, " + ")
-            if len(parts) == 2 {
-                recipe := Recipe{
-                    First:  strings.TrimSpace(parts[0]),
-                    Second: strings.TrimSpace(parts[1]),
-                }
-                elementMap[e.Name].ParsedRecipes = append(elementMap[e.Name].ParsedRecipes, recipe)
+        for _, r := range e.Recipes {
+            parts := strings.Split(r, "+")
+            if len(parts) != 2 {
+                continue
             }
+            a := strings.TrimSpace(parts[0])
+            b := strings.TrimSpace(parts[1])
+            recipes[PairKey(a, b)] = e.Name
         }
         recipesElement[e.Name] = e
     }

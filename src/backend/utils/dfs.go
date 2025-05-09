@@ -5,13 +5,6 @@ import (
     "sync"
 )
 
-type Message struct {
-    Ingredient1 string
-    Ingredient2 string
-    Result      string
-    Depth       int
-}
-
 type DFSResult struct {
     Messages []Message
     NodesVisited int

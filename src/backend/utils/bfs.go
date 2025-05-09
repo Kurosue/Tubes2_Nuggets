@@ -1,12 +1,8 @@
 package utils
 
-import "fmt"
-
-type Tree struct {
-    Value    string
-    Tier     int
-    Children [][2]*Tree
-}
+import (
+    "strings"
+)
 
 var BaseElement = map[string]bool{
     "Fire":   true,
@@ -15,73 +11,103 @@ var BaseElement = map[string]bool{
     "Air":    true,
 }
 
-func BFS_Tree(start string, recipes ElementMap) *Tree {
-    // Init variable yang diperluin
-    visited := make(map[string]*Tree)
-    root := &Tree{Value: start, Tier: recipes[start].Tier}
-    queue := []*Tree{root}
-    
-    visited[start] = root
+type QueueItem struct {
+    element string
+    tier    int
+    depth   int
+}
 
+func BFS(start string, recipeMap RecipeMap, elements RecipeElement) (res []Message) {
+    // Init queue buat track elemen yang mau diolah
+    queue := []QueueItem{{element: start, tier: elements[start].Tier, depth: 0}}
+    
+    // Struct variabel untuk node yang udah dijelajahi
+    visited := make(map[string]struct{
+        tier int
+        processed bool
+    })
+    
+    visited[start] = struct{tier int; processed bool}{elements[start].Tier, false}
+    
+    // LOOP BFS
     for len(queue) > 0 {
         current := queue[0]
         queue = queue[1:]
-
-        // Iterasi untuk setiap child (resep dari elemen current)
-        for _, pair := range recipes[current.Value].ParsedRecipes {
-            fmt.Printf("Pair: %s + %s\n", pair.First, pair.Second)
-            // Cek kalau data ada di elements hasil scrap kalau ga atau NULL continue
-            if recipes[pair.First] == nil || recipes[pair.Second] == nil {
+        
+        // Skip kalo udah pernah dijelajahi
+        if v, exists := visited[current.element]; exists && v.processed {
+            continue
+        }
+        
+        visitedInfo := visited[current.element]
+        visitedInfo.processed = true
+        visited[current.element] = visitedInfo
+        
+        // Iterasi ke semua resep atau anak 
+        for _, recipe := range elements[current.element].Recipes {
+            parts := strings.Split(recipe, "+")
+            
+            first := strings.TrimSpace(parts[0])
+            second := strings.TrimSpace(parts[1])
+            
+            // Kalo kedua elemen udah base elemen, langsung masukkan ke hasil trus continue
+            if BaseElement[first] && BaseElement[second] {
+                res = append(res, Message{
+                    Ingredient1: first,
+                    Ingredient2: second,
+                    Result:      current.element,
+                    Depth:       current.depth,
+                })
                 continue
-            } 
-
-            var firstNode, secondNode *Tree
-
-            firstTier := recipes[pair.First].Tier
-            secondTier := recipes[pair.Second].Tier
+            }
             
-            // If both are base elements, add them to the tree but don't traverse further
-            if BaseElement[pair.First] && BaseElement[pair.Second] {
-                firstNode = &Tree{Value: pair.First, Tier: firstTier}
-                secondNode = &Tree{Value: pair.Second, Tier: secondTier}
+            // Skil kalo elemen nya gaada di data json
+            _, cek1 := elements[first]
+            _, cek2 := elements[second]
+            if !cek1 || !cek2 {
+                continue
+            }
+            
+            firstTier := elements[first].Tier
+            secondTier := elements[second].Tier
+            
+            // Make sure kalau child atau resep dari sebuah elemen tuh lebih rendah tiernya
+            // SESUAI SPEK BTW
+            if firstTier < current.tier && secondTier < current.tier {
+                // nambah ke list hasil
+                res = append(res, Message{
+                    Ingredient1: first,
+                    Ingredient2: second,
+                    Result:      current.element,
+                    Depth:       current.depth,
+                })
                 
-                current.Children = append(current.Children, [2]*Tree{firstNode, secondNode})
-                break
-            }
-            
-            // Continue with normal traversal if not both base elements
-            // Tier child tidak boleh lebih dari current (sesuai spek cihuy)
-            if(firstTier < current.Tier && secondTier < current.Tier) {
-                // Cek kalo dia udah pernah divisit
-                if node, ok := visited[pair.First]; ok {
-                    // Kalau udah, ambil node nya
-                    firstNode = node
-                } else {
-                    // Kalo belum ada, init tree baru isinya elemen child trus masukin ke `visited dan queue
-                    firstNode = &Tree{Value: pair.First, Tier: firstTier}
-                    visited[pair.First] = firstNode
-                    // Cek kalau node ini tuh base element, kalalu ga, masuk queue
-                    if _, ok := BaseElement[pair.First]; !ok {
-                        queue = append(queue, firstNode)
+                // Cek elemen pertama dari resep kalau udah ada dan kalau base elemen
+                if _, ok := visited[first]; !ok {
+                    visited[first] = struct{tier int; processed bool}{firstTier, false}
+                    if !BaseElement[first] {
+                        queue = append(queue, QueueItem{
+                            element: first,
+                            tier:    firstTier,
+                            depth:   current.depth + 1,
+                        })
                     }
                 }
-
-                // Cek kalo dia udah pernah divisit
-                if node, ok := visited[pair.Second]; ok {
-                    // Kalau udah, ambil node nya 
-                    secondNode = node
-                } else {
-                    // Kalo belum ada, init tree baru isinya elemen child trus masukin ke visited dan queue
-                    secondNode = &Tree{Value: pair.Second, Tier: secondTier}
-                    visited[pair.Second] = secondNode
-                    if _, ok := BaseElement[pair.Second]; !ok {
-                        queue = append(queue, secondNode)
+                
+                // sama tapi elemen kedua dari resep
+                if _, ok := visited[second]; !ok {
+                    visited[second] = struct{tier int; processed bool}{secondTier, false}
+                    if !BaseElement[second] {
+                        queue = append(queue, QueueItem{
+                            element: second,
+                            tier:    secondTier,
+                            depth:   current.depth + 1,
+                        })
                     }
                 }
-
-                current.Children = append(current.Children, [2]*Tree{firstNode, secondNode})
             }
-        }      
+        }
     }
-    return root
+    
+    return res
 }
