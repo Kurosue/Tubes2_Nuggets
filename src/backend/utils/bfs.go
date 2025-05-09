@@ -55,7 +55,6 @@ func BFS(start string, recipeMap RecipeMap, elements RecipeElement) (res []Messa
                 res = append(res, Message{
                     Ingredient1: first,
                     Ingredient2: second,
-                    Result:      current.element,
                     Depth:       current.depth,
                 })
                 continue
@@ -78,7 +77,6 @@ func BFS(start string, recipeMap RecipeMap, elements RecipeElement) (res []Messa
                 res = append(res, Message{
                     Ingredient1: first,
                     Ingredient2: second,
-                    Result:      current.element,
                     Depth:       current.depth,
                 })
                 

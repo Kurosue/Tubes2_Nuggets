@@ -75,7 +75,6 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res []Mess
                         localres = append(localres, Message{
                             Ingredient1: first,
                             Ingredient2: second,
-                            Result:      item.element,
                             Depth:       item.depth,
                             // Remove Tier field from Message initialization
                         })
@@ -98,7 +97,6 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res []Mess
                         localres = append(localres, Message{
                             Ingredient1: first,
                             Ingredient2: second,
-                            Result:      item.element,
                             Depth:       item.depth,
                         })
                         

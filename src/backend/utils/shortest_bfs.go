@@ -53,7 +53,6 @@ func BFSShortestPath(start string, recipeMap RecipeMap, elements RecipeElement) 
                 finalRecipe := Message{
                     Ingredient1: first, 
                     Ingredient2: second,
-                    Result:      current.element,
                     Depth:       len(current.path),
                 }
                 
@@ -71,7 +70,6 @@ func BFSShortestPath(start string, recipeMap RecipeMap, elements RecipeElement) 
                 newRecipe := Message{
                     Ingredient1: first,
                     Ingredient2: second,
-                    Result:      current.element,
                     Depth:       len(current.path),
                 }
                 
