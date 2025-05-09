@@ -139,7 +139,7 @@ func loadRecipes(c *gin.Context) {
 	}
 
 	// Return the loaded recipes as JSON
-	c.JSON(http.StatusOK, gin.H{"elemntsData": elementsData})
+	c.JSON(http.StatusOK, gin.H{"elementsData": elementsData})
 }
 
 func getElements(c *gin.Context) {
