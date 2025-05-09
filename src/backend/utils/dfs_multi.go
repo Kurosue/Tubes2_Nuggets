@@ -88,7 +88,7 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
     var combos []recipePair
     
     for _, combination := range recipesEl[targetElement].Recipes {
-            ing1, ing2 := DecomposeKey(combination)
+            ing1, ing2 := DecomposeKeyWithPlus(combination)
             
             // Skip yang ga ada di resepnya
             if ing1 == "Time" || ing2 == "Time" {

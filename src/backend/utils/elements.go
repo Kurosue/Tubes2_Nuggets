@@ -38,6 +38,14 @@ func DecomposeKey(key string) (string, string) {
     return parts[0], parts[1]
 }
 
+func DecomposeKeyWithPlus(key string) (string, string) {
+    parts := strings.Split(key, "+")
+    if len(parts) != 2 {
+        return "", ""
+    }
+    return strings.TrimSpace(parts[0]), strings.TrimSpace(parts[1])
+}
+
 func StringInSlice(a string, list []string) bool {
     for _, b := range list {
         if b == a {
