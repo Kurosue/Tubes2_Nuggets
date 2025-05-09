@@ -1,102 +1,115 @@
 package utils
 
 import (
-    "strings"
+    "container/list"
 )
 
-func BFSShortestPath(start string, recipeMap RecipeMap, elements RecipeElement) (resultPath []Message) {
-    
-    type PathStep struct {
-        element string
-        tier    int
-        path    []Message
+// Status iterasi sekarang (untuk mempermudah akses sama monirtoring)
+type State struct {
+    Visited map[string]bool // Elemen yang udah dikunjungi di state sekarang
+    Path []Message // Path untuk sampai kondisi sekarang
+}
+
+func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement) []Message {
+
+    // Cek kalau elemen yang dicari base elemen jadi ga perlu dicari
+    if BaseElement[target] {
+        return []Message{}
+    }
+
+    // Inisialisasi Var yang dibutuhin
+    queue := list.New()
+    initialState := State{
+        Visited: make(map[string]bool),
+        Path:    []Message{},
     }
     
+    // Init state untuk cek elmeen yang udah dibentuk sama path untuk sampai curr state
+    for elem := range BaseElement {
+        initialState.Visited[elem] = true
+    }
+    
+    queue.PushBack(initialState)
     visited := make(map[string]bool)
-    queue := []PathStep{{
-        element: start,
-        tier:    elements[start].Tier,
-        path:    []Message{},
-    }}
     
-    visited[start] = true
-    
-    for len(queue) > 0 {
-        current := queue[0]
-        queue = queue[1:]
+    // BFS loop
+    for queue.Len() > 0 {
+        // Dequeue the front state
+        current := queue.Front().Value.(State)
+        queue.Remove(queue.Front())
         
-        // Check if we reached a base element
-        if BaseElement[current.element] {
-            // We found a path to a base element, which is our goal
-            return current.path
+        // Kalau sampai target, selesai
+        if current.Visited[target] {
+            return current.Path
         }
         
-        for _, recipe := range elements[current.element].Recipes {
-            parts := strings.Split(recipe, "+")
-            if len(parts) != 2 {
+        stateKey := stateToString(current.Visited)
+        if visited[stateKey] {
+            continue
+        }
+        visited[stateKey] = true
+        
+        for combinationStr, result := range recipeMap {
+            if current.Visited[result] {
                 continue
             }
             
-            first := strings.TrimSpace(parts[0])
-            second := strings.TrimSpace(parts[1])
+            elem1, elem2 := DecomposeKey(combinationStr)
             
-            // Skip if elements don't exist
-            _, ok1 := elements[first]
-            _, ok2 := elements[second]
-            if !ok1 || !ok2 {
-                continue
-            }
-            
-            // If both ingredients are base elements, we found the shortest solution
-            if BaseElement[first] && BaseElement[second] {
-                // Create the final recipe message
-                finalRecipe := Message{
-                    Ingredient1: first, 
-                    Ingredient2: second,
-                    Depth:       len(current.path),
+            if current.Visited[elem1] && current.Visited[elem2] {
+                newState := State{
+                    Visited: make(map[string]bool),
+                    Path:    make([]Message, len(current.Path)),
                 }
                 
-                // Return the complete path including the final recipe
-                return append(current.path, finalRecipe)
-            }
-            
-            // Otherwise, continue BFS to both ingredients
-            firstTier := elements[first].Tier
-            secondTier := elements[second].Tier
-            
-            // Respect tier constraints
-            if firstTier < current.tier && secondTier < current.tier {
-                // Create a recipe message for this step
-                newRecipe := Message{
-                    Ingredient1: first,
-                    Ingredient2: second,
-                    Depth:       len(current.path),
+                for elem := range current.Visited {
+                    newState.Visited[elem] = true
                 }
                 
-                // Create new paths for both ingredients
-                newPath := append(append([]Message{}, current.path...), newRecipe)
+                newState.Visited[result] = true
                 
-                if !visited[first] {
-                    visited[first] = true
-                    queue = append(queue, PathStep{
-                        element: first,
-                        tier:    firstTier,
-                        path:    newPath,
-                    })
+                copy(newState.Path, current.Path)
+                
+                newMsg := Message{
+                    Ingredient1: elem1,
+                    Ingredient2: elem2,
+                    Result:      result,
+                    Depth:       len(current.Path),
+                }
+                newState.Path = append(newState.Path, newMsg)
+                
+                if result == target {
+                    return newState.Path
                 }
                 
-                if !visited[second] {
-                    visited[second] = true
-                    queue = append(queue, PathStep{
-                        element: second,
-                        tier:    secondTier,
-                        path:    newPath,
-                    })
-                }
+                queue.PushBack(newState)
             }
         }
     }
     
-    // If we get here, no path was found
-    return resultPath
+    return []Message{}
+}
+
+// Helper function 
+func stateToString(Visited map[string]bool) string {
+    result := ""
+    keys := make([]string, 0, len(Visited))
+    for k := range Visited {
+        if Visited[k] {
+            keys = append(keys, k)
+        }
+    }
+    
+    for i := 0; i < len(keys); i++ {
+        for j := i + 1; j < len(keys); j++ {
+            if keys[i] > keys[j] {
+                keys[i], keys[j] = keys[j], keys[i]
+            }
+        }
+    }
+    
+    for _, k := range keys {
+        result += k + ","
+    }
+    return result
 }

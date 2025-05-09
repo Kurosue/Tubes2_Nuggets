@@ -23,7 +23,6 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res []Mess
     sem := make(chan struct{}, maxWorkers)
     
     for len(queue) > 0 {
-        // Process the current level in parallel
         currentLevel := queue
         queue = nil
         
@@ -31,7 +30,7 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res []Mess
         var wg sync.WaitGroup
         
         for _, current := range currentLevel {
-            // Skip if already processed (check with read lock)
+            // Skip kalau udah diproses
             visitedMu.RLock()
             visitedInfo, exists := visited[current.element]
             alreadyProcessed := exists && visitedInfo.processed
@@ -70,18 +69,17 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res []Mess
                     first := strings.TrimSpace(parts[0])
                     second := strings.TrimSpace(parts[1])
                     
-                    // Handle base elements specially
+                    //  Kalau kedua elemen adalah base element
                     if BaseElement[first] && BaseElement[second] {
                         localres = append(localres, Message{
                             Ingredient1: first,
                             Ingredient2: second,
                             Depth:       item.depth,
-                            // Remove Tier field from Message initialization
                         })
                         continue
                     }
                     
-                    // Skip if elements don't exist
+                    // Skip kalalu elemen tidak ada di data json
                     _, ok1 := elements[first]
                     _, ok2 := elements[second]
                     if !ok1 || !ok2 {
@@ -91,16 +89,14 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res []Mess
                     firstTier := elements[first].Tier
                     secondTier := elements[second].Tier
                     
-                    // Respect tier constraints
+                    // cek tier child harus lebih rendah dari paraent
                     if firstTier < item.tier && secondTier < item.tier {
-                        // Add this recipe to res
                         localres = append(localres, Message{
                             Ingredient1: first,
                             Ingredient2: second,
                             Depth:       item.depth,
                         })
                         
-                        // Add first ingredient to queue if needed
                         visitedMu.RLock()
                         _, firstVisited := visited[first]
                         visitedMu.RUnlock()
@@ -140,14 +136,12 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res []Mess
                     }
                 }
                 
-                // Add res to global list
                 if len(localres) > 0 {
                     resMu.Lock()
                     res = append(res, localres...)
                     resMu.Unlock()
                 }
-                
-                // Add items to next level queue
+
                 if len(nextItems) > 0 {
                     queueMu.Lock()
                     queue = append(queue, nextItems...)
@@ -156,7 +150,6 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res []Mess
             }(current)
         }
         
-        // Wait for all workers to finish this level
         wg.Wait()
     }
     
