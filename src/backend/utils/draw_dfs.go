@@ -19,9 +19,9 @@ func VisualizeMessages(messages []Message) string {
     maxDepth := 0
     
     for _, msg := range messages {
-        messagesByDepth[msg.depth] = append(messagesByDepth[msg.depth], msg)
-        if msg.depth > maxDepth {
-            maxDepth = msg.depth
+        messagesByDepth[msg.Depth] = append(messagesByDepth[msg.Depth], msg)
+        if msg.Depth > maxDepth {
+            maxDepth = msg.Depth
         }
     }
     
@@ -30,13 +30,13 @@ func VisualizeMessages(messages []Message) string {
         if msgs, exists := messagesByDepth[depth]; exists {
             sb.WriteString(fmt.Sprintf("Depth %d:\n", depth))
             for _, msg := range msgs {
-                if msg.ingredient1 == "" && msg.ingredient2 == "" {
+                if msg.Ingredient1 == "" && msg.Ingredient2 == "" {
                     // Base element or target
-                    sb.WriteString(fmt.Sprintf("  • %s (Base)\n", msg.result))
+                    sb.WriteString(fmt.Sprintf("  • %s (Base)\n", msg.Result))
                 } else {
                     // Combination
                     sb.WriteString(fmt.Sprintf("  • %s = %s + %s\n", 
-                        msg.result, msg.ingredient1, msg.ingredient2))
+                        msg.Result, msg.Ingredient1, msg.Ingredient2))
                 }
             }
             sb.WriteString("\n")
@@ -56,7 +56,7 @@ func VisualizeMessageTree(messages []Message) string {
     // Find the target element (depth 0)
     var target Message
     for _, msg := range messages {
-        if msg.depth == 0 {
+        if msg.Depth == 0 {
             target = msg
             break
         }
@@ -66,8 +66,8 @@ func VisualizeMessageTree(messages []Message) string {
     // Map from result -> message for quick lookup
     messageMap := make(map[string]Message)
     for _, msg := range messages {
-        if existing, exists := messageMap[msg.result]; !exists || msg.depth < existing.depth {
-            messageMap[msg.result] = msg
+        if existing, exists := messageMap[msg.Result]; !exists || msg.Depth < existing.Depth {
+            messageMap[msg.Result] = msg
         }
     }
     
@@ -88,27 +88,27 @@ func drawMessageTree(sb *strings.Builder, messageMap map[string]Message, current
                     currentDepth int, maxDepth int) {
     
     // Check for max depth or cycles
-    if currentDepth > maxDepth || visited[currentMsg.result] {
+    if currentDepth > maxDepth || visited[currentMsg.Result] {
         return
     }
     
     // Mark as visited for cycle detection
-    visited[currentMsg.result] = true
+    visited[currentMsg.Result] = true
     
     // Print the current node
     sb.WriteString(prefix)
     
-    if currentMsg.ingredient1 == "" && currentMsg.ingredient2 == "" {
+    if currentMsg.Ingredient1 == "" && currentMsg.Ingredient2 == "" {
         // Base element
-        sb.WriteString(fmt.Sprintf("%s (Base)\n", currentMsg.result))
+        sb.WriteString(fmt.Sprintf("%s (Base)\n", currentMsg.Result))
     } else {
         // Combination
         sb.WriteString(fmt.Sprintf("%s = %s + %s (Depth: %d)\n", 
-            currentMsg.result, currentMsg.ingredient1, currentMsg.ingredient2, currentMsg.depth))
+            currentMsg.Result, currentMsg.Ingredient1, currentMsg.Ingredient2, currentMsg.Depth))
         
         // Draw branches for ingredients if they exist in our map
-        ing1Msg, ing1Exists := messageMap[currentMsg.ingredient1]
-        ing2Msg, ing2Exists := messageMap[currentMsg.ingredient2]
+        ing1Msg, ing1Exists := messageMap[currentMsg.Ingredient1]
+        ing2Msg, ing2Exists := messageMap[currentMsg.Ingredient2]
         
         // Create a new visited map for each branch to allow shared ingredients in different branches
         visited1 := make(map[string]bool)

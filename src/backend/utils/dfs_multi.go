@@ -67,13 +67,13 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
     *nodesVisited++
     if targetElement == "Air" || targetElement == "Water" || targetElement == "Earth" || targetElement == "Fire" {
         if _, exists := recipesEl[targetElement]; exists {
-            return []Message{{ingredient1: "", ingredient2: "", result: targetElement, depth: currentDepth}}
+            return []Message{{Ingredient1: "", Ingredient2: "", Result: targetElement, Depth: currentDepth}}
         }
     }
     
     if visited[targetElement] {
         if _, exists := recipesEl[targetElement]; exists {
-            return []Message{{ingredient1: "", ingredient2: "", result: targetElement, depth: currentDepth}}
+            return []Message{{Ingredient1: "", Ingredient2: "", Result: targetElement, Depth: currentDepth}}
         }
     }
     
@@ -168,7 +168,7 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
         wg.Wait()
         
         // Create a message for this combination
-        result = append(result, Message{ingredient1: ing1, ingredient2: ing2, result: targetElement, depth: currentDepth})
+        result = append(result, Message{Ingredient1: ing1, Ingredient2: ing2, Result: targetElement, Depth: currentDepth})
         result = append(result, subPath1...)
         result = append(result, subPath2...)
         
@@ -184,7 +184,7 @@ func generatePathSignature(messages []Message) string {
     
     for _, msg := range messages {
         elements = append(elements, fmt.Sprintf("%s=%s+%s", 
-            msg.result, msg.ingredient1, msg.ingredient2))
+            msg.Result, msg.Ingredient1, msg.Ingredient2))
     }
     
     return strings.Join(elements, "|")

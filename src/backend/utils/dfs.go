@@ -6,10 +6,10 @@ import (
 )
 
 type Message struct {
-    ingredient1 string
-    ingredient2 string
-    result      string
-    depth       int
+    Ingredient1 string
+    Ingredient2 string
+    Result      string
+    Depth       int
 }
 
 type DFSResult struct {
@@ -22,13 +22,13 @@ func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement strin
     *nodesVisited++
     if targetElement == "Air" || targetElement == "Water" || targetElement == "Earth" || targetElement == "Fire" {
         if _, exists := recipesEl[targetElement]; exists {
-            return []Message{{ingredient1: "", ingredient2: "", result: targetElement, depth: currentDepth}}
+            return []Message{{Ingredient1: "", Ingredient2: "", Result: targetElement, Depth: currentDepth}}
         }
     }
     
     if visited[targetElement] {
         if _, exists := recipesEl[targetElement]; exists {
-            return []Message{{ingredient1: "", ingredient2: "", result: targetElement, depth: currentDepth}}
+            return []Message{{Ingredient1: "", Ingredient2: "", Result: targetElement, Depth: currentDepth}}
         }
     }
     
@@ -88,7 +88,7 @@ func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement strin
             subPath1 := <-ing1Channel
             subPath2 := <-ing2Channel
 
-            result = append(result, Message{ingredient1: ing1, ingredient2: ing2, result: targetElement, depth: currentDepth})
+            result = append(result, Message{Ingredient1: ing1, Ingredient2: ing2, Result: targetElement, Depth: currentDepth})
 
             wg.Wait()
             result = append(result, subPath1...)

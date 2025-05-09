@@ -17,10 +17,10 @@ func main() {
     fmt.Println("BFS can reach:", all)
 
     // Example: find a *path* to “Mist” starting from Air + Water
-    if path := utils.DFS(recipes, recipesEl, recipesEl["Gold"]); path != nil {
+    if path,_ := utils.DFS(recipes, recipesEl, recipesEl["Gold"]); path != nil {
         fmt.Println("DFS path to Mist:")
         for _, step := range path {
-            fmt.Printf("%s -> ", step.Name)
+            fmt.Printf("%s -> ", step.Result)
         }
     } else {
         fmt.Println("Mist is not reachable from Air + Water.")
