@@ -1,9 +1,8 @@
 package utils
 
 import (
-	"encoding/json"
-	"io/ioutil"
-	"strings"
+    "encoding/json"
+    "os"
 )
 
 // Struct element sesuai json
@@ -14,16 +13,12 @@ type Element struct {
     PageURL  string   `json:"page_url"`
 }
 
-func PairKey(a, b string) string {
-    if a < b {
-        return a + "|" + b
-    }
-    return b + "|" + a
-}
+// RecipeMap now maps an element's name to its recipes.
+type RecipeMap map[string][]string
 
 func LoadRecipes(path string) (RecipeMap, error) {
     var elems []Element
-    data, err := ioutil.ReadFile(path)
+    data, err := os.ReadFile(path)
     if err != nil {
         return nil, err
     }
@@ -33,17 +28,7 @@ func LoadRecipes(path string) (RecipeMap, error) {
 
     recipes := make(RecipeMap)
     for _, e := range elems {
-        for _, r := range e.Recipes {
-            parts := strings.Split(r, "+")
-            if len(parts) != 2 {
-                continue
-            }
-            a := strings.TrimSpace(parts[0])
-            b := strings.TrimSpace(parts[1])
-            recipes[PairKey(a, b)] = e.Name
-        }
+        recipes[e.Name] = e.Recipes
     }
     return recipes, nil
 }
-
-type RecipeMap map[string]string

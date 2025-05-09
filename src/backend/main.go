@@ -2,26 +2,25 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"github.com/Kurosue/Tubes2_Nugget/utils"
 )
 
 func main() {
-    recipes, err := utils.LoadRecipes("./scrap/elements.json")
-    if err != nil {
-        log.Fatal(err)
+	// Load recipes
+	recipes, err := utils.LoadRecipes("./scrap/elements.json")
+	if err != nil {
+		fmt.Printf("Error loading recipes: %v\n", err)
+		return
+	}
+    // print some recipes for debugging
+    for k, v := range recipes {
+        fmt.Printf("%s -> %s\n", k, v)
     }
-    // Example: what *all* elements can you make from Air + Water?
-    all := utils.BFS(recipes, "Fire", "Mist")
-    fmt.Println("BFS can reach:", all)
-
-    // Example: find a *path* to “Mist” starting from Air + Water
-    if path := utils.DFS(recipes, "Air", "Water", "Mist"); path != nil {
-        fmt.Println("DFS path to Mist:")
-        for _, step := range path {
-            fmt.Printf("  %s + %s -> %s\n", step.X, step.Y, step.Result)
-        }
-    } else {
-        fmt.Println("Mist is not reachable from Air + Water.")
+    // Start BFS from "Nugget"
+    start := "Picnic"
+    path := utils.BFS(start, recipes)
+    // Print the path
+    for k, v := range path {
+        fmt.Printf("%s -> %s\n", k, v)
     }
 }
