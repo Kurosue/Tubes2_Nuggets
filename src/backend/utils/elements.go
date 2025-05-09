@@ -12,7 +12,7 @@ type Element struct {
     Recipes  []string `json:"recipes"`
     Image    string   `json:"image"`
     PageURL  string   `json:"page_url"`
-    Tier    int      `json:"tier"`
+    Tier     int      `json:"tier"`
 }
 
 func PairKey(a, b string) string {

@@ -5,132 +5,136 @@ import (
     "strings"
 )
 
-// TreeNode represents a node in the recipe tree
-type TreeNode struct {
-    Element  Element
-    Children []*TreeNode
-    IsBase   bool
-}
-
-// BuildRecipeTree constructs a tree from the DFS path
-func BuildRecipeTree(elements []Element, recipeMap RecipeMap) *TreeNode {
-    if len(elements) == 0 {
-        return nil
-    }
-
-    // Create root node with target element
-    root := &TreeNode{
-        Element:  elements[0],
-        Children: []*TreeNode{},
-        IsBase:   false,
-    }
-
-    // Track processed elements
-    processed := make(map[string]bool)
-    processed[root.Element.Name] = true
-
-    // Create element lookup
-    elementMap := make(map[string]Element)
-    for _, el := range elements {
-        elementMap[el.Name] = el
-    }
-
-    // Process the remaining elements from the path
-    buildTreeHelper(root, elements, processed, elementMap, recipeMap)
-
-    return root
-}
-
-// buildTreeHelper recursively builds the tree
-func buildTreeHelper(node *TreeNode, elements []Element, processed map[string]bool, 
-                     elementMap map[string]Element, recipeMap RecipeMap) {
-    // Check if current element is a base element
-    if node.Element.Name == "Air" || node.Element.Name == "Water" || 
-       node.Element.Name == "Earth" || node.Element.Name == "Fire" {
-        node.IsBase = true
-        return
-    }
-
-    // Find ingredients for this element
-    for key, result := range recipeMap {
-        if result == node.Element.Name {
-            ing1, ing2 := DecomposeKey(key)
-            
-            // Create child nodes for ingredients
-            if el1, exists := elementMap[ing1]; exists {
-                child1 := &TreeNode{
-                    Element:  el1,
-                    Children: []*TreeNode{},
-                    IsBase:   ing1 == "Air" || ing1 == "Water" || ing1 == "Earth" || ing1 == "Fire",
-                }
-                node.Children = append(node.Children, child1)
-                
-                // Recursively process this child if not already processed
-                if !processed[ing1] {
-                    processed[ing1] = true
-                    buildTreeHelper(child1, elements, processed, elementMap, recipeMap)
-                }
-            }
-            
-            if el2, exists := elementMap[ing2]; exists {
-                child2 := &TreeNode{
-                    Element:  el2,
-                    Children: []*TreeNode{},
-                    IsBase:   ing2 == "Air" || ing2 == "Water" || ing2 == "Earth" || ing2 == "Fire",
-                }
-                node.Children = append(node.Children, child2)
-                
-                // Recursively process this child if not already processed
-                if !processed[ing2] {
-                    processed[ing2] = true
-                    buildTreeHelper(child2, elements, processed, elementMap, recipeMap)
-                }
-            }
-            
-            // Only use the first recipe found
-            return
+// VisualizeMessages creates a visual representation of the DFS message path
+func VisualizeMessages(messages []Message) string {
+    var sb strings.Builder
+    sb.WriteString("\n=== Recipe Path ===\n\n")
+    
+    // Organize messages by depth
+    messagesByDepth := make(map[int][]Message)
+    maxDepth := 0
+    
+    for _, msg := range messages {
+        messagesByDepth[msg.depth] = append(messagesByDepth[msg.depth], msg)
+        if msg.depth > maxDepth {
+            maxDepth = msg.depth
         }
     }
+    
+    // Print messages by depth
+    for depth := 0; depth <= maxDepth; depth++ {
+        if msgs, exists := messagesByDepth[depth]; exists {
+            sb.WriteString(fmt.Sprintf("Depth %d:\n", depth))
+            for _, msg := range msgs {
+                if msg.ingredient1 == "" && msg.ingredient2 == "" {
+                    // Base element or target
+                    sb.WriteString(fmt.Sprintf("  • %s (Base)\n", msg.result))
+                } else {
+                    // Combination
+                    sb.WriteString(fmt.Sprintf("  • %s = %s + %s\n", 
+                        msg.result, msg.ingredient1, msg.ingredient2))
+                }
+            }
+            sb.WriteString("\n")
+        }
+    }
+    
+    sb.WriteString("=== End of Path ===\n")
+    return sb.String()
 }
 
-// DrawRecipeTree creates a visual tree representation of the recipe path
-func DrawRecipeTree(root *TreeNode) string {
+// VisualizeMessageTree creates a tree visualization of the messages
+func VisualizeMessageTree(messages []Message) string {
+    if len(messages) == 0 {
+        return "No recipe path found."
+    }
+    
+    // Find the target element (depth 0)
+    var target Message
+    for _, msg := range messages {
+        if msg.depth == 0 {
+            target = msg
+            break
+        }
+    }
+    
     var sb strings.Builder
     sb.WriteString("\n=== Recipe Tree ===\n\n")
-    drawTreeNode(&sb, root, "", "")
+    
+    // Draw the tree starting with the target
+    drawMessageTree(&sb, messages, target, "", "")
+    
     sb.WriteString("\n=== End of Tree ===\n")
     return sb.String()
 }
 
-// Helper function to draw tree recursively
-func drawTreeNode(sb *strings.Builder, node *TreeNode, prefix string, childrenPrefix string) {
-    if node == nil {
-        return
-    }
-
+// Helper function to draw the message tree recursively
+func drawMessageTree(sb *strings.Builder, messages []Message, currentMsg Message, prefix string, childrenPrefix string) {
     // Print the current node
     sb.WriteString(prefix)
-    if node.IsBase {
-        sb.WriteString(fmt.Sprintf("%s (Base)\n", node.Element.Name))
+    
+    if currentMsg.ingredient1 == "" && currentMsg.ingredient2 == "" {
+        // Base element
+        sb.WriteString(fmt.Sprintf("%s (Base)\n", currentMsg.result))
     } else {
-        sb.WriteString(fmt.Sprintf("%s\n", node.Element.Name))
-    }
-
-    // Print the children
-    for i, child := range node.Children {
-        isLast := i == len(node.Children)-1
+        // Combination
+        sb.WriteString(fmt.Sprintf("%s = %s + %s (Depth: %d)\n", 
+            currentMsg.result, currentMsg.ingredient1, currentMsg.ingredient2, currentMsg.depth))
         
-        if isLast {
-            drawTreeNode(sb, child, childrenPrefix + "└── ", childrenPrefix + "    ")
-        } else {
-            drawTreeNode(sb, child, childrenPrefix + "├── ", childrenPrefix + "│   ")
+        // Find child messages for ingredient1 and ingredient2
+        var ing1Messages []Message
+        var ing2Messages []Message
+        
+        for _, msg := range messages {
+            if msg.result == currentMsg.ingredient1 {
+                ing1Messages = append(ing1Messages, msg)
+            } else if msg.result == currentMsg.ingredient2 {
+                ing2Messages = append(ing2Messages, msg)
+            }
+        }
+        
+        // Draw ingredient1 branch if found
+        if len(ing1Messages) > 0 {
+            // Sort by depth to get the one with the lowest depth
+            var ing1Msg Message = ing1Messages[0]
+            for _, msg := range ing1Messages {
+                if msg.depth < ing1Msg.depth {
+                    ing1Msg = msg
+                }
+            }
+            
+            // Draw the branch
+            sb.WriteString(childrenPrefix + "├── ")
+            drawMessageTree(sb, messages, ing1Msg, "", childrenPrefix + "│   ")
+        }
+        
+        // Draw ingredient2 branch if found
+        if len(ing2Messages) > 0 {
+            // Sort by depth to get the one with the lowest depth
+            var ing2Msg Message = ing2Messages[0]
+            for _, msg := range ing2Messages {
+                if msg.depth < ing2Msg.depth {
+                    ing2Msg = msg
+                }
+            }
+            
+            // Draw the branch
+            sb.WriteString(childrenPrefix + "└── ")
+            drawMessageTree(sb, messages, ing2Msg, "", childrenPrefix + "    ")
         }
     }
 }
 
-// Function to use in tests or applications
-func CreateRecipeTree(elements []Element, recipeMap RecipeMap) string {
-    // Build and draw tree
-    root := BuildRecipeTree(elements, recipeMap)
-    return DrawRecipeTree(root)
+// VisualizeDFS creates a visualization of DFS results
+func VisualizeDFS(result DFSResult) string {
+    var sb strings.Builder
+    
+    // Add tree visualization
+    sb.WriteString(VisualizeMessageTree(result.Messages))
+    
+    // Add statistics
+    sb.WriteString(fmt.Sprintf("\nTotal messages: %d\n", len(result.Messages)))
+    sb.WriteString(fmt.Sprintf("Total nodes visited: %d\n", result.NodesVisited))
+    
+    return sb.String()
 }
