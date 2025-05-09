@@ -22,16 +22,19 @@ func TestDFS(t *testing.T) {
 	// for key, value := range recipesEl {
 	// 	t.Logf("Key: %s, Value: %v", key, value)
 	// }
-	test := "Brick"
-	pathEl := DFSBot(recipes, recipesEl, recipesEl[test])
+	test := "Plant"
+	pathEl := DFS(recipes, recipesEl, recipesEl[test])
 	t.Logf("Path to %s: ", test)
-	// t.Logf("Path: %s", pathEl)
-	for _, step := range pathEl {
-		t.Logf("Step: %s", step.Name)
+	// t.Logf("Path: %v", pathEl)
+
+	for i, el := range pathEl {
+		t.Logf("Step %d: %s", i, el.Name)
 	}
 
-	t.Logf("Total steps: %d", len(pathEl))
+	// t.Logf("Total steps: %d", len(pathEl))
 	// t.Log(recipes["Gold"])
+	// pathStr := CreateRecipeTree(pathEl,recipes, recipesEl)
+	// t.Log(pathStr)
 }
 
 // How to run, use `go test -v .` in the terminal
