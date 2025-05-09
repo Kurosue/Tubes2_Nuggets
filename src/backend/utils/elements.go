@@ -12,7 +12,6 @@ type Element struct {
     Image    string   `json:"image"`
     PageURL  string   `json:"page_url"`
     Tier     int      `json:"tier"`
-    // Nanti dimasukin pas parsing json nya
     ParsedRecipes []Recipe
 }
 
@@ -21,18 +20,37 @@ type Recipe struct {
     Second string
 }
 
-type ElementMap map[string]*Element
+func DecomposeKey(key string) (string, string) {
+    parts := strings.Split(key, "|")
+    if len(parts) != 2 {
+        return "", ""
+    }
+    return parts[0], parts[1]
+}
 
-func LoadRecipe(path string) (ElementMap, error) {
+func stringInSlice(a string, list []string) bool {
+    for _, b := range list {
+        if b == a {
+            return true
+        }
+    }
+    return false
+}
+
+func LoadRecipes(path string) (RecipeMap, RecipeElement, error)  {
+//   ElementMap sama recipesElement tuh sama gaksih?
+    type ElementMap map[string]*Element
     var elems []Element
     data, err := os.ReadFile(path)
     if err != nil {
-        return nil, err
+        return nil, nil, err
     }
     if err := json.Unmarshal(data, &elems); err != nil {
-        return nil, err
+        return nil, nil, err
     }
 
+    recipes := make(RecipeMap)
+    recipesElement := make(RecipeElement)
     // Create map of elements
     elementMap := make(ElementMap)
     
@@ -53,7 +71,10 @@ func LoadRecipe(path string) (ElementMap, error) {
                 elementMap[e.Name].ParsedRecipes = append(elementMap[e.Name].ParsedRecipes, recipe)
             }
         }
+        recipesElement[e.Name] = e
     }
-    
-    return elementMap, nil
+    return recipes, recipesElement, nil
 }
+
+type RecipeMap map[string]string
+type RecipeElement map[string]Element

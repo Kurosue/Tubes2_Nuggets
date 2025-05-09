@@ -20,9 +20,14 @@ func main() {
     // Print the tree
     fmt.Printf("Tree for %s:\n", start)
     printTree(tree, 0)
-
-}
-
+      
+    if path,node:= utils.DFS(recipes, recipesEl, recipesEl["Gold"]); path != nil {
+        fmt.Println("DFS path to Mist:")
+        fmt.Print(utils.VisualizeDFS(utils.DFSResult{Messages: path, NodesVisited: node}))
+    } else {
+        fmt.Println("Mist is not reachable from Air + Water.")
+    }
+ }
 func printTree(node *utils.Tree, level int) {
     if node == nil {
         return
