@@ -17,10 +17,10 @@ func TestDFS(t *testing.T) {
 	test := "Pyramid"
 
 	// One recipe Test
-	pathEl, node := DFS(recipes, recipesEl, recipesEl[test])
-	result := DFSResult{Messages: pathEl, NodesVisited: node}
-	t.Logf("Path to %s: ", test)
-	t.Logf("\n%s", VisualizeDFS(result)) // visualization max depth to 10
+	// pathEl, node := DFS(recipes, recipesEl, recipesEl[test])
+	// result := DFSResult{Messages: pathEl, NodesVisited: node}
+	// t.Logf("Path to %s: ", test)
+	// t.Logf("\n%s", VisualizeDFS(result)) // visualization max depth to 10
 
 
 	// Multiple recipe Test
