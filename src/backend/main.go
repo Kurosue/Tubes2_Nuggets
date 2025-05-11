@@ -14,15 +14,12 @@ func main() {
     }
 
     start := "Pyramid"
-    res := utils.BFSShortestPath(start, rese, elmt)
-    if len(res) == 0 {
-        fmt.Printf("No path found for %s\n", start)
-    } else {
-        fmt.Printf("Shortest path to %s:\n", start)
-        for _, step := range res {
-            fmt.Printf("%s + %s -> %s\n", step.Ingredient1, step.Ingredient2, step.Result)
-        }
+    res := utils.BFSP(start, rese, elmt)
+    fmt.Println("Result:")
+    for _, path := range res {
+        fmt.Println(path)
     }
+    
 }
 
 
