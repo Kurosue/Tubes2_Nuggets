@@ -14,7 +14,7 @@ func TestDFS(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Failed to load recipes: %v", err)
 	}
-	test := "Science" // Change this to the element you want to test
+	test := "Gold" // Change this to the element you want to test
 
 	// One recipe Test
 	// pathEl, node := DFS(recipes, recipesEl, recipesEl[test])

@@ -173,7 +173,7 @@ func main() {
 			elements = append(elements, Element{
 				Name:    name,
 				Recipes: recipeList,
-				Image:   "images/" + name + ".png",
+				Image:   "images/" + name + ".svg",
 				PageURL: elementPageURL,
 				Tier: currentTier,
 			})

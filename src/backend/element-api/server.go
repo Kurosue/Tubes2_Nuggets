@@ -49,6 +49,7 @@ func main() {
     }))
 
 	router := app
+	router.Static("/backend/scrap/images", "../scrap/images")
 
 	// Define the API endpoint
 	if err := initData(); err != nil {
