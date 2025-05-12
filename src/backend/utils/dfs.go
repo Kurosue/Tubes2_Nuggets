@@ -82,7 +82,7 @@ func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement strin
             subPath2 := <-ing2Channel
 
             result = append(result, Message{Ingredient1: ing1, Ingredient2: ing2, Result: targetElement, Depth: currentDepth})
-
+        
             wg.Wait()
             result = append(result, subPath1...)
             result = append(result, subPath2...)

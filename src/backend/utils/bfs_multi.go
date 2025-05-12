@@ -24,9 +24,10 @@ type QueuePathItem struct {
 	pendingElems map[string]bool
 }
 
-func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Message) {
+func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Message, nodeVisited int) {
 	var m sync.Mutex
 	var visitedMu sync.RWMutex
+    var nodeCountMu sync.Mutex
 
 	visited := make(map[string]bool)
 
@@ -43,6 +44,8 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Me
 
 	visited[start] = true
 
+    nodeVisited = 0
+
 	const maxWorkers = 4
 	sem := make(chan struct{}, maxWorkers)
 
@@ -54,6 +57,11 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Me
 		var wg sync.WaitGroup
 
 		for _, current := range currentLevel {
+
+            nodeCountMu.Lock()
+            nodeVisited++
+            nodeCountMu.Unlock()
+
 			if !current.pendingElems[current.element] {
 				continue
 			}
@@ -228,5 +236,5 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Me
 		wg.Wait()
 	}
 
-	return res
+	return res , nodeVisited
 }

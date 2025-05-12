@@ -12,8 +12,9 @@ type MultiDFSResult struct {
     PathsFound    int         
 }
 
-func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Element, maxPaths int) [][]Message {
+func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Element, maxPaths int) MultiDFSResult {
     resultChan := make(chan []Message, maxPaths*2)
+    nodesChan := make(chan int, maxPaths*2)
     
     var mutex sync.Mutex
     resultSet := make(map[string]bool)
@@ -39,6 +40,7 @@ func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Ele
             if len(messages) > 0 && !resultSet[pathSignature] {
                 resultSet[pathSignature] = true
                 resultChan <- messages
+                nodesChan <- nodesVisited
             }
             mutex.Unlock()
         }(i)
@@ -47,18 +49,29 @@ func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Ele
     go func() {
         wg.Wait()
         close(resultChan)
+        close(nodesChan)
     }()
     
     var allPaths [][]Message
+    totalNodesVisited := 0
+    
+    // Collect paths and node counts
     for path := range resultChan {
         if len(allPaths) < maxPaths {
             allPaths = append(allPaths, path)
+            nodesCount := <-nodesChan
+            totalNodesVisited += nodesCount
         } else {
-            break
+            // Still need to drain the channel
+            <-nodesChan
         }
     }
     
-    return allPaths
+    return MultiDFSResult{
+        RecipePaths: allPaths,
+        NodesVisited: totalNodesVisited,
+        PathsFound: len(allPaths),
+    }
 }
 
 func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, targetElement string, 
@@ -108,6 +121,11 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
             combos = append(combos, recipePair{ing1, ing2})
     }
     
+    // If no valid combinations found
+    if len(combos) == 0 {
+        return []Message{}
+    }
+    
     if len(combos) > 1 {
         switch seed % 3 {
         case 0:
@@ -129,49 +147,49 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
         }
     }
     
-    for _, combo := range combos {
-        ing1 := combo.ing1
-        ing2 := combo.ing2
-        
-        visited1 := make(map[string]bool)
-        for k, v := range visited {
-            visited1[k] = v
-        }
-        
-        visited2 := make(map[string]bool)
-        for k, v := range visited {
-            visited2[k] = v
-        }
-        
-        var wg sync.WaitGroup
-        wg.Add(2)
-        ing1Channel := make(chan []Message)
-        ing2Channel := make(chan []Message)
-        
-        go func() {
-            defer wg.Done()
-            subPath1 := DFSHelperWithVariation(recipeMap, recipesEl, ing1, visited1, nodesVisited, currentDepth+1, seed)
-            ing1Channel <- subPath1
-        }()
-        
-        go func() {
-            defer wg.Done()
-            subPath2 := DFSHelperWithVariation(recipeMap, recipesEl, ing2, visited2, nodesVisited, currentDepth+1, seed+1) // Add variety
-            ing2Channel <- subPath2
-        }()
-        
-        subPath1 := <-ing1Channel
-        subPath2 := <-ing2Channel
-        
-        wg.Wait()
-        
-        // Create a message for this combination
-        result = append(result, Message{Ingredient1: ing1, Ingredient2: ing2, Result: targetElement, Depth: currentDepth})
-        result = append(result, subPath1...)
-        result = append(result, subPath2...)
-        
-        return result
+    // Choose only one recipe based on the seed
+    chosenIndex := seed % len(combos)
+    combo := combos[chosenIndex]
+    
+    ing1 := combo.ing1
+    ing2 := combo.ing2
+    
+    visited1 := make(map[string]bool)
+    for k, v := range visited {
+        visited1[k] = v
     }
+    
+    visited2 := make(map[string]bool)
+    for k, v := range visited {
+        visited2[k] = v
+    }
+    
+    var wg sync.WaitGroup
+    wg.Add(2)
+    ing1Channel := make(chan []Message)
+    ing2Channel := make(chan []Message)
+    
+    go func() {
+        defer wg.Done()
+        subPath1 := DFSHelperWithVariation(recipeMap, recipesEl, ing1, visited1, nodesVisited, currentDepth+1, seed)
+        ing1Channel <- subPath1
+    }()
+    
+    go func() {
+        defer wg.Done()
+        subPath2 := DFSHelperWithVariation(recipeMap, recipesEl, ing2, visited2, nodesVisited, currentDepth+1, seed+1) // Add variety
+        ing2Channel <- subPath2
+    }()
+    
+    subPath1 := <-ing1Channel
+    subPath2 := <-ing2Channel
+    
+    wg.Wait()
+    
+    // Create a message for this combination
+    result = append(result, Message{Ingredient1: ing1, Ingredient2: ing2, Result: targetElement, Depth: currentDepth})
+    result = append(result, subPath1...)
+    result = append(result, subPath2...)
     
     return result
 }

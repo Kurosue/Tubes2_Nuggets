@@ -14,7 +14,7 @@ func main() {
     }
 
     start := "Pyramid"
-    res := utils.BFSP(start, rese, elmt)
+    res, _ := utils.BFSP(start, rese, elmt)
     fmt.Println("Result:")
     for _, path := range res {
         fmt.Println(path)

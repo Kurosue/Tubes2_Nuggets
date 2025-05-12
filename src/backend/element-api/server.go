@@ -6,6 +6,8 @@ import (
 	"github.com/gorilla/websocket"
     "github.com/Kurosue/Tubes2_Nugget/utils"
 	"strings"
+	"strconv"
+	"github.com/gin-contrib/cors"
 )
 
 type ElementApp struct {
@@ -17,7 +19,16 @@ type ElementApp struct {
 	ParsedRecipes [][]string `json:"parsed_recipes"`
 }
 
+type AlgorithmResponse struct {
+        Recipe      []utils.Message `json:"recipe"`
+        NodesVisited int      `json:"nodesVisited"`
+        RecipeIndex int       `json:"recipeIndex"`
+        TotalRecipes int      `json:"totalRecipes"`
+    }
+
 var cachedElements []ElementApp
+var cachedRecipesMap utils.RecipeMap
+var cachedRecipesEl utils.RecipeElement
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
@@ -28,6 +39,15 @@ var upgrader = websocket.Upgrader{
 
 func main() {
 	app := gin.Default()
+
+	app.Use(cors.New(cors.Config{
+        AllowOrigins:     []string{"http://localhost:3000"}, // Your frontend URL
+        AllowMethods:     []string{"GET", "POST", "PATCH", "OPTIONS"},
+        AllowHeaders:     []string{"Origin", "Content-Type"},
+        ExposeHeaders:    []string{"Content-Length"},
+        AllowCredentials: true,
+    }))
+
 	router := app
 
 	// Define the API endpoint
@@ -74,7 +94,7 @@ func main() {
 func initData() error {
 	// Load recipes
 	var elementsData []ElementApp
-	_, recipesEl, err := utils.LoadRecipes("../scrap/elements.json")
+	recipesMap, recipesEl, err := utils.LoadRecipes("../scrap/elements.json")
 	if err != nil {
 		return err
 	}
@@ -103,13 +123,15 @@ func initData() error {
 	}
 
 	cachedElements = elementsData
+	cachedRecipesEl = recipesEl
+	cachedRecipesMap = recipesMap
 	return nil
 }
 
 func loadRecipes(c *gin.Context) {
 	// Load recipes
 	var elementsData []ElementApp
-	_, recipesEl, err := utils.LoadRecipes("../scrap/elements.json")
+	recipesMap, recipesEl, err := utils.LoadRecipes("../scrap/elements.json")
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to load recipes"})
 		return
@@ -137,6 +159,9 @@ func loadRecipes(c *gin.Context) {
 		}
 		elementsData = append(elementsData, temp)
 	}
+	cachedElements = elementsData
+	cachedRecipesEl = recipesEl
+	cachedRecipesMap = recipesMap
 
 	// Return the loaded recipes as JSON
 	c.JSON(http.StatusOK, gin.H{"elementsData": elementsData})
@@ -149,12 +174,18 @@ func getElements(c *gin.Context) {
 
 func findPath(c *gin.Context) {
 	// Get query parameters
+	var results []AlgorithmResponse
 	algorithm := c.Query("algorithm")
 	direction := c.Query("direction")
-	count := c.Query("count")
+	count, err := strconv.Atoi(c.Query("count"))
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid count"})
+		return
+	}
+	targetElement := c.Query("target")
 
 	// Validate parameters
-	if algorithm != "dfs" && algorithm != "bfs" {
+	if algorithm != "dfs" && algorithm != "bfs" && algorithm != "bfs-shortest" {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid algorithm"})
 		return
 	}
@@ -162,10 +193,15 @@ func findPath(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid direction"})
 		return
 	}
-	if count == "" {
+	if count == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Count is required"})
 		return
 	}
+
+	if _, exists := cachedRecipesEl[targetElement]; !exists {
+        c.JSON(http.StatusBadRequest, gin.H{"error": "Target element not found"})
+        return
+    }
 
 	// Upgrade to WebSocket
 	wsConn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
@@ -175,16 +211,60 @@ func findPath(c *gin.Context) {
 	}
 	defer wsConn.Close()
 
-	// Dummy
-	messages := []map[string]string{
-		{"sourceA": "water", "sourceB": "earth", "target": "mud"},
-		{"sourceA": "air", "sourceB": "fire", "target": "energy"},
-	}
-
-	for _, msg := range messages {
-		err := wsConn.WriteJSON(msg)
-		if err != nil {
-			break
+	if algorithm == "dfs" && direction == "target" {
+		// Perform DFS from target to source
+		if count == 1 {
+			path , node := utils.DFS(cachedRecipesMap, cachedRecipesEl, cachedRecipesEl[targetElement])
+			results = append(results, AlgorithmResponse{
+				Recipe:      path,
+				NodesVisited: node,
+				RecipeIndex: 1,
+				TotalRecipes: 1,
+			})
+		} else {
+			multiplePath := utils.DFSMultiple(cachedRecipesMap, cachedRecipesEl, cachedRecipesEl[targetElement], int(count))
+			for i, recipe := range multiplePath.RecipePaths {
+				results = append(results, AlgorithmResponse{
+					Recipe:      recipe,
+					NodesVisited: multiplePath.NodesVisited,
+					RecipeIndex: i + 1,
+					TotalRecipes: multiplePath.PathsFound,
+				})
+			}
 		}
 	}
+
+	if algorithm == "bfs" && direction == "target" {
+		// Perform BFS from target to source
+		path, node := utils.BFSP(targetElement, cachedRecipesMap, cachedRecipesEl)
+		path = path[:count]
+		for i, recipe := range path {
+			results = append(results, AlgorithmResponse{
+				Recipe:      recipe,
+				NodesVisited: node,
+				RecipeIndex: i + 1,
+				TotalRecipes: len(path),
+			})
+		}
+	}
+
+	if algorithm == "bfs-shortest" && direction == "target" {
+		// Perform BFS from target to source
+		path, node := utils.BFSShortestPath(targetElement, cachedRecipesMap, cachedRecipesEl)
+		results = append(results, AlgorithmResponse{
+			Recipe:      path,
+			NodesVisited: node,
+			RecipeIndex: 1,
+			TotalRecipes: 1,
+		})
+	}
+
+	// Dummy
+	for _, result := range results {
+        err := wsConn.WriteJSON(result)
+        if err != nil {
+            // Log error
+            break
+        }
+    }
 }

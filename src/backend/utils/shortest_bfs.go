@@ -10,12 +10,14 @@ type State struct {
     Path []Message // Path untuk sampai kondisi sekarang
 }
 
-func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement) []Message {
+func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement) (_ []Message , nodesVisited int) {
 
     // Cek kalau elemen yang dicari base elemen jadi ga perlu dicari
     if BaseElement[target] {
-        return []Message{}
+        return []Message{}, 0
     }
+
+    nodesVisited = 0
 
     // Inisialisasi Var yang dibutuhin
     queue := list.New()
@@ -37,10 +39,12 @@ func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement)
         // Dequeue the front state
         current := queue.Front().Value.(State)
         queue.Remove(queue.Front())
+
+        nodesVisited++
         
         // Kalau sampai target, selesai
         if current.Visited[target] {
-            return current.Path
+            return current.Path, nodesVisited
         }
         
         stateKey := stateToString(current.Visited)
@@ -79,7 +83,7 @@ func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement)
                 newState.Path = append(newState.Path, newMsg)
                 
                 if result == target {
-                    return newState.Path
+                    return newState.Path , nodesVisited
                 }
                 
                 queue.PushBack(newState)
@@ -87,7 +91,7 @@ func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement)
         }
     }
     
-    return []Message{}
+    return []Message{}, nodesVisited
 }
 
 // Helper function 
