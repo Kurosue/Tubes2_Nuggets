@@ -37,6 +37,27 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     
     // Initial render with empty data
     refreshData([]);
+
+    svg.append("text")
+    .attr("id", "emoji-placeholder")
+    .attr("x", "50%")
+    .attr("y", "45%")
+    .attr("text-anchor", "middle")
+    .attr("dominant-baseline", "middle")
+    .attr("font-size", "50px")
+    .attr("fill", "#ccc")
+    .text("🧪");
+
+    // Caption under the emoji
+    svg.append("text")
+        .attr("id", "caption-placeholder")
+        .attr("x", "50%")
+        .attr("y", "55%")
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "middle")
+        .attr("font-size", "16px")
+        .attr("fill", "#999")
+        .text("Enter an element to discover its magical recipe");
     
     // Handle window resize
     const handleResize = () => {
@@ -58,10 +79,13 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     
     const width = svgRef.current.clientWidth;
     const height = svgRef.current.clientHeight;
+    const svg = d3.select(svgRef.current);
     
     // Clear content
     d3.select(containerRef.current).selectAll("*").remove();
-    
+    d3.select("#emoji-placeholder").remove();
+    d3.select("#caption-placeholder").remove();
+
     // Find target element
     const targetMsg = messages.find(msg => msg.Depth === 0) || messages[0];
     
@@ -194,6 +218,11 @@ const D3Canvas = React.forwardRef(function D3Canvas(
       .attr("dy", 30)
       .attr("text-anchor", "middle")
       .attr("font-size", "10px")
+      .attr("fill", d => d.data.message.Ingredient1 === "" ? "#ff8800" : "#333") // Highlight base elements
+      .attr("font-weight", d => d.data.message.Ingredient1 === "" ? "bold" : "normal")
+      .attr("stroke", "black")  // Add white outline
+      .attr("stroke-width", "0.3px") // Thin white stroke
+      .attr("paint-order", "stroke") 
       .text(d => {
         const msg = d.data.message;
         // Show "Base" suffix for base elements
@@ -207,6 +236,11 @@ const D3Canvas = React.forwardRef(function D3Canvas(
       .attr("dy", -25)
       .attr("text-anchor", "middle")
       .attr("font-size", "9px")
+      .attr("fill", d => d.data.message.Ingredient1 === "" ? "#ff8800" : "#333") // Highlight base elements
+      .attr("font-weight", d => d.data.message.Ingredient1 === "" ? "bold" : "normal")
+      .attr("stroke", "black")  // Add white outline
+      .attr("stroke-width", "0.3px") // Thin white stroke
+      .attr("paint-order", "stroke") 
       .text(d => {
         const msg = d.data.message;
         return `${msg.Result} = ${msg.Ingredient1} + ${msg.Ingredient2} (Depth: ${msg.Depth})`;
@@ -218,6 +252,11 @@ const D3Canvas = React.forwardRef(function D3Canvas(
       .attr("text-anchor", "middle")
       .attr("font-size", "9px")
       .attr("fill", "#666")
+      .attr("fill", d => d.data.message.Ingredient1 === "" ? "#ff8800" : "#333") // Highlight base elements
+      .attr("font-weight", d => d.data.message.Ingredient1 === "" ? "bold" : "normal")
+      .attr("stroke", "black")  // Add white outline
+      .attr("stroke-width", "0.3px") // Thin white stroke
+      .attr("paint-order", "stroke") 
       .text(d => `Depth: ${d.data.message.Depth}`);
   };
   

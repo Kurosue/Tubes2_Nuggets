@@ -1,29 +1,36 @@
 "use client";
+
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { useIsomorphicLayoutEffect } from "@/lib/utils";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Slider } from "@/components/ui/slider";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Let's replace the deprecated toast with sonner
+// Import toast for notifications
 import { toast } from "sonner";
 
-// Import D3Canvas component
-import D3Canvas from "./d3Canvas";
+// Import components
+import Hero from "@/components/hero";
+import Features from "@/components/features";
+import AlgorithmControls from "@/components/algorithm-controls";
+import D3Visualization from "@/components/d3-visualization";
 
 // Import API services
-import { fetchElements, createRecipeWebSocket, Element as ElementData, Message, AlgorithmResponse , TimingInfo} from "@/lib/api/service";
+import { 
+  fetchElements, 
+  createRecipeWebSocket, 
+  Element as ElementData, 
+  Message, 
+  AlgorithmResponse, 
+  TimingInfo 
+} from "@/lib/api/service";
 
+// Helper function for element images
 function getElementImageUrl(elementName: string): string {
   return `/api/element-image/${elementName}`;
 }
 
+// Splash texts for random selection
 const splashTexts = [
   "🌍🔍 Temukan Semua 720 Elemen dari 4 Unsur Dasar!",
   "🧪💡 BFS dan DFS Siap Menguak Resep Alkimia!",
@@ -38,7 +45,7 @@ const splashTexts = [
   "INI TUGASS BESAAR WOEEEEE"
 ];
 
-// Updated D3CanvasRefType to match our new D3Canvas implementation
+// D3Canvas reference type
 type D3CanvasRefType = {
   handler: {
     refreshData: (messages: Message[]) => void;
@@ -46,7 +53,13 @@ type D3CanvasRefType = {
 };
 
 export default function Page() {
+  // State for page sections
+  const [showHero, setShowHero] = useState<boolean>(true);
   const [splashText, setSplashText] = useState<string | null>(null);
+  
+  // Refs
+  const playgroundRef = useRef<HTMLDivElement>(null);
+  const d3CanvasRef = useRef<D3CanvasRefType>(null);
   
   // State for API data and interaction
   const [elements, setElements] = useState<ElementData[]>([]);
@@ -60,12 +73,12 @@ export default function Page() {
   const [results, setResults] = useState<AlgorithmResponse[]>([]);
   const [currentRecipeIndex, setCurrentRecipeIndex] = useState(0);
   const [timingResults, setTimingResults] = useState<TimingInfo[]>([]);
+  const resultsRef = useRef<AlgorithmResponse[]>([]);
 
-
-  useIsomorphicLayoutEffect(() => setSplashText(splashTexts[Math.floor(Math.random() * splashTexts.length)]), []);
-  
-  // Updated D3Canvas ref
-  const d3CanvasRef = useRef<D3CanvasRefType>(null);
+  // Select a random splash text on initial render
+  useIsomorphicLayoutEffect(() => {
+    setSplashText(splashTexts[Math.floor(Math.random() * splashTexts.length)]);
+  }, []);
   
   // Fetch elements from backend on load
   useEffect(() => {
@@ -99,6 +112,17 @@ export default function Page() {
     }
   }, [targetElement, elements]);
 
+  // Scroll to playground when hero button is clicked
+  const handleStartExploring = () => {
+    setShowHero(false);
+    setTimeout(() => {
+      if (playgroundRef.current) {
+        playgroundRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+    setShowHero(true);
+  };
+
   // Handle searching for recipes
   const handleSearch = useCallback(() => {
     if (!targetElement) {
@@ -119,6 +143,7 @@ export default function Page() {
     setIsProcessing(true);
     setResults([]);
     setCurrentRecipeIndex(0);
+    setError(null);
 
     const socket = createRecipeWebSocket(
         selectedAlgorithm,
@@ -129,19 +154,28 @@ export default function Page() {
             setResults(prevResults => {
                 // Use prevResults inside this callback where it's available
                 const newResults = [...prevResults, result];
-				
-                toast.success(`Recipe ${newResults.length} found!`);
 
-				if (result.timingInfo) {
-					setTimingResults(prev => [
-						...prev,
-						{
-							algorithm: result.timingInfo.algorithm,
-							duration: result.timingInfo.duration,
-						}
-					]);
-				}
-		
+                // Update the ref to the latest results
+                resultsRef.current = newResults;
+                
+                toast.success(`Found recipe for ${targetElement}`, {
+                    style: {
+                        background: '#4CAF50', // green background
+                        color: '#fff'
+                    }
+                });
+
+                if (result.timingInfo) {
+                    setTimingResults(prev => [
+                        ...prev,
+                        {
+                            algorithm: result.timingInfo.algorithm,
+                            duration: result.timingInfo.duration,
+                            nodesVisited: result.nodesVisited,
+                        }
+                    ]);
+                }
+        
                 return newResults;
             });
         },
@@ -149,26 +183,49 @@ export default function Page() {
             console.error("WebSocket error:", err);
             setError("Error connecting to server. Please try again.");
             setIsProcessing(false);
-            toast.error("Connection error. Please try again.");
+            toast.error("Connection error. Please try again.", {
+                style: {
+                    background: '#f44336', // red background
+                    color: '#fff'
+                }
+            });
         }
     );
-    
+
     socket.onclose = () => {
       setIsProcessing(false);
-      if (results.length > 0) {
-        toast.success(`Found ${results.length} recipes for ${targetElement}`);
+
+      const totalRecipesFound = resultsRef.current.length;
+
+      if (totalRecipesFound > 0) {
+        toast.success(`Found ${totalRecipesFound} recipes for ${targetElement}`, {
+          style: {
+            background: '#4CAF50',
+            color: '#fff'
+          }
+        });
       } else {
-        toast.error(`No recipes found for ${targetElement}`);
+        toast.error(`No recipes found for ${targetElement}`, {
+          style: {
+            background: '#f44336', // red background
+            color: '#fff'
+          }
+        });
       }
     };
-    
+
     // Safety timeout (30 seconds)
     const timeout = setTimeout(() => {
       if (socket.readyState === WebSocket.OPEN) {
         socket.close();
         if (results.length === 0) {
           setError("Request timed out. Please try again.");
-          toast.error("Request timed out");
+          toast.error("Request timed out", {
+            style: {
+              background: '#f44336', // red background
+              color: '#fff'
+            }
+          });
         }
       }
     }, 30000);
@@ -181,7 +238,7 @@ export default function Page() {
     };
   }, [targetElement, selectedAlgorithm, totalRecipes, elements, results.length]);
 
-  // Updated useEffect to refresh D3Canvas with new recipe data
+  // Update D3Canvas with new recipe data
   useEffect(() => {
     if (!d3CanvasRef.current || results.length === 0) return;
     
@@ -194,199 +251,140 @@ export default function Page() {
   }, [results, currentRecipeIndex]);
 
   return (
-    <div className="h-full flex flex-col">
-      <div className="container md:h-16 p-4 flex flex-col items-start justify-between space-y-2 sm:flex-row sm:items-center sm:space-y-0">
-        <h2 className="text-lg font-semibold">Nuggets</h2>
-        <div className="w-full ml-auto flex space-x-2 sm:justify-end">{splashText}</div>
-      </div>
-      <Separator className="h-[2px]" />
-      <div className="container h-full px-4 py-6">
-        <div className="h-full grid items-stretch gap-6 md:grid-cols-[250px_1fr]">
-          {/* Left Panel - Search Controls */}
-          <div className="flex flex-col space-y-4 order-1">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="space-y-6">
-                  {error && (
-                    <div className="bg-destructive/10 text-destructive p-3 rounded-md">
-                      {error}
+    <div className="min-h-screen flex flex-col bg-background">
+      {/* Header */}
+      <header className="border-b border-primary/10">
+        <div className="container md:h-16 p-4 flex items-center justify-between">
+          <motion.h1 
+            className="text-2xl font-bold text-primary"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Nuggets
+          </motion.h1>
+          <motion.span 
+            className="text-xs px-2 py-1 bg-primary-50 text-primary rounded-full"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Beta
+          </motion.span>
+        </div>
+      </header>
+      
+      {/* Main content */}
+      <main className="flex-grow">
+        <AnimatePresence>
+          {showHero && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Hero 
+                title="Little Alchemy 2 Recipe Explorer" 
+                subtitle={splashText || "Discover All 720 Elements from 4 Basic Elements!"}
+                onStartClick={handleStartExploring}
+              />
+              <Features />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
+        {/* Algorithm Playground */}
+        <div 
+          ref={playgroundRef}
+          className="py-8 px-4"
+        >
+          <motion.div 
+            className="container max-w-6xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: showHero ? 0 : 0.3 }}
+          >
+            <h2 className="text-3xl font-bold text-center mb-2 text-primary">Algorithm Playground</h2>
+            <p className="text-center text-text-muted mb-8">Explore element combinations using different algorithms</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-6">
+              {/* Left panel - Controls */}
+              <AlgorithmControls
+                targetElement={targetElement}
+                setTargetElement={setTargetElement}
+                selectedAlgorithm={selectedAlgorithm}
+                setSelectedAlgorithm={setSelectedAlgorithm}
+                totalRecipes={totalRecipes}
+                setTotalRecipes={setTotalRecipes}
+                error={error}
+                isProcessing={isProcessing}
+                handleSearch={handleSearch}
+                filteredElements={filteredElements}
+                setFilteredElements={setFilteredElements}
+                currentRecipeIndex={currentRecipeIndex}
+                setCurrentRecipeIndex={setCurrentRecipeIndex}
+                resultsLength={results.length}
+                timingResults={timingResults}
+                setTimingResults={setTimingResults}
+              />
+              
+              {/* Right panel - Visualization */}
+              <div className="bg-background-card border-2 border-primary/10 rounded-xl overflow-hidden shadow-card">
+                {results.length > 0 && (
+                  <div className="p-3 bg-background-muted flex justify-between items-center border-b border-primary/10">
+                    <div className="text-sm font-medium text-primary">
+                      Recipe {currentRecipeIndex + 1} for {targetElement}
                     </div>
-                  )}
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="targetElement">Target Element</Label>
-                    <div className="relative">
-                      <Input 
-                        id="targetElement"
-                        value={targetElement}
-                        onChange={(e) => {
-                          setTargetElement(e.target.value);
-                          setError(null);
-                        }}
-                        placeholder="Type an element name..."
-                        className="w-full"
-                      />
-                      
-                      {/* Show suggestions */}
-                      {filteredElements.length > 0 && targetElement && (
-                        <div className="absolute z-10 w-full mt-1 bg-background border rounded-md shadow-lg max-h-60 overflow-auto">
-                          {filteredElements.map(element => (
-                            <div 
-                              key={element.name}
-                              className="px-4 py-2 hover:bg-accent cursor-pointer flex items-center gap-2"
-                              onClick={() => {
-                                setTargetElement(element.name);
-                                setFilteredElements([]);
-                              }}
-                            >
-                              <img 
-                                src={element.image || getElementImageUrl(element.name)}
-                                alt={element.name}
-                                className="w-6 h-6"
-                                onError={(e) => {
-                                  (e.target as HTMLImageElement).src = "https://placehold.co/24x24/orange/white?text=" + element.name.charAt(0);
-                                }}
-                              />
-                              <span>{element.name}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                    <div className="text-sm text-text-muted">
+                      Total nodes searched: {results[currentRecipeIndex]?.nodesVisited || 0}
                     </div>
                   </div>
-                  
-                  <div className="space-y-2">
-                    <Label>Algorithm</Label>
-                    <RadioGroup 
-                      value={selectedAlgorithm} 
-                      onValueChange={(value: 'dfs' | 'bfs' | 'bfs-shortest') => setSelectedAlgorithm(value)}
-                      className="flex flex-col space-y-1"
-                    >
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="bfs" id="bfs" />
-                        <Label htmlFor="bfs">BFS</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="dfs" id="dfs" />
-                        <Label htmlFor="dfs">DFS</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="bfs-shortest" id="bfs-shortest" />
-                        <Label htmlFor="bfs-shortest">BFS-Shortest</Label>
-                      </div>
-                    </RadioGroup>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <Label htmlFor="totalRecipes">Total Recipes: {totalRecipes}</Label>
-                    </div>
-                    <Slider
-                      id="totalRecipes"
-                      min={1}
-                      max={10}
-                      step={1}
-                      value={[totalRecipes]}
-                      onValueChange={(value) => setTotalRecipes(value[0])}
-                      className="py-4"
-                    />
-                  </div>
-                  
-                  <Button 
-                    onClick={handleSearch} 
-                    className="w-full" 
-                    disabled={isProcessing || loading || !targetElement}
-                  >
-                    {isProcessing ? "Processing..." : "Find Recipes"}
-                  </Button>
-                  
-                  {results.length > 0 && (
-                    <div className="flex justify-between items-center space-x-2 mt-4">
-                      <Button 
-                        onClick={() => setCurrentRecipeIndex(prev => Math.max(0, prev - 1))}
-                        disabled={currentRecipeIndex === 0}
-                        variant="outline"
-                        size="sm"
-                        className="flex-1"
-                      >
-                        Previous
-                      </Button>
-                      	<span className="text-center font-medium flex-1 flex justify-center">
-						            {currentRecipeIndex + 1} of {results.length}
-						            </span>
-                      <Button 
-                        onClick={() => setCurrentRecipeIndex(prev => Math.min(results.length - 1, prev + 1))}
-                        disabled={currentRecipeIndex === results.length - 1}
-                        variant="outline"
-                        size="sm"
-                        className="flex-1"
-                      >
-                        Next
-                      </Button>
-                    </div>
-                  )}
-				  {/* Add Timing Display here */}
-					{timingResults.length > 0 && (
-					<div className="mt-4 p-4 border rounded-md bg-accent/30">
-						<h3 className="text-lg font-semibold mb-2">Algorithm Performance</h3>
-						<div className="space-y-2">
-						{(() => {
-							// Get the latest result for each algorithm
-							const latestByAlgorithm: Record<string, TimingInfo> = {};
-							
-							// Process array from end to beginning to get the latest entries
-							[...timingResults].reverse().forEach(timing => {
-							if (!latestByAlgorithm[timing.algorithm]) {
-								latestByAlgorithm[timing.algorithm] = timing;
-							}
-							});
-							
-							// Return the latest entries
-							return Object.values(latestByAlgorithm).map((timing, idx) => (
-							<div key={idx} className="flex justify-between items-center p-2 bg-white/50 rounded">
-								<span className="font-medium">{timing.algorithm.toUpperCase()}</span>
-								<span className="text-blue-600 font-bold">{timing.duration.toFixed(2)} ms</span>
-							</div>
-							));
-						})()}
-						</div>
-					</div>
-					)}
-					{/* Add a button to clear timing data */}
-					<Button 
-					onClick={() => setTimingResults([])} 
-					variant="outline"
-					size="sm"
-					className="mt-3 w-full"
-					>
-					Clear Timing Data
-					</Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          
-          {/* D3 Canvas */}
-          <div className="order-2 bg-background border-2 border-input rounded-md overflow-hidden">
-            {results.length > 0 && (
-              <div className="p-2 bg-muted flex justify-between items-center border-b">
-                <div className="text-sm font-medium">
-                  Recipe {currentRecipeIndex + 1} for {targetElement}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Total nodes searched: {results[currentRecipeIndex]?.nodesVisited || 0}
+                )}
+                <div className="h-[600px]">
+                  <D3Visualization ref={d3CanvasRef} className="w-full h-full" />
                 </div>
               </div>
-            )}
-            <div className="flex-grow">
-              <D3Canvas 
-                ref={d3CanvasRef}
-                className="w-full h-[600px]" 
-              />
+            </div>
+          </motion.div>
+        </div>
+      </main>
+      
+      {/* Footer */}
+      <footer className="mt-auto py-6 border-t border-primary/10">
+        <div className="container text-center text-text-muted">
+          <p className="mb-2">© 2025 Nuggets - Visual Algorithm Playground</p>
+          <div className="flex flex-col items-center justify-center">
+            <p className="font-medium text-primary mb-1 mx">Contributors</p>
+            <div className="flex flex-wrap justify-center gap-2 my-1">
+              <a 
+                href="https://github.com/username" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-2 py-1 bg-primary/10 rounded-full text-xs hover:bg-primary/20 transition-colors"
+              >
+                Muhammad Aditya Rahmadeni - 13523028
+              </a>
+              <a
+                href="https://github.com/username"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 py-1 bg-primary/10 rounded-full text-xs hover:bg-primary/20 transition-colors"
+              >
+                Nadhif Radityo Nugroho - 13523045
+              </a>
+              <a
+                href="https://github.com/username"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 py-1 bg-primary/10 rounded-full text-xs hover:bg-primary/20 transition-colors"
+              >
+                Adhimas Aryo Bimo - 1323052
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }

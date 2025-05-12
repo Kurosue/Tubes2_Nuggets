@@ -114,7 +114,7 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
                 continue
             }
 
-            if recipesEl[ing1].Tier > recipesEl[targetElement].Tier || recipesEl[ing2].Tier > recipesEl[targetElement].Tier {
+            if recipesEl[ing1].Tier >= recipesEl[targetElement].Tier || recipesEl[ing2].Tier >= recipesEl[targetElement].Tier {
                 continue
             }
             
