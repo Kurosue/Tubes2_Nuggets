@@ -201,7 +201,7 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     
     // Add element images
     nodes.append("image")
-      .attr("xlink:href", d => `/images/${d.data.name}.svg`)
+      .attr("xlink:href", d => new URL(`/images/${d.data.name}.svg`, process.env.NEXT_PUBLIC_BACKEND).href)
       .attr("width", 40)
       .attr("height", 40)
       .attr("x", -20)
