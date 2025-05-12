@@ -126,7 +126,7 @@ export default function AlgorithmControls({
                         }}
                       >
                         <img 
-                          src={element.image || `/api/element-image/${element.name}`}
+                          src={new URL(element.image, process.env.NEXT_PUBLIC_BACKEND).href}
                           alt={element.name}
                           className="w-6 h-6"
                           onError={(e) => {
