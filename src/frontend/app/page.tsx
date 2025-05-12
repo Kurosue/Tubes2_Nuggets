@@ -9,6 +9,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Slider } from "@/components/ui/slider";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 type D3CanvasBaseNodeDatum = d3.SimulationNodeDatum & { id: string };
 type D3CanvasBaseLinkDatum<NodeDatum extends D3CanvasBaseNodeDatum> = d3.SimulationLinkDatum<NodeDatum> & { id: string, source: NodeDatum, target: NodeDatum };
@@ -358,6 +360,9 @@ export default function Page() {
 			clearTimeout(handle);
 		};
 	}, []);
+	const [algorithm, setAlgorithm] = useState("dfs");
+	const [direction, setDirection] = useState("source");
+	const [recipeCount, setRecipeCount] = useState([1]);
 	return (
 		<div className="h-full flex flex-col">
 			<div className="container md:h-16 p-4 flex flex-col items-start justify-between space-y-2 sm:flex-row sm:items-center sm:space-y-0">
@@ -368,7 +373,78 @@ export default function Page() {
 			<div className="container h-full px-4 py-6">
 				<div className="h-full grid items-stretch gap-6 md:grid-cols-[1fr_200px]">
 					<div className="flex flex-col space-y-4 md:order-2">
-						<Button>Submit</Button>
+						<div className="grid gap-2 pt-2">
+							<HoverCard openDelay={200}>
+								<HoverCardTrigger asChild>
+									<div className="grid gap-2">
+										<span className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Algorithm</span>
+										<div className="h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground grid w-full grid-cols-2">
+											<button
+												className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow"
+												data-state={algorithm == "dfs" ? "active" : "inactive"}
+												onClick={() => setAlgorithm("dfs")}
+											>DFS</button>
+											<button
+												className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow"
+												data-state={algorithm == "bfs" ? "active" : "inactive"}
+												onClick={() => setAlgorithm("bfs")}
+											>BFS</button>
+										</div>
+									</div>
+								</HoverCardTrigger>
+								<HoverCardContent className="w-[260px] text-sm" align="start" side="left">
+									Lorem ipsum.
+								</HoverCardContent>
+							</HoverCard>
+						</div>
+						<div className="grid gap-2 pt-2">
+							<HoverCard openDelay={200}>
+								<HoverCardTrigger asChild>
+									<div className="grid gap-2">
+										<span className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Direction</span>
+										<div className="h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground grid w-full grid-cols-2">
+											<button className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow"
+												data-state={direction == "source" ? "active" : "inactive"}
+												onClick={() => setDirection("source")}
+											>From Source</button>
+											<button className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow"
+												data-state={direction == "target" ? "active" : "inactive"}
+												onClick={() => setDirection("target")}
+											>To Target</button>
+										</div>
+									</div>
+								</HoverCardTrigger>
+								<HoverCardContent className="w-[260px] text-sm" align="start" side="left">
+									Lorem ipsum.
+								</HoverCardContent>
+							</HoverCard>
+						</div>
+						<div className="grid gap-2 pt-2">
+							<HoverCard openDelay={200}>
+								<HoverCardTrigger asChild>
+									<div className="grid gap-2">
+										<div className="flex items-center justify-between">
+											<Label htmlFor="recipeCount">Recipe Count</Label>
+											<span className="w-12 rounded-md border border-transparent px-2 py-0.5 text-right text-sm text-muted-foreground hover:border-border">{recipeCount}</span>
+										</div>
+										<Slider
+											id="recipeCount"
+											min={1}
+											max={50}
+											step={1}
+											defaultValue={recipeCount}
+											onValueChange={setRecipeCount}
+											className="[&_[role=slider]]:h-4 [&_[role=slider]]:w-4"
+											aria-label="RecipeCount"
+										/>
+									</div>
+								</HoverCardTrigger>
+								<HoverCardContent className="w-[260px] text-sm" align="start" side="left">
+									Controls the amount of recipe the algorithm must search for.
+								</HoverCardContent>
+							</HoverCard>
+						</div>
+						<Button className="mt-2">Submit</Button>
 					</div>
 					<div className="md:order-1">
 						<D3Canvas<NodeDatum, LinkDatum, NodeElement, LinkElement> 
