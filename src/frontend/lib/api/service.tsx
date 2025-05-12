@@ -29,7 +29,7 @@ export interface AlgorithmResponse {
   timingInfo: TimingInfo;
 }
 
-const API_BASE_URL = 'http://localhost:8888/api';
+const API_BASE_URL = new URL("/api", process.env.NEXT_PUBLIC_BACKEND).href;
 
 // Fetch all elements
 export async function fetchElements(): Promise<Element[]> {
@@ -50,9 +50,12 @@ export function createRecipeWebSocket(
   onMessage: (result: AlgorithmResponse) => void,
   onError: (error: Event) => void
 ): WebSocket {
-  const url = `ws://localhost:8888/api/find-recipe?algorithm=${algorithm}&direction=${direction}&target=${encodeURIComponent(targetElement)}&count=${count}`;
+  const url = new URL("/api/find-recipe", process.env.NEXT_PUBLIC_BACKEND);
+  url.searchParams.set("algorithm", algorithm);
+  url.searchParams.set("direction", direction);
+  url.searchParams.set("target", targetElement);
+  url.searchParams.set("count", `${count}`);
   const socket = new WebSocket(url);
-
   const startTime = performance.now();
   
   socket.onmessage = (event) => {

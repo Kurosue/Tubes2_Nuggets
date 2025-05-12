@@ -1,13 +1,14 @@
-package main
+package scrap
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"os"
 	"regexp"
-	"encoding/json"
+
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly/v2"
 	// "strconv"
@@ -59,7 +60,7 @@ func fetchImageFromElementPage(name, pageURL string) string {
 
 			// Simpan gambar	
 			imgFilename := sanitizeFilename(name) + ".png"
-			file, err := os.Create("images/" + imgFilename)
+			file, err := os.Create("../scrap/images/" + imgFilename)
 			if err != nil {
 				log.Println("Error saving image:", err)
 				return ""
@@ -76,7 +77,7 @@ func fetchImageFromElementPage(name, pageURL string) string {
 	return ""
 }
 
-func main() {
+func DoScrap(withImage bool) {
 	// Setup kolektor
 	c := colly.NewCollector(
 		colly.UserAgent(HEADERS),
@@ -121,35 +122,37 @@ func main() {
 			elementPageURL := BASE_URL + link
 			fmt.Println("Scraping:", elementPageURL)
 
-			// Coba ambil gambar dari halaman elemen
-			// imgFilename := fetchImageFromElementPage(name, elementPageURL)
-			// // if imgFilename == "" {
-			// // 	// Gambar tidak ditemukan dari halaman elemen, coba ambil dari tabel
-			// // 	imgTag := el.ChildAttr("td:nth-child(1) img", "src")
-			// // 	if imgTag != "" {
-			// // 		imgURL := "https:" + imgTag
-			// // 		// Mengunduh gambar
-			// // 		imgData, err := http.Get(imgURL)
-			// // 		if err != nil {
-			// // 			log.Println("Error fetching image from table:", err)
-			// // 			return
-			// // 		}
-			// // 		defer imgData.Body.Close()
+			if withImage {
+				// Coba ambil gambar dari halaman elemen
+				imgFilename := fetchImageFromElementPage(name, elementPageURL)
+				if imgFilename == "" {
+					// Gambar tidak ditemukan dari halaman elemen, coba ambil dari tabel
+					imgTag := el.ChildAttr("td:nth-child(1) img", "src")
+					if imgTag != "" {
+						imgURL := "https:" + imgTag
+						// Mengunduh gambar
+						imgData, err := http.Get(imgURL)
+						if err != nil {
+							log.Println("Error fetching image from table:", err)
+							return
+						}
+						defer imgData.Body.Close()
 
-			// // 		// Simpan gambar
-			// // 		imgFilename := sanitizeFilename(name) + ".png"
-			// // 		file, err := os.Create("images/" + imgFilename)
-			// // 		if err != nil {
-			// // 			log.Println("Error saving image:", err)
-			// // 			return
-			// // 		}
-			// // 		defer file.Close()
-			// // 		_, err = io.Copy(file, imgData.Body)
-			// // 		if err != nil {
-			// // 			log.Println("Error copying image data:", err)
-			// // 		}
-			// // 	}
-			// // }
+						// Simpan gambar
+						imgFilename := sanitizeFilename(name) + ".svg"
+						file, err := os.Create("images/" + imgFilename)
+						if err != nil {
+							log.Println("Error saving image:", err)
+							return
+						}
+						defer file.Close()
+						_, err = io.Copy(file, imgData.Body)
+						if err != nil {
+							log.Println("Error copying image data:", err)
+						}
+					}
+				}
+			}
 
 			// Ambil resep elemen
 			recipeList := []string{}
@@ -190,7 +193,7 @@ func main() {
 	}
 
 	// Simpan ke file JSON
-	file, err := os.Create("elements.json")
+	file, err := os.Create("../scrap/elements.json")
 	if err != nil {
 		log.Fatal("Error creating JSON file:", err)
 	}

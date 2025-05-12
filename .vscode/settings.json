@@ -1,3 +1,6 @@
 {
-	"tailwindCSS.experimental.configFile": "src/frontend/app/globals.scss"
+	"tailwindCSS.experimental.configFile": "src/frontend/app/globals.scss",
+	"[go]": {
+		"editor.formatOnSave": false
+	}
 }

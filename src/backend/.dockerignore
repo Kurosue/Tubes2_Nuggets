@@ -1,0 +1,6 @@
+scrap/images/
+.DS_Store
+.git
+.gitignore
+*.log
+*.out

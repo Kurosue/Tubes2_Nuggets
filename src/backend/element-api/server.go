@@ -1,13 +1,15 @@
 package main
 
 import (
-    "net/http"
+	"net/http"
+	"strconv"
+	"strings"
+
+	"github.com/Kurosue/Tubes2_Nuggets/scrap"
+	"github.com/Kurosue/Tubes2_Nuggets/utils"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
-    "github.com/Kurosue/Tubes2_Nugget/utils"
-	"strings"
-	"strconv"
-	"github.com/gin-contrib/cors"
 )
 
 type ElementApp struct {
@@ -60,7 +62,7 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"message": "Welcome to the Element API!"})
 	})
 
-	router.PATCH("/api/rescrape", loadRecipes) // ini mau scrap ulang apa gimans ye
+	router.PATCH("/api/rescrape", scrapRecipes)
 	router.GET("/api/elements", getElements)
 	router.GET("/api/elements/:name", func(c *gin.Context) {
 		name := c.Param("name")
@@ -85,7 +87,7 @@ func main() {
 	})
 
 	router.GET("/api/find-recipe", findPath)
-	
+
 	// Start the server
 	if err := app.Run(":8888"); err != nil {
 		panic(err)
@@ -129,43 +131,22 @@ func initData() error {
 	return nil
 }
 
-func loadRecipes(c *gin.Context) {
-	// Load recipes
-	var elementsData []ElementApp
-	recipesMap, recipesEl, err := utils.LoadRecipes("../scrap/elements.json")
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to load recipes"})
+var scrapingRecipes bool = false;
+
+func scrapRecipes(c *gin.Context) {
+	if scrapingRecipes {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Still scraping" })
 		return
 	}
-
-	// Parse the recipes
-	for _, recipe := range recipesEl {
-		parsedRecipes := make([][]string, 0)
-		for _, r := range recipe.Recipes {
-			parts := strings.Split(r, "+")
-			if len(parts) != 2 {
-				continue
-			}
-			a := strings.TrimSpace(parts[0])
-			b := strings.TrimSpace(parts[1])
-			parsedRecipes = append(parsedRecipes, []string{a, b})
-		}
-		temp := ElementApp{
-			Name: recipe.Name,
-			Recipes: recipe.Recipes,
-			Image: recipe.Image,
-			PageURL: recipe.PageURL,
-			Tier: recipe.Tier,
-			ParsedRecipes: parsedRecipes,
-		}
-		elementsData = append(elementsData, temp)
+	scrapingRecipes = true
+	defer func() {
+		scrapingRecipes = false
+	}()
+	scrap.DoScrap(false)
+	if err := initData(); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to initialize recipes: " + err.Error() })
+		return
 	}
-	cachedElements = elementsData
-	cachedRecipesEl = recipesEl
-	cachedRecipesMap = recipesMap
-
-	// Return the loaded recipes as JSON
-	c.JSON(http.StatusOK, gin.H{"elementsData": elementsData})
 }
 
 func getElements(c *gin.Context) {

@@ -1,8 +1,9 @@
 package main
 
 import (
-    "fmt"
-    "github.com/Kurosue/Tubes2_Nugget/utils"
+	"fmt"
+
+	"github.com/Kurosue/Tubes2_Nuggets/utils"
 )
 
 func main() {
