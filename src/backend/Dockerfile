@@ -11,4 +11,5 @@ WORKDIR /app
 COPY --from=builder /app/element-api/server ./element-api/server
 VOLUME /app/scrap
 EXPOSE 8888
+WORKDIR /app/element-api
 CMD ["./server"]

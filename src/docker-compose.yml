@@ -16,6 +16,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    volumes:
+      - ./src/backend/scrap/:/app/scrap/
     ports:
       - "8888:8888"
     restart: unless-stopped
