@@ -33,8 +33,9 @@
 
 ### Overview
 <br />
-A web application for discovering and visualizing element combination recipes. Users can search for specific elements and find multiple recipes through an interactive visualization.
- 
+Nuggets is inspired by Little Alchemy 2, allowing users to discover recipes for creating various elements through combinations. The application leverages parallel BFS and DFS algorithms implemented in Go to efficiently find multiple recipes. The frontend provides an interactive tree visualization built with D3.js, showing the relationships between elements and their ingredients. Users can compare the performance of different algorithms in real-time while exploring element combinations.
+
+ACCESS THE WEB ON [HERE](https://nuggets.bwks.link/)
  ---
  
  ## Installation & Setup
@@ -75,17 +76,24 @@ A web application for discovering and visualizing element combination recipes. U
     ```bash
     cd Tubes2-Nuggets
     ```
- 3. Run the backend server
+ 3. Start the application using Docker Compose:
     ```bash
-    cd src/backend/element-api
-    go run server.go
+    docker-compose up
     ```
- 4. Run the frontend server
-    ```bash
+ 4. Access The Web on [http://localhost:8888]
+
+## Development Setup
+1. Backend
+    ```   bash
+    cd src/backend
+    go run element-api/server.go
+    ```
+2. Frontend
+    ```   bash
     cd src/frontend
     npm install
     npm run dev
-    ```    
+    ```
 > [!Note]
 > Make sure that all of the dependencies are already installed
  ---
