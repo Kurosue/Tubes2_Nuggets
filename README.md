@@ -35,7 +35,7 @@
 <br />
 Nuggets is inspired by Little Alchemy 2, allowing users to discover recipes for creating various elements through combinations. The application leverages parallel BFS and DFS algorithms implemented in Go to efficiently find multiple recipes. The frontend provides an interactive tree visualization built with D3.js, showing the relationships between elements and their ingredients. Users can compare the performance of different algorithms in real-time while exploring element combinations.
 
-ACCESS THE WEB ON [HERE](https://nuggets.bwks.link/)
+ACCESS THE WEB [HERE](https://nuggets.bwks.link/)
  ---
  
  ## Installation & Setup
