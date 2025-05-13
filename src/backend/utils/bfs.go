@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"sort"
 	"strings"
 )
 
@@ -81,41 +80,39 @@ func BFSShortestNode(target string, Elements map[string]Element, visitedNode *in
 
 
 func FlattenTreeToMessages(root *Node) []Message {
-    var result []Message
-    visited := make(map[string]bool)
+	var messages []Message
 
-    var iter func(*Node)
-    iter = func(n *Node) {
-        if n == nil || visited[n.Result] {
-            return
-        }
+	var iter func(node *Node)
+	iter = func(node *Node) {
+		if node == nil {
+			return
+		}
+		iter(node.Ingredient1)
+		iter(node.Ingredient2)
 
-        iter(n.Ingredient1)
-        iter(n.Ingredient2)
+		if node.Ingredient1 == nil && node.Ingredient2 == nil {
+			// Ini BaseElement (daun)
+			messages = append(messages, Message{
+				Result: node.Result,
+				Depth:  node.Depth,
+			})
+		} else {
+			// Ini kombinasi normal
+			messages = append(messages, Message{
+				Ingredient1: node.Ingredient1.Result,
+				Ingredient2: node.Ingredient2.Result,
+				Result:      node.Result,
+				Depth:       node.Depth,
+			})
+		}
+	}
 
-        visited[n.Result] = true
+	iter(root)
 
-        var ing1, ing2 string
-        if n.Ingredient1 != nil {
-            ing1 = n.Ingredient1.Result
-        }
-        if n.Ingredient2 != nil {
-            ing2 = n.Ingredient2.Result
-        }
+	// Reverse agar target berada di index pertama
+	for i, j := 0, len(messages)-1; i < j; i, j = i+1, j-1 {
+		messages[i], messages[j] = messages[j], messages[i]
+	}
 
-        result = append(result, Message{
-            Ingredient1: ing1,
-            Ingredient2: ing2,
-            Result:      n.Result,
-            Depth:       n.Depth,
-        })
-    }
-
-    iter(root)
-
-    sort.Slice(result, func(i, j int) bool {
-        return result[i].Depth < result[j].Depth
-    })
-
-    return result
+	return messages
 }

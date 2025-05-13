@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
@@ -205,6 +206,9 @@ func findPath(c *gin.Context) {
 			})
 		} else {
 			multiplePath := utils.DFSMultiple(cachedRecipesEl, cachedRecipesEl[targetElement], int(count))
+			for _, recipe := range multiplePath.RecipePaths {
+				fmt.Println(recipe)
+			}
 			for i, recipe := range multiplePath.RecipePaths {
 				results = append(results, AlgorithmResponse{
 					Recipe:      recipe,
@@ -222,9 +226,11 @@ func findPath(c *gin.Context) {
 			visited := 0
 			node := utils.BFSShortestNode(targetElement, cachedRecipesEl, &visited)
 			path := utils.FlattenTreeToMessages(node)
-			for i, recipe := range path {
+			// Masukin path ke new list of message jadi [][]Message
+			new := append([][]utils.Message{}, path)
+			for i, recipe := range new {
 				results = append(results, AlgorithmResponse{
-					Recipe:      []utils.Message{recipe},
+					Recipe:      recipe,
 					NodesVisited: visited,
 					RecipeIndex: i + 1,
 					TotalRecipes: len(path),
