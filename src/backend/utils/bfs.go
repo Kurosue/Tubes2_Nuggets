@@ -5,6 +5,14 @@ import (
 	"strings"
 )
 
+// BaseElement adalah map yang menyimpan elemen dasar
+var BaseElement = map[string]bool{
+    "Air":   true,
+    "Water": true,
+    "Earth": true,
+    "Fire":  true,
+}
+
 type Node struct {
     Ingredient1 *Node
     Ingredient2 *Node
@@ -76,14 +84,14 @@ func FlattenTreeToMessages(root *Node) []Message {
     var result []Message
     visited := make(map[string]bool)
 
-    var dfs func(*Node)
-    dfs = func(n *Node) {
+    var iter func(*Node)
+    iter = func(n *Node) {
         if n == nil || visited[n.Result] {
             return
         }
 
-        dfs(n.Ingredient1)
-        dfs(n.Ingredient2)
+        iter(n.Ingredient1)
+        iter(n.Ingredient2)
 
         visited[n.Result] = true
 
@@ -103,9 +111,8 @@ func FlattenTreeToMessages(root *Node) []Message {
         })
     }
 
-    dfs(root)
+    iter(root)
 
-    // ✨ Urutkan berdasarkan Depth dari kecil ke besar
     sort.Slice(result, func(i, j int) bool {
         return result[i].Depth < result[j].Depth
     })

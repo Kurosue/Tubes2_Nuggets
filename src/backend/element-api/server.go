@@ -231,14 +231,15 @@ func findPath(c *gin.Context) {
 				})
 			}
 		} else {
-			path, node := utils.BFSP(targetElement, cachedRecipesMap, cachedRecipesEl)
-			path = path[:count]
-			for i, recipe := range path {
+			node := 0
+			path := utils.BFSNRecipes(targetElement, cachedRecipesEl, int(count), &node)
+			messages := utils.FlattenMultipleTrees(path)
+			for i, recipe := range messages {
 				results = append(results, AlgorithmResponse{
 					Recipe:      recipe,
 					NodesVisited: node,
 					RecipeIndex: i + 1,
-					TotalRecipes: len(path),
+					TotalRecipes: len(messages),
 				})
 			}
 		}

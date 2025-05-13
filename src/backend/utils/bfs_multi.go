@@ -1,240 +1,72 @@
 package utils
-
 import (
 	"strings"
-	"sync"
 )
 
-var BaseElement = map[string]bool{
-	"Fire":  true,
-	"Water": true,
-	"Earth": true,
-	"Air":   true,
-}
+func BFSNRecipes(target string, Elements map[string]Element, maxRecipes int, visitedNode *int) []*Node {
+	var resultRoots []*Node
+	queue := []*Node{{Result: target, Depth: 0}}
 
-type Path struct {
-	Messages []Message
-}
+	for len(queue) > 0 && len(resultRoots) < maxRecipes {
+		current := queue[0]
+		queue = queue[1:]
+		*visitedNode++
 
-type QueuePathItem struct {
-	element      string
-	tier         int
-	depth        int
-	path         Path
-	pendingElems map[string]bool
-}
+		if BaseElement[current.Result] {
+			resultRoots = append(resultRoots, current)
+			continue
+		}
 
-func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Message, nodeVisited int) {
-	var m sync.Mutex
-	var visitedMu sync.RWMutex
-    var nodeCountMu sync.Mutex
+		elem, ok := Elements[current.Result]
+		if !ok {
+			continue
+		}
 
-	visited := make(map[string]bool)
+		tier := elem.Tier
 
-	initialPending := make(map[string]bool)
-	initialPending[start] = true
-
-	queue := []QueuePathItem{{
-		element:      start,
-		tier:         elements[start].Tier,
-		depth:        0,
-		path:         Path{},
-		pendingElems: initialPending,
-	}}
-
-	visited[start] = true
-
-    nodeVisited = 0
-
-	const maxWorkers = 4
-	sem := make(chan struct{}, maxWorkers)
-
-	for len(queue) > 0 {
-		currentLevel := queue
-		queue = nil
-
-		var queueMu sync.Mutex
-		var wg sync.WaitGroup
-
-		for _, current := range currentLevel {
-
-            nodeCountMu.Lock()
-            nodeVisited++
-            nodeCountMu.Unlock()
-
-			if !current.pendingElems[current.element] {
+		for _, recipe := range elem.Recipes {
+			parts := strings.Split(recipe, "+")
+			if len(parts) != 2 {
 				continue
 			}
 
-			wg.Add(1)
-			sem <- struct{}{}
+			ing1 := strings.TrimSpace(parts[0][:len(parts[0])-1])
+			ing2 := strings.TrimSpace(parts[1][1:])
 
-			go func(item QueuePathItem) {
-				defer func() {
-					<-sem
-					wg.Done()
-				}()
+			e1, ok1 := Elements[ing1]
+			e2, ok2 := Elements[ing2]
+			if !ok1 || !ok2 {
+				continue
+			}
+			if e1.Tier >= tier || e2.Tier >= tier {
+				continue
+			}
 
-				pendingCopy := make(map[string]bool)
-				for k, v := range item.pendingElems {
-					pendingCopy[k] = v
-				}
+			// Rekursif bangun pohon dari ingredient
+			subVisited := 0
+			left := BFSShortestNode(ing1, Elements, &subVisited)
+			right := BFSShortestNode(ing2, Elements, &subVisited)
 
-				delete(pendingCopy, item.element)
-
-				if BaseElement[item.element] {
-					baseElementMsg := Message{
-						Result: item.element,
-						Depth:  item.depth,
-					}
-
-					newPath := append([]Message{}, item.path.Messages...)
-					newPath = append(newPath, baseElementMsg)
-
-					if len(pendingCopy) == 0 {
-						m.Lock()
-						res = append(res, newPath)
-						m.Unlock()
-					} else {
-						for nextElem := range pendingCopy {
-							queueMu.Lock()
-							queue = append(queue, QueuePathItem{
-								element:      nextElem,
-								tier:         elements[nextElem].Tier,
-								depth:        item.depth,
-								path:         Path{Messages: newPath},
-								pendingElems: pendingCopy,
-							})
-							queueMu.Unlock()
-							break
-						}
-					}
-					return
-				}
-
-				for _, recipe := range elements[item.element].Recipes {
-					parts := strings.Split(recipe, "+")
-					if len(parts) != 2 {
-						continue
-					}
-
-					first := strings.TrimSpace(parts[0])
-					second := strings.TrimSpace(parts[1])
-
-					_, ok1 := elements[first]
-					_, ok2 := elements[second]
-					if !ok1 || !ok2 {
-						continue
-					}
-
-					firstTier := elements[first].Tier
-					secondTier := elements[second].Tier
-
-					if firstTier < item.tier && secondTier < item.tier {
-						msg := Message{
-							Ingredient1: first,
-							Ingredient2: second,
-							Result:      item.element,
-							Depth:       item.depth,
-						}
-
-						newPath := append([]Message{}, item.path.Messages...)
-						newPath = append(newPath, msg)
-
-						newPending := make(map[string]bool)
-						for k, v := range pendingCopy {
-							newPending[k] = v
-						}
-
-						if !BaseElement[first] {
-							newPending[first] = true
-							visitedMu.Lock()
-							visited[first] = true
-							visitedMu.Unlock()
-						}
-
-						if !BaseElement[second] {
-							newPending[second] = true
-							visitedMu.Lock()
-							visited[second] = true
-							visitedMu.Unlock()
-						}
-
-						if BaseElement[first] && BaseElement[second] {
-							baseMsg1 := Message{
-								Result: first,
-								Depth:  item.depth + 1,
-							}
-							baseMsg2 := Message{
-								Result: second,
-								Depth:  item.depth + 1,
-							}
-
-							finalPath := append([]Message{}, newPath...)
-							finalPath = append(finalPath, baseMsg1, baseMsg2)
-
-							if len(newPending) == 0 {
-								m.Lock()
-								res = append(res, finalPath)
-								m.Unlock()
-							} else {
-								for nextElem := range newPending {
-									queueMu.Lock()
-									queue = append(queue, QueuePathItem{
-										element:      nextElem,
-										tier:         elements[nextElem].Tier,
-										depth:        item.depth + 1,
-										path:         Path{Messages: finalPath},
-										pendingElems: newPending,
-									})
-									queueMu.Unlock()
-									break
-								}
-							}
-							continue
-						}
-
-						if BaseElement[first] {
-							baseMsg := Message{
-								Result: first,
-								Depth:  item.depth + 1,
-							}
-							newPath = append(newPath, baseMsg)
-						}
-
-						if BaseElement[second] {
-							baseMsg := Message{
-								Result: second,
-								Depth:  item.depth + 1,
-							}
-							newPath = append(newPath, baseMsg)
-						}
-
-						if len(newPending) > 0 {
-							for nextElem := range newPending {
-								queueMu.Lock()
-								queue = append(queue, QueuePathItem{
-									element:      nextElem,
-									tier:         elements[nextElem].Tier,
-									depth:        item.depth + 1,
-									path:         Path{Messages: newPath},
-									pendingElems: newPending,
-								})
-								queueMu.Unlock()
-								break
-							}
-						} else {
-							m.Lock()
-							res = append(res, newPath)
-							m.Unlock()
-						}
-					}
-				}
-			}(current)
+			newNode := &Node{
+				Result:      current.Result,
+				Depth:       current.Depth,
+				Ingredient1: left,
+				Ingredient2: right,
+			}
+			resultRoots = append(resultRoots, newNode)
+			if len(resultRoots) >= maxRecipes {
+				break
+			}
 		}
-
-		wg.Wait()
 	}
 
-	return res , nodeVisited
+	return resultRoots
+}
+
+func FlattenMultipleTrees(roots []*Node) [][]Message {
+	var all [][]Message
+	for _, root := range roots {
+		all = append(all, FlattenTreeToMessages(root))
+	}
+	return all
 }

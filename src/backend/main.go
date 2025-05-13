@@ -22,6 +22,17 @@ func main() {
     messages := utils.FlattenTreeToMessages(res)
     fmt.Println(node)
     fmt.Println(messages)
+
+    fmt.Println("MultiRecipes")
+    node = 0
+    resm := utils.BFSNRecipes("Picnic", elmt, 3, &node)
+    messagesMultiple := utils.FlattenMultipleTrees(resm)
+    fmt.Println(node)
+    fmt.Println("Result:")
+    for _, path := range messagesMultiple {
+        fmt.Println()
+        fmt.Println(path)
+    }
     // ewaw, i := utils.DFS(elmt, elmt["Wizard"])
     // fmt.Println("DFS ewawult:")
     // fmt.Println(ewaw)
