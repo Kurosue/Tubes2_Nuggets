@@ -196,7 +196,7 @@ func findPath(c *gin.Context) {
 	if algorithm == "dfs" && direction == "target" {
 		// Perform DFS from target to source
 		if count == 1 {
-			path , node := utils.DFS(cachedRecipesMap, cachedRecipesEl, cachedRecipesEl[targetElement])
+			path , node := utils.DFS(cachedRecipesEl, cachedRecipesEl[targetElement])
 			results = append(results, AlgorithmResponse{
 				Recipe:      path,
 				NodesVisited: node,
@@ -204,7 +204,7 @@ func findPath(c *gin.Context) {
 				TotalRecipes: 1,
 			})
 		} else {
-			multiplePath := utils.DFSMultiple(cachedRecipesMap, cachedRecipesEl, cachedRecipesEl[targetElement], int(count))
+			multiplePath := utils.DFSMultiple(cachedRecipesEl, cachedRecipesEl[targetElement], int(count))
 			for i, recipe := range multiplePath.RecipePaths {
 				results = append(results, AlgorithmResponse{
 					Recipe:      recipe,
@@ -218,27 +218,30 @@ func findPath(c *gin.Context) {
 
 	if algorithm == "bfs" && direction == "target" {
 		// Perform BFS from target to source
-		path, node := utils.BFSP(targetElement, cachedRecipesMap, cachedRecipesEl)
-		path = path[:count]
-		for i, recipe := range path {
-			results = append(results, AlgorithmResponse{
-				Recipe:      recipe,
-				NodesVisited: node,
-				RecipeIndex: i + 1,
-				TotalRecipes: len(path),
-			})
+		if count == 1 {
+			visited := 0
+			node := utils.BFSShortestNode(targetElement, cachedRecipesEl, &visited)
+			path := utils.FlattenTreeToMessages(node)
+			for i, recipe := range path {
+				results = append(results, AlgorithmResponse{
+					Recipe:      []utils.Message{recipe},
+					NodesVisited: visited,
+					RecipeIndex: i + 1,
+					TotalRecipes: len(path),
+				})
+			}
+		} else {
+			path, node := utils.BFSP(targetElement, cachedRecipesMap, cachedRecipesEl)
+			path = path[:count]
+			for i, recipe := range path {
+				results = append(results, AlgorithmResponse{
+					Recipe:      recipe,
+					NodesVisited: node,
+					RecipeIndex: i + 1,
+					TotalRecipes: len(path),
+				})
+			}
 		}
-	}
-
-	if algorithm == "bfs-shortest" && direction == "target" {
-		// Perform BFS from target to source
-		path, node := utils.BFSShortestPath(targetElement, cachedRecipesMap, cachedRecipesEl)
-		results = append(results, AlgorithmResponse{
-			Recipe:      path,
-			NodesVisited: node,
-			RecipeIndex: 1,
-			TotalRecipes: 1,
-		})
 	}
 
 	// Dummy

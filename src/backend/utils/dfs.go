@@ -10,7 +10,7 @@ type DFSResult struct {
     NodesVisited int
 }
 
-func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement string, visited map[string]bool, nodesVisited* int, currentDepth int) []Message {
+func DFSHelper(recipesEl RecipeElement, targetElement string, visited map[string]bool, nodesVisited* int, currentDepth int) []Message {
     // Base case
     *nodesVisited++
     if targetElement == "Air" || targetElement == "Water" || targetElement == "Earth" || targetElement == "Fire" {
@@ -67,14 +67,14 @@ func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement strin
             
             go func() {
                 defer wg.Done()
-                subPath1 := DFSHelper(recipeMap, recipesEl, ing1, visited1, nodesVisited, currentDepth+1)
+                subPath1 := DFSHelper(recipesEl, ing1, visited1, nodesVisited, currentDepth+1)
                 ing1Channel <- subPath1
                 
             }()
             
             go func() {
                 defer wg.Done()
-                subPath2 := DFSHelper(recipeMap, recipesEl, ing2, visited2, nodesVisited, currentDepth+1)
+                subPath2 := DFSHelper(recipesEl, ing2, visited2, nodesVisited, currentDepth+1)
                 ing2Channel <- subPath2
                 
             }()
@@ -93,12 +93,12 @@ func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement strin
     return result
 }
 
-func DFS(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Element) ([]Message, int) {
+func DFS(recipesEl RecipeElement, targetElement Element) ([]Message, int) {
     visited := make(map[string]bool)
     nodesVisited := 0
     if _, exists := recipesEl[targetElement.Name]; !exists {
         return []Message{}, 0
     }
-    messages := DFSHelper(recipeMap, recipesEl, targetElement.Name, visited, &nodesVisited, 0)
+    messages := DFSHelper(recipesEl, targetElement.Name, visited, &nodesVisited, 0)
     return messages, nodesVisited
 }

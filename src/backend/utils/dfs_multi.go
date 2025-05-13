@@ -12,7 +12,7 @@ type MultiDFSResult struct {
     PathsFound    int         
 }
 
-func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Element, maxPaths int) MultiDFSResult {
+func DFSMultiple(recipesEl RecipeElement, targetElement Element, maxPaths int) MultiDFSResult {
     resultChan := make(chan []Message, maxPaths*2)
     nodesChan := make(chan int, maxPaths*2)
     
@@ -32,7 +32,7 @@ func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Ele
             
             visited := make(map[string]bool)
             nodesVisited := 0
-            messages := DFSHelperWithVariation(recipeMap, recipesEl, targetElement.Name, visited, &nodesVisited, 0, seed)
+            messages := DFSHelperWithVariation(recipesEl, targetElement.Name, visited, &nodesVisited, 0, seed)
             
             pathSignature := generatePathSignature(messages)
             
@@ -74,7 +74,7 @@ func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Ele
     }
 }
 
-func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, targetElement string, 
+func DFSHelperWithVariation(recipesEl RecipeElement, targetElement string, 
                           visited map[string]bool, nodesVisited *int, currentDepth int, seed int) []Message {
     // Base case
     *nodesVisited++
@@ -171,13 +171,13 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
     
     go func() {
         defer wg.Done()
-        subPath1 := DFSHelperWithVariation(recipeMap, recipesEl, ing1, visited1, nodesVisited, currentDepth+1, seed)
+        subPath1 := DFSHelperWithVariation(recipesEl, ing1, visited1, nodesVisited, currentDepth+1, seed)
         ing1Channel <- subPath1
     }()
     
     go func() {
         defer wg.Done()
-        subPath2 := DFSHelperWithVariation(recipeMap, recipesEl, ing2, visited2, nodesVisited, currentDepth+1, seed+1) // Add variety
+        subPath2 := DFSHelperWithVariation(recipesEl, ing2, visited2, nodesVisited, currentDepth+1, seed+1) // Add variety
         ing2Channel <- subPath2
     }()
     

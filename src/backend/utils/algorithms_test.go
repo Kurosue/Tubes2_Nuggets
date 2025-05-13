@@ -7,10 +7,9 @@ import (
 
 
 func TestDFS(t *testing.T) {
-	var recipes RecipeMap
 	var recipesEl RecipeElement
 	var err error
-	recipes, recipesEl, err = LoadRecipes("../scrap/elements.json")
+	_, recipesEl, err = LoadRecipes("../scrap/elements.json")
 	if err != nil {
 		t.Fatalf("Failed to load recipes: %v", err)
 	}
@@ -25,7 +24,7 @@ func TestDFS(t *testing.T) {
 
 
 	// Multiple recipe Test
-	pathElMulti := DFSMultiple(recipes, recipesEl, recipesEl[test], 5)
+	pathElMulti := DFSMultiple(recipesEl, recipesEl[test], 5)
 	for i, el := range pathElMulti.RecipePaths {
 		t.Logf("recipe: %v", i+1)
 		t.Log(VisualizeMessageTree(el)) // visualization max depth to 10
