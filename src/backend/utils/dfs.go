@@ -61,9 +61,9 @@ func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement strin
             ing2Channel <- subPath2
             
         }()
-        wg.Wait()
         subPath1 := <-ing1Channel
         subPath2 := <-ing2Channel
+        wg.Wait()
 
         result = append(result, RecipePath{ Ingredient1: ing1Name, Ingredient2: ing2Name, Result: targetElement })
         result = append(result, subPath1...)

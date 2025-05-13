@@ -8,7 +8,7 @@ import (
 
 func main() {
     // Load recipes
-    rese, elmt, err := utils.LoadRecipes("./scrap/elements.json")
+    _, elmt, err := utils.LoadRecipes("./scrap/elements.json")
     if err != nil {
         fmt.Printf("Error loading recipes: %v\n", err)
         return
@@ -17,7 +17,7 @@ func main() {
     start := "Pyramid"
     resultChan := make(chan utils.Message)
     go func() {
-        utils.BFSP(start, rese, elmt, 5, resultChan)
+        utils.BFSNRecipes(start, elmt, 5, resultChan)
         close(resultChan)
     }()
     fmt.Println("Result:")

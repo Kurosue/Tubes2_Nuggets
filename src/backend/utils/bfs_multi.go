@@ -1,187 +1,140 @@
 package utils
 
 import (
-	"maps"
 	"sync"
 	"time"
 )
 
-type QueuePathItem struct {
-	element      string
-	tier         int
-	recipePath   []RecipePath
-	pendingElems map[string]bool
-}
-
-func BFSP(startElement string, recipeMap RecipeMap, elements RecipeElement, maxResult int, resultChan chan Message) {
-	var visitedMu sync.RWMutex
-    var nodeVisitedMu sync.Mutex
-	var resultCountMu sync.Mutex
-
-	visited := make(map[string]bool)
-	visited[startElement] = true
-
-	initialPending := make(map[string]bool)
-	initialPending[startElement] = true
-
-	queue := []QueuePathItem{{
-		element:      startElement,
-		tier:         elements[startElement].Tier,
-		recipePath:   []RecipePath{},
-		pendingElems: initialPending,
-	}}
-
-    nodeVisited := 0
+func BFSNRecipes(target string, Elements map[string]Element, maxRecipes int, resultChan chan Message) {
 	resultCount := 0
-    start := time.Now().UnixNano()
-
-	const maxWorkers = 4
-	sem := make(chan struct{}, maxWorkers)
-
-	for len(queue) > 0 && resultCount < maxResult {
-		currentLevel := queue
-		queue = nil
-
-		var queueMu sync.Mutex
-		var wg sync.WaitGroup
-
-		for _, current := range currentLevel {
-
-            nodeVisitedMu.Lock()
-            nodeVisited++
-            nodeVisitedMu.Unlock()
-
-			if !current.pendingElems[current.element] {
+	var resultMutex sync.Mutex
+	queue := []*Node{{ Result: target }}
+	var queueMutex sync.Mutex
+	
+	var wg sync.WaitGroup
+	maxWorkers := 10
+	semaphore := make(chan struct{}, maxWorkers)
+	
+	visitedNode := 0
+	done := make(chan struct{})
+	start := time.Now().UnixNano()
+	isDone := false
+	
+	processNode := func(current *Node) {
+		defer wg.Done()
+		defer func() { <-semaphore }()
+		
+		select {
+		case <-done:
+			return
+		default:
+		}
+		
+		resultMutex.Lock()
+		visitedNode++
+		resultMutex.Unlock()
+		
+		if BaseElement[current.Result] {
+			resultMutex.Lock()
+			resultCount++
+			resultChan <- Message{
+				RecipePath: FlattenTreeToRecipePaths(current),
+				NodesVisited: visitedNode,
+				Duration: float32(time.Now().UnixNano() - start) / 1000000,
+			}
+			if resultCount >= maxRecipes {
+				if !isDone {
+					close(done)
+					isDone = true
+				}
+			}
+			resultMutex.Unlock()
+			return
+		}
+		
+		elem, ok := Elements[current.Result]
+		if !ok {
+			return
+		}
+		
+		for _, recipe := range elem.Recipes {
+			ing1 := recipe[0]
+			ing2 := recipe[1]
+			
+			e1, ok1 := Elements[ing1]
+			e2, ok2 := Elements[ing2]
+			if !ok1 || !ok2 || e1.Tier >= elem.Tier || e2.Tier >= elem.Tier {
 				continue
 			}
-
-			wg.Add(1)
-			sem <- struct{}{}
-
-			go func(item QueuePathItem) {
-				defer func() {
-					<-sem
-					wg.Done()
-				}()
-
-				pendingCopy := make(map[string]bool)
-				maps.Copy(pendingCopy, item.pendingElems)
-
-				delete(pendingCopy, item.element)
-
-				if BaseElement[item.element] {
-					newPath := append([]RecipePath{}, item.recipePath...)
-					newPath = append(newPath, RecipePath{
-						Ingredient1: "",
-						Ingredient2: "",
-						Result: item.element,
-					})
-
-					if len(pendingCopy) == 0 {
-						resultCountMu.Lock()
-						shouldResult := resultCount < maxResult
-						resultCount++
-						resultCountMu.Unlock()
-						if(shouldResult) {
-							resultChan <- Message{
-								RecipePath: newPath,
-								NodesVisited: nodeVisited,
-								Duration: float32(time.Now().UnixNano() - start) / 1000000,
-							}
-						}
-					} else {
-						for nextElem := range pendingCopy {
-							queueMu.Lock()
-							queue = append(queue, QueuePathItem{
-								element:      nextElem,
-								tier:         elements[nextElem].Tier,
-								recipePath:   newPath,
-								pendingElems: pendingCopy,
-							})
-							queueMu.Unlock()
-							break
-						}
-					}
-					return
+			
+			var leftMutex, rightMutex sync.Mutex
+			var left, right *Node
+			
+			var ingWg sync.WaitGroup
+			ingWg.Add(2)
+			go func() {
+				defer ingWg.Done()
+				subVisited := 0
+				result := BFSShortestNodeImpl(ing1, Elements, &subVisited)
+				visitedNode += subVisited
+				leftMutex.Lock()
+				left = result
+				leftMutex.Unlock()
+			}()
+			go func() {
+				defer ingWg.Done()
+				subVisited := 0
+				result := BFSShortestNodeImpl(ing2, Elements, &subVisited)
+				visitedNode += subVisited
+				rightMutex.Lock()
+				right = result
+				rightMutex.Unlock()
+			}()
+			ingWg.Wait()
+			
+			newNode := &Node{
+				Result:      current.Result,
+				Ingredient1: left,
+				Ingredient2: right,
+			}
+			resultMutex.Lock()
+			resultCount++
+			resultChan <- Message{
+				RecipePath: FlattenTreeToRecipePaths(newNode),
+				NodesVisited: visitedNode,
+				Duration: float32(time.Now().UnixNano() - start) / 1000000,
+			}
+			if resultCount >= maxRecipes {
+				if !isDone {
+					close(done)
+					isDone = true
 				}
-
-				for _, recipe := range elements[item.element].Recipes {
-					ing1, ok1 := elements[recipe[0]]
-					ing2, ok2 := elements[recipe[1]]
-					if !ok1 || !ok2 {
-						continue
-					}
-
-					if ing1.Tier < item.tier && ing2.Tier < item.tier {
-						msg := RecipePath{
-							Ingredient1: ing1.Name,
-							Ingredient2: ing2.Name,
-							Result:      item.element,
-						}
-
-						newPath := append([]RecipePath{}, item.recipePath...)
-						newPath = append(newPath, msg)
-
-						newPending := make(map[string]bool)
-						maps.Copy(newPending, pendingCopy)
-
-						visitedMu.Lock()
-						if !BaseElement[ing1.Name] {
-							newPending[ing1.Name] = true
-							visited[ing1.Name] = true
-						}
-						if !BaseElement[ing2.Name] {
-							newPending[ing2.Name] = true
-							visited[ing2.Name] = true
-						}
-						visitedMu.Unlock()
-
-						if BaseElement[ing1.Name] {
-							baseMsg := RecipePath{
-								Ingredient1: "",
-								Ingredient2: "",
-								Result: ing1.Name,
-							}
-							newPath = append(newPath, baseMsg)
-						}
-						if BaseElement[ing2.Name] {
-							baseMsg := RecipePath{
-								Ingredient1: "",
-								Ingredient2: "",
-								Result: ing2.Name,
-							}
-							newPath = append(newPath, baseMsg)
-						}
-
-						if len(newPending) == 0 {
-							resultCountMu.Lock()
-							shouldResult := resultCount < maxResult
-							resultCount++
-							resultCountMu.Unlock()
-							if(shouldResult) {
-								resultChan <- Message{
-									RecipePath: newPath,
-									NodesVisited: nodeVisited,
-									Duration: float32(time.Now().UnixNano() - start) / 1000000,
-								}
-							}
-						} else {
-							for nextElem := range newPending {
-								queueMu.Lock()
-								queue = append(queue, QueuePathItem{
-									element:      nextElem,
-									tier:         elements[nextElem].Tier,
-									recipePath:   newPath,
-									pendingElems: newPending,
-								})
-								queueMu.Unlock()
-								break
-							}
-						}
-					}
-				}
-			}(current)
+				resultMutex.Unlock()
+				return
+			}
+			resultMutex.Unlock()
 		}
-		wg.Wait()
 	}
+	
+	for len(queue) > 0 {
+		select {
+		case <-done:
+			break
+		default:
+		}
+		
+		queueMutex.Lock()
+		if len(queue) == 0 {
+			queueMutex.Unlock()
+			break
+		}
+		current := queue[0]
+		queue = queue[1:]
+		queueMutex.Unlock()
+		
+		wg.Add(1)
+		semaphore <- struct{}{}
+		go processNode(current)
+	}
+	wg.Wait()
 }

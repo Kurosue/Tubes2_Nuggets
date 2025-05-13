@@ -244,9 +244,9 @@ func findPath(c *gin.Context) {
 		if algorithm == "bfs" && direction == "target" {
 			// Perform BFS from target to source
 			if count == 1 {
-				utils.BFSShortestPath(targetElement, cachedRecipesMap, cachedRecipesEl, resultChan)
+				utils.BFSShortestNode(targetElement, cachedRecipesEl, resultChan)
 			} else {
-				utils.BFSP(targetElement, cachedRecipesMap, cachedRecipesEl, int(count), resultChan)
+				utils.BFSNRecipes(targetElement, cachedRecipesEl, int(count), resultChan)
 			}
 		}
 		close(resultChan)
