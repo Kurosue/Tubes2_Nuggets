@@ -1,46 +1,110 @@
 package utils
 
 import (
-    "fmt"
-    "strings"
+	"fmt"
+	"strings"
 )
 
+type TreeNode struct {
+	Name     string       `json:"name"`
+	Path     RecipePath   `json:"path"`
+	Depth    int          `json:"depth"`
+	Children []*TreeNode  `json:"children"`
+}
+
+func buildTreeNode(recipeMap map[string]RecipePath, path RecipePath, visited map[string]bool, depth int) *TreeNode {
+	if _, seen := visited[path.Result]; seen {
+		// Prevent infinite recursion
+		return &TreeNode{
+			Name:     path.Result,
+			Path:     path,
+			Depth:    depth,
+			Children: []*TreeNode{},
+		}
+	}
+
+	// Mark as visited
+	visited[path.Result] = true
+	defer delete(visited, path.Result)
+
+	// Create the node
+	node := &TreeNode{
+		Name:     path.Result,
+		Path:     path,
+		Depth:    depth,
+		Children: []*TreeNode{},
+	}
+
+	// Add child nodes recursively
+	if path.Ingredient1 != "" {
+		if childPath, ok := recipeMap[path.Ingredient1]; ok {
+			node.Children = append(node.Children, buildTreeNode(recipeMap, childPath, visited, depth+1))
+		}
+	}
+	if path.Ingredient2 != "" {
+		if childPath, ok := recipeMap[path.Ingredient2]; ok {
+			node.Children = append(node.Children, buildTreeNode(recipeMap, childPath, visited, depth+1))
+		}
+	}
+
+	return node
+}
+
+func findRootNode(recipePaths []RecipePath, path RecipePath, visited map[string]bool) RecipePath {
+	if _, seen := visited[path.Result]; seen {
+		return path
+	}
+	visited[path.Result] = true
+
+	// Look for a parent path where this path is an ingredient
+	for _, candidate := range recipePaths {
+		if candidate.Ingredient1 == path.Result || candidate.Ingredient2 == path.Result {
+			return findRootNode(recipePaths, candidate, visited)
+		}
+	}
+
+	// If no parent found, this is the root
+	return path
+}
+
 // VisualizeMessages creates a visual representation of the DFS message path
-func VisualizeMessages(messages []Message) string {
-    if len(messages) == 0 {
+func VisualizeMessages(recipePaths []RecipePath) string {
+    if len(recipePaths) == 0 {
         return "No recipe path found."
     }
 
     var sb strings.Builder
     sb.WriteString("\n=== Recipe Path ===\n\n")
     
-    // Organize messages by depth
-    messagesByDepth := make(map[int][]Message)
-    maxDepth := 0
-    
-    for _, msg := range messages {
-        messagesByDepth[msg.Depth] = append(messagesByDepth[msg.Depth], msg)
-        if msg.Depth > maxDepth {
-            maxDepth = msg.Depth
+    recipeMap := make(map[string]RecipePath)
+    for _, msg := range recipePaths {
+        if _, exists := recipeMap[msg.Result]; !exists {
+            recipeMap[msg.Result] = msg
         }
     }
+
+    visited1 := make(map[string]bool)
+    visited2 := make(map[string]bool)
+    treeNodes := []*TreeNode{ buildTreeNode(recipeMap, findRootNode(recipePaths, recipePaths[0], visited1), visited2, 0) }
     
-    // Print messages by depth
-    for depth := 0; depth <= maxDepth; depth++ {
-        if msgs, exists := messagesByDepth[depth]; exists {
-            sb.WriteString(fmt.Sprintf("Depth %d:\n", depth))
-            for _, msg := range msgs {
-                if msg.Ingredient1 == "" && msg.Ingredient2 == "" {
-                    // Base element or target
-                    sb.WriteString(fmt.Sprintf("  • %s (Base)\n", msg.Result))
-                } else {
-                    // Combination
-                    sb.WriteString(fmt.Sprintf("  • %s = %s + %s\n", 
-                        msg.Result, msg.Ingredient1, msg.Ingredient2))
-                }
+    depth := 0
+    for len(treeNodes) > 0 {
+        currentTreeNodes := treeNodes
+        treeNodes = []*TreeNode {}
+        sb.WriteString(fmt.Sprintf("Depth %d:\n", depth))
+        for _, treeNode := range currentTreeNodes {
+            treeNodes = append(treeNodes, treeNode.Children...)
+            recipePath := treeNode.Path
+            if recipePath.Ingredient1 == "" && recipePath.Ingredient2 == "" {
+                // Base element or target
+                sb.WriteString(fmt.Sprintf("  • %s (Base)\n", recipePath.Result))
+            } else {
+                // Combination
+                sb.WriteString(fmt.Sprintf("  • %s = %s + %s\n", 
+                    recipePath.Result, recipePath.Ingredient1, recipePath.Ingredient2))
             }
-            sb.WriteString("\n")
         }
+        depth++
     }
     
     sb.WriteString("=== End of Path ===\n")
@@ -48,26 +112,21 @@ func VisualizeMessages(messages []Message) string {
 }
 
 // VisualizeMessageTree creates a tree visualization of the messages
-func VisualizeMessageTree(messages []Message) string {
-    if len(messages) == 0 {
+func VisualizeMessageTree(recipePaths []RecipePath) string {
+    if len(recipePaths) == 0 {
         return "No recipe path found."
     }
     
     // Find the target element (depth 0)
-    var target Message
-    for _, msg := range messages {
-        if msg.Depth == 0 {
-            target = msg
-            break
-        }
-    }
+    visited1 := make(map[string]bool)
+    target := findRootNode(recipePaths, recipePaths[0], visited1)
     
     // Pre-process messages into a more efficient structure
     // Map from result -> message for quick lookup
-    messageMap := make(map[string]Message)
-    for _, msg := range messages {
-        if existing, exists := messageMap[msg.Result]; !exists || msg.Depth < existing.Depth {
-            messageMap[msg.Result] = msg
+    recipeMap := make(map[string]RecipePath)
+    for _, msg := range recipePaths {
+        if _, exists := recipeMap[msg.Result]; !exists {
+            recipeMap[msg.Result] = msg
         }
     }
     
@@ -76,14 +135,14 @@ func VisualizeMessageTree(messages []Message) string {
     
     // Draw the tree starting with the target
     visited := make(map[string]bool) // Prevent infinite recursion
-    drawMessageTree(&sb, messageMap, target, "", "", visited, 0, 10) // Max depth 10 to prevent excessive rendering
+    drawMessageTree(&sb, recipeMap, target, "", "", visited, 0, 10) // Max depth 10 to prevent excessive rendering
     
     sb.WriteString("\n=== End of Tree ===\n")
     return sb.String()
 }
 
 // Helper function to draw the message tree recursively with cycle detection and depth limiting
-func drawMessageTree(sb *strings.Builder, messageMap map[string]Message, currentMsg Message, 
+func drawMessageTree(sb *strings.Builder, messageMap map[string]RecipePath, currentMsg RecipePath, 
                     prefix string, childrenPrefix string, visited map[string]bool, 
                     currentDepth int, maxDepth int) {
     
@@ -104,7 +163,7 @@ func drawMessageTree(sb *strings.Builder, messageMap map[string]Message, current
     } else {
         // Combination
         sb.WriteString(fmt.Sprintf("%s = %s + %s (Depth: %d)\n", 
-            currentMsg.Result, currentMsg.Ingredient1, currentMsg.Ingredient2, currentMsg.Depth))
+            currentMsg.Result, currentMsg.Ingredient1, currentMsg.Ingredient2, currentDepth))
         
         // Draw branches for ingredients if they exist in our map
         ing1Msg, ing1Exists := messageMap[currentMsg.Ingredient1]
@@ -141,14 +200,14 @@ func drawMessageTree(sb *strings.Builder, messageMap map[string]Message, current
 }
 
 // VisualizeDFS creates a visualization of DFS results
-func VisualizeDFS(result DFSResult) string {
+func VisualizeDFS(result Message) string {
     var sb strings.Builder
     
     // Add tree visualization
-    sb.WriteString(VisualizeMessageTree(result.Messages))
+    sb.WriteString(VisualizeMessageTree(result.RecipePath))
     
     // Add statistics
-    sb.WriteString(fmt.Sprintf("\nTotal messages: %d\n", len(result.Messages)))
+    sb.WriteString(fmt.Sprintf("\nTotal messages: %d\n", len(result.RecipePath)))
     sb.WriteString(fmt.Sprintf("Total nodes visited: %d\n", result.NodesVisited))
     
     return sb.String()

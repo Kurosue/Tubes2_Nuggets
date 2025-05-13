@@ -1,55 +1,44 @@
 package utils
 
 import (
-	"strings"
+	"maps"
 	"sync"
+	"time"
 )
-
-var BaseElement = map[string]bool{
-	"Fire":  true,
-	"Water": true,
-	"Earth": true,
-	"Air":   true,
-}
-
-type Path struct {
-	Messages []Message
-}
 
 type QueuePathItem struct {
 	element      string
 	tier         int
-	depth        int
-	path         Path
+	recipePath   []RecipePath
 	pendingElems map[string]bool
 }
 
-func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Message, nodeVisited int) {
-	var m sync.Mutex
+func BFSP(startElement string, recipeMap RecipeMap, elements RecipeElement, maxResult int, resultChan chan Message) {
 	var visitedMu sync.RWMutex
-    var nodeCountMu sync.Mutex
+    var nodeVisitedMu sync.Mutex
+	var resultCountMu sync.Mutex
 
 	visited := make(map[string]bool)
+	visited[startElement] = true
 
 	initialPending := make(map[string]bool)
-	initialPending[start] = true
+	initialPending[startElement] = true
 
 	queue := []QueuePathItem{{
-		element:      start,
-		tier:         elements[start].Tier,
-		depth:        0,
-		path:         Path{},
+		element:      startElement,
+		tier:         elements[startElement].Tier,
+		recipePath:   []RecipePath{},
 		pendingElems: initialPending,
 	}}
 
-	visited[start] = true
-
-    nodeVisited = 0
+    nodeVisited := 0
+	resultCount := 0
+    start := time.Now().UnixNano()
 
 	const maxWorkers = 4
 	sem := make(chan struct{}, maxWorkers)
 
-	for len(queue) > 0 {
+	for len(queue) > 0 && resultCount < maxResult {
 		currentLevel := queue
 		queue = nil
 
@@ -58,9 +47,9 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Me
 
 		for _, current := range currentLevel {
 
-            nodeCountMu.Lock()
+            nodeVisitedMu.Lock()
             nodeVisited++
-            nodeCountMu.Unlock()
+            nodeVisitedMu.Unlock()
 
 			if !current.pendingElems[current.element] {
 				continue
@@ -76,33 +65,37 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Me
 				}()
 
 				pendingCopy := make(map[string]bool)
-				for k, v := range item.pendingElems {
-					pendingCopy[k] = v
-				}
+				maps.Copy(pendingCopy, item.pendingElems)
 
 				delete(pendingCopy, item.element)
 
 				if BaseElement[item.element] {
-					baseElementMsg := Message{
+					newPath := append([]RecipePath{}, item.recipePath...)
+					newPath = append(newPath, RecipePath{
+						Ingredient1: "",
+						Ingredient2: "",
 						Result: item.element,
-						Depth:  item.depth,
-					}
-
-					newPath := append([]Message{}, item.path.Messages...)
-					newPath = append(newPath, baseElementMsg)
+					})
 
 					if len(pendingCopy) == 0 {
-						m.Lock()
-						res = append(res, newPath)
-						m.Unlock()
+						resultCountMu.Lock()
+						shouldResult := resultCount < maxResult
+						resultCount++
+						resultCountMu.Unlock()
+						if(shouldResult) {
+							resultChan <- Message{
+								RecipePath: newPath,
+								NodesVisited: nodeVisited,
+								Duration: float32(time.Now().UnixNano() - start) / 1000000,
+							}
+						}
 					} else {
 						for nextElem := range pendingCopy {
 							queueMu.Lock()
 							queue = append(queue, QueuePathItem{
 								element:      nextElem,
 								tier:         elements[nextElem].Tier,
-								depth:        item.depth,
-								path:         Path{Messages: newPath},
+								recipePath:   newPath,
 								pendingElems: pendingCopy,
 							})
 							queueMu.Unlock()
@@ -113,128 +106,82 @@ func BFSP(start string, recipeMap RecipeMap, elements RecipeElement) (res [][]Me
 				}
 
 				for _, recipe := range elements[item.element].Recipes {
-					parts := strings.Split(recipe, "+")
-					if len(parts) != 2 {
-						continue
-					}
-
-					first := strings.TrimSpace(parts[0])
-					second := strings.TrimSpace(parts[1])
-
-					_, ok1 := elements[first]
-					_, ok2 := elements[second]
+					ing1, ok1 := elements[recipe[0]]
+					ing2, ok2 := elements[recipe[1]]
 					if !ok1 || !ok2 {
 						continue
 					}
 
-					firstTier := elements[first].Tier
-					secondTier := elements[second].Tier
-
-					if firstTier < item.tier && secondTier < item.tier {
-						msg := Message{
-							Ingredient1: first,
-							Ingredient2: second,
+					if ing1.Tier < item.tier && ing2.Tier < item.tier {
+						msg := RecipePath{
+							Ingredient1: ing1.Name,
+							Ingredient2: ing2.Name,
 							Result:      item.element,
-							Depth:       item.depth,
 						}
 
-						newPath := append([]Message{}, item.path.Messages...)
+						newPath := append([]RecipePath{}, item.recipePath...)
 						newPath = append(newPath, msg)
 
 						newPending := make(map[string]bool)
-						for k, v := range pendingCopy {
-							newPending[k] = v
-						}
+						maps.Copy(newPending, pendingCopy)
 
-						if !BaseElement[first] {
-							newPending[first] = true
-							visitedMu.Lock()
-							visited[first] = true
-							visitedMu.Unlock()
+						visitedMu.Lock()
+						if !BaseElement[ing1.Name] {
+							newPending[ing1.Name] = true
+							visited[ing1.Name] = true
 						}
-
-						if !BaseElement[second] {
-							newPending[second] = true
-							visitedMu.Lock()
-							visited[second] = true
-							visitedMu.Unlock()
+						if !BaseElement[ing2.Name] {
+							newPending[ing2.Name] = true
+							visited[ing2.Name] = true
 						}
+						visitedMu.Unlock()
 
-						if BaseElement[first] && BaseElement[second] {
-							baseMsg1 := Message{
-								Result: first,
-								Depth:  item.depth + 1,
+						if BaseElement[ing1.Name] {
+							baseMsg := RecipePath{
+								Ingredient1: "",
+								Ingredient2: "",
+								Result: ing1.Name,
 							}
-							baseMsg2 := Message{
-								Result: second,
-								Depth:  item.depth + 1,
+							newPath = append(newPath, baseMsg)
+						}
+						if BaseElement[ing2.Name] {
+							baseMsg := RecipePath{
+								Ingredient1: "",
+								Ingredient2: "",
+								Result: ing2.Name,
 							}
+							newPath = append(newPath, baseMsg)
+						}
 
-							finalPath := append([]Message{}, newPath...)
-							finalPath = append(finalPath, baseMsg1, baseMsg2)
-
-							if len(newPending) == 0 {
-								m.Lock()
-								res = append(res, finalPath)
-								m.Unlock()
-							} else {
-								for nextElem := range newPending {
-									queueMu.Lock()
-									queue = append(queue, QueuePathItem{
-										element:      nextElem,
-										tier:         elements[nextElem].Tier,
-										depth:        item.depth + 1,
-										path:         Path{Messages: finalPath},
-										pendingElems: newPending,
-									})
-									queueMu.Unlock()
-									break
+						if len(newPending) == 0 {
+							resultCountMu.Lock()
+							shouldResult := resultCount < maxResult
+							resultCount++
+							resultCountMu.Unlock()
+							if(shouldResult) {
+								resultChan <- Message{
+									RecipePath: newPath,
+									NodesVisited: nodeVisited,
+									Duration: float32(time.Now().UnixNano() - start) / 1000000,
 								}
 							}
-							continue
-						}
-
-						if BaseElement[first] {
-							baseMsg := Message{
-								Result: first,
-								Depth:  item.depth + 1,
-							}
-							newPath = append(newPath, baseMsg)
-						}
-
-						if BaseElement[second] {
-							baseMsg := Message{
-								Result: second,
-								Depth:  item.depth + 1,
-							}
-							newPath = append(newPath, baseMsg)
-						}
-
-						if len(newPending) > 0 {
+						} else {
 							for nextElem := range newPending {
 								queueMu.Lock()
 								queue = append(queue, QueuePathItem{
 									element:      nextElem,
 									tier:         elements[nextElem].Tier,
-									depth:        item.depth + 1,
-									path:         Path{Messages: newPath},
+									recipePath:   newPath,
 									pendingElems: newPending,
 								})
 								queueMu.Unlock()
 								break
 							}
-						} else {
-							m.Lock()
-							res = append(res, newPath)
-							m.Unlock()
 						}
 					}
 				}
 			}(current)
 		}
-
 		wg.Wait()
 	}
-
-	return res , nodeVisited
 }

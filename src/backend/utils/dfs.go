@@ -1,104 +1,94 @@
 package utils
 
 import (
-    // "fmt"
-    "sync"
+	// "fmt"
+	"maps"
+	"sync"
+	"time"
 )
 
-type DFSResult struct {
-    Messages []Message
-    NodesVisited int
-}
-
-func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement string, visited map[string]bool, nodesVisited* int, currentDepth int) []Message {
+func DFSHelper(recipeMap RecipeMap, recipesEl RecipeElement, targetElement string, visited map[string]bool, nodesVisited* int, currentDepth int) []RecipePath {
     // Base case
     *nodesVisited++
-    if targetElement == "Air" || targetElement == "Water" || targetElement == "Earth" || targetElement == "Fire" {
-        if _, exists := recipesEl[targetElement]; exists {
-            return []Message{{Ingredient1: "", Ingredient2: "", Result: targetElement, Depth: currentDepth}}
-        }
+    target, targetExists := recipesEl[targetElement]
+    if !targetExists {
+        return []RecipePath{}
     }
-    
-    if visited[targetElement] {
-        if _, exists := recipesEl[targetElement]; exists {
-            return []Message{{Ingredient1: "", Ingredient2: "", Result: targetElement, Depth: currentDepth}}
-        }
+    if visited[targetElement] || BaseElement[targetElement] {
+        return []RecipePath{{ Ingredient1: "", Ingredient2: "", Result: targetElement }}
     }
     
     visited[targetElement] = true
-    
-    result := []Message{}
+    result := []RecipePath{}
     
     // Find recipe to create this element
-    for _, combination := range recipesEl[targetElement].Recipes {
-            ing1, ing2 := DecomposeKeyWithPlus(combination)
-            // fmt.Printf("Combination: %s, Result: %s\n", combination, targetElement)
-            // fmt.Printf("Ingredients: %s, %s\n", ing1, ing2)
-            
-            // Skip yang ga ada di resepnya
-            if ing1 == "Time" || ing2 == "Time" {
-                continue
-            }
-            if _, exists := recipesEl[ing1]; !exists {
-                continue
-            }
-            if _, exists := recipesEl[ing2]; !exists {
-                continue
-            }
-
-            if recipesEl[ing1].Tier >= recipesEl[targetElement].Tier || recipesEl[ing2].Tier >= recipesEl[targetElement].Tier {
-                continue
-            }
-
-            visited1 := make(map[string]bool)
-            for k, v := range visited {
-                visited1[k] = v
-            }
-            
-            visited2 := make(map[string]bool)
-            for k, v := range visited {
-                visited2[k] = v
-            }
-
-            var wg sync.WaitGroup
-            wg.Add(2)
-            ing1Channel := make(chan []Message)
-            ing2Channel := make(chan []Message)
-            
-            go func() {
-                defer wg.Done()
-                subPath1 := DFSHelper(recipeMap, recipesEl, ing1, visited1, nodesVisited, currentDepth+1)
-                ing1Channel <- subPath1
-                
-            }()
-            
-            go func() {
-                defer wg.Done()
-                subPath2 := DFSHelper(recipeMap, recipesEl, ing2, visited2, nodesVisited, currentDepth+1)
-                ing2Channel <- subPath2
-                
-            }()
-            subPath1 := <-ing1Channel
-            subPath2 := <-ing2Channel
-
-            result = append(result, Message{Ingredient1: ing1, Ingredient2: ing2, Result: targetElement, Depth: currentDepth})
+    for _, recipe := range target.Recipes {
+        ing1Name := recipe[0]
+        ing2Name := recipe[1]
+        // fmt.Printf("Combination: %s, Result: %s\n", combination, targetElement)
+        // fmt.Printf("Ingredients: %s, %s\n", ing1, ing2)
         
-            wg.Wait()
-            result = append(result, subPath1...)
-            result = append(result, subPath2...)
+        // Skip yang ga ada di resepnya
+        if ing1Name == "Time" || ing2Name == "Time" {
+            continue
+        }
+        ing1, ing1Exists := recipesEl[ing1Name]
+        ing2, ing2Exists := recipesEl[ing2Name]
+        if !ing1Exists || !ing2Exists {
+            continue
+        }
+        if ing1.Tier >= target.Tier || ing2.Tier >= target.Tier {
+            continue
+        }
+
+        var wg sync.WaitGroup
+        wg.Add(2)
+        ing1Channel := make(chan []RecipePath)
+        ing2Channel := make(chan []RecipePath)
+        go func() {
+            defer wg.Done()
+            visited1 := make(map[string]bool)
+            maps.Copy(visited1, visited)
+            subPath1 := DFSHelper(recipeMap, recipesEl, ing1Name, visited1, nodesVisited, currentDepth + 1)
+            ing1Channel <- subPath1
             
-            return result
+        }()
+        go func() {
+            defer wg.Done()
+            visited2 := make(map[string]bool)
+            maps.Copy(visited2, visited)
+            subPath2 := DFSHelper(recipeMap, recipesEl, ing2Name, visited2, nodesVisited, currentDepth + 1)
+            ing2Channel <- subPath2
+            
+        }()
+        wg.Wait()
+        subPath1 := <-ing1Channel
+        subPath2 := <-ing2Channel
+
+        result = append(result, RecipePath{ Ingredient1: ing1Name, Ingredient2: ing2Name, Result: targetElement })
+        result = append(result, subPath1...)
+        result = append(result, subPath2...)
+        return result
     }
-    
     return result
 }
 
-func DFS(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Element) ([]Message, int) {
+func DFS(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Element, resultChan chan Message) {
     visited := make(map[string]bool)
     nodesVisited := 0
+    start := time.Now().UnixNano()
     if _, exists := recipesEl[targetElement.Name]; !exists {
-        return []Message{}, 0
+        resultChan <- Message{
+            RecipePath: []RecipePath{},
+            NodesVisited: 0,
+            Duration: float32(time.Now().UnixNano() - start) / 1000000,
+        }
+        return
     }
-    messages := DFSHelper(recipeMap, recipesEl, targetElement.Name, visited, &nodesVisited, 0)
-    return messages, nodesVisited
+    recipePath := DFSHelper(recipeMap, recipesEl, targetElement.Name, visited, &nodesVisited, 0)
+    resultChan <- Message{
+        RecipePath: recipePath,
+        NodesVisited: nodesVisited,
+        Duration: float32(time.Now().UnixNano() - start) / 1000000,
+    }
 }

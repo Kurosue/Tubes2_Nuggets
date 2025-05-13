@@ -1,29 +1,28 @@
 package utils
 
 import (
-    "container/list"
+	"container/list"
+	"time"
 )
 
 // Status iterasi sekarang (untuk mempermudah akses sama monirtoring)
 type State struct {
     Visited map[string]bool // Elemen yang udah dikunjungi di state sekarang
-    Path []Message // Path untuk sampai kondisi sekarang
+    Path []RecipePath // Path untuk sampai kondisi sekarang
 }
 
-func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement) (_ []Message , nodesVisited int) {
-
-    // Cek kalau elemen yang dicari base elemen jadi ga perlu dicari
+func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement, resultChan chan Message) {
     if BaseElement[target] {
-        return []Message{}, 0
+        return
     }
-
-    nodesVisited = 0
+    nodesVisited := 0
+    start := time.Now().UnixNano()
 
     // Inisialisasi Var yang dibutuhin
     queue := list.New()
     initialState := State{
         Visited: make(map[string]bool),
-        Path:    []Message{},
+        Path:    []RecipePath{},
     }
     
     // Init state untuk cek elmeen yang udah dibentuk sama path untuk sampai curr state
@@ -44,7 +43,12 @@ func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement)
         
         // Kalau sampai target, selesai
         if current.Visited[target] {
-            return current.Path, nodesVisited
+            resultChan <- Message{
+                RecipePath: current.Path,
+                NodesVisited: nodesVisited,
+                Duration: float32(time.Now().UnixNano() - start) / 1000000,
+            }
+            return
         }
         
         stateKey := stateToString(current.Visited)
@@ -63,7 +67,7 @@ func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement)
             if current.Visited[elem1] && current.Visited[elem2] {
                 newState := State{
                     Visited: make(map[string]bool),
-                    Path:    make([]Message, len(current.Path)),
+                    Path:    make([]RecipePath, len(current.Path)),
                 }
                 
                 for elem := range current.Visited {
@@ -74,24 +78,26 @@ func BFSShortestPath(target string, recipeMap RecipeMap, elements RecipeElement)
                 
                 copy(newState.Path, current.Path)
                 
-                newMsg := Message{
+                newMsg := RecipePath{
                     Ingredient1: elem1,
                     Ingredient2: elem2,
                     Result:      result,
-                    Depth:       len(current.Path),
                 }
                 newState.Path = append(newState.Path, newMsg)
                 
                 if result == target {
-                    return newState.Path , nodesVisited
+                    resultChan <- Message{
+                        RecipePath: current.Path,
+                        NodesVisited: nodesVisited,
+                        Duration: float32(time.Now().UnixNano() - start) / 1000000,
+                    }
+                    return
                 }
                 
                 queue.PushBack(newState)
             }
         }
     }
-    
-    return []Message{}, nodesVisited
 }
 
 // Helper function 

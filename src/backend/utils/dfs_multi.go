@@ -1,129 +1,82 @@
 package utils
 
 import (
-    "fmt"
-    "strings"
-    "sync"
+	"fmt"
+	"maps"
+	"strings"
+	"sync"
+	"time"
 )
 
-type MultiDFSResult struct {
-    RecipePaths   [][]Message 
-    NodesVisited  int       
-    PathsFound    int         
-}
-
-func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Element, maxPaths int) MultiDFSResult {
-    resultChan := make(chan []Message, maxPaths*2)
-    nodesChan := make(chan int, maxPaths*2)
-    
+func DFSMultiple(recipeMap RecipeMap, recipesEl RecipeElement, targetElement Element, maxPaths int, resultChan chan Message) {
     var mutex sync.Mutex
-    resultSet := make(map[string]bool)
-    
     var wg sync.WaitGroup
-    
-    numWorkers := min(maxPaths*2, 10)
+    resultSet := make(map[string]bool)
+    numWorkers := min(maxPaths * 2, 10)
     wg.Add(numWorkers)
+    start := time.Now().UnixNano()
     
     for i := 0; i < numWorkers; i++ {
         go func(workerID int) {
             defer wg.Done()
-            
             seed := workerID
-            
             visited := make(map[string]bool)
             nodesVisited := 0
-            messages := DFSHelperWithVariation(recipeMap, recipesEl, targetElement.Name, visited, &nodesVisited, 0, seed)
-            
-            pathSignature := generatePathSignature(messages)
+            recipePath := DFSHelperWithVariation(recipeMap, recipesEl, targetElement.Name, visited, &nodesVisited, 0, seed)
+            pathSignature := generatePathSignature(recipePath)
             
             mutex.Lock()
-            if len(messages) > 0 && !resultSet[pathSignature] {
+            if len(recipePath) > 0 && len(resultSet) < maxPaths && !resultSet[pathSignature] {
                 resultSet[pathSignature] = true
-                resultChan <- messages
-                nodesChan <- nodesVisited
+                resultChan <- Message{
+                    RecipePath: recipePath,
+                    NodesVisited: nodesVisited,
+                    Duration: float32(time.Now().UnixNano() - start) / 1000000,
+                }
             }
             mutex.Unlock()
         }(i)
     }
-    
-    go func() {
-        wg.Wait()
-        close(resultChan)
-        close(nodesChan)
-    }()
-    
-    var allPaths [][]Message
-    totalNodesVisited := 0
-    
-    // Collect paths and node counts
-    for path := range resultChan {
-        if len(allPaths) < maxPaths {
-            allPaths = append(allPaths, path)
-            nodesCount := <-nodesChan
-            totalNodesVisited += nodesCount
-        } else {
-            // Still need to drain the channel
-            <-nodesChan
-        }
-    }
-    
-    return MultiDFSResult{
-        RecipePaths: allPaths,
-        NodesVisited: totalNodesVisited,
-        PathsFound: len(allPaths),
-    }
+    wg.Wait()
 }
 
-func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, targetElement string, 
-                          visited map[string]bool, nodesVisited *int, currentDepth int, seed int) []Message {
+func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, targetElement string, visited map[string]bool, nodesVisited *int, currentDepth int, seed int) []RecipePath {
     // Base case
     *nodesVisited++
-    if targetElement == "Air" || targetElement == "Water" || targetElement == "Earth" || targetElement == "Fire" {
-        if _, exists := recipesEl[targetElement]; exists {
-            return []Message{{Ingredient1: "", Ingredient2: "", Result: targetElement, Depth: currentDepth}}
-        }
+    target, targetExists := recipesEl[targetElement]
+    if !targetExists {
+        return []RecipePath{}
     }
-    
-    if visited[targetElement] {
-        if _, exists := recipesEl[targetElement]; exists {
-            return []Message{{Ingredient1: "", Ingredient2: "", Result: targetElement, Depth: currentDepth}}
-        }
+    if visited[targetElement] || BaseElement[targetElement] {
+        return []RecipePath{{ Ingredient1: "", Ingredient2: "", Result: targetElement }}
     }
     
     visited[targetElement] = true
+    result := []RecipePath{}
+    var combos [][2]string
     
-    result := []Message{}
-    
-    // Get all possible combinations that produce this element
-    type recipePair struct {
-        ing1, ing2 string
-    }
-    var combos []recipePair
-    
-    for _, combination := range recipesEl[targetElement].Recipes {
-            ing1, ing2 := DecomposeKeyWithPlus(combination)
-            
-            // Skip yang ga ada di resepnya
-            if ing1 == "Time" || ing2 == "Time" {
-                continue
-            }
-            if _, exists := recipesEl[ing1]; !exists {
-                continue
-            }
-            if _, exists := recipesEl[ing2]; !exists {
-                continue
-            }
-
-            if recipesEl[ing1].Tier >= recipesEl[targetElement].Tier || recipesEl[ing2].Tier >= recipesEl[targetElement].Tier {
-                continue
-            }
-            
-            combos = append(combos, recipePair{ing1, ing2})
+    for _, recipe := range recipesEl[targetElement].Recipes {
+        ing1Name := recipe[0]
+        ing2Name := recipe[1]
+        
+        if ing1Name == "Time" || ing2Name == "Time" {
+            continue
+        }
+        ing1, ing1Exists := recipesEl[ing1Name]
+        ing2, ing2Exists := recipesEl[ing2Name]
+        if !ing1Exists || !ing2Exists {
+            continue
+        }
+        if ing1.Tier >= target.Tier || ing2.Tier >= target.Tier {
+            continue
+        }
+        
+        combos = append(combos, recipe)
     }
     
     // If no valid combinations found
     if len(combos) == 0 {
-        return []Message{}
+        return []RecipePath{}
     }
     
     if len(combos) > 1 {
@@ -149,53 +102,40 @@ func DFSHelperWithVariation(recipeMap RecipeMap, recipesEl RecipeElement, target
     
     // Choose only one recipe based on the seed
     chosenIndex := seed % len(combos)
-    combo := combos[chosenIndex]
-    
-    ing1 := combo.ing1
-    ing2 := combo.ing2
-    
-    visited1 := make(map[string]bool)
-    for k, v := range visited {
-        visited1[k] = v
-    }
-    
-    visited2 := make(map[string]bool)
-    for k, v := range visited {
-        visited2[k] = v
-    }
+    ing1 := combos[chosenIndex][0]
+    ing2 := combos[chosenIndex][1]
     
     var wg sync.WaitGroup
     wg.Add(2)
-    ing1Channel := make(chan []Message)
-    ing2Channel := make(chan []Message)
+    ing1Channel := make(chan []RecipePath)
+    ing2Channel := make(chan []RecipePath)
     
     go func() {
         defer wg.Done()
-        subPath1 := DFSHelperWithVariation(recipeMap, recipesEl, ing1, visited1, nodesVisited, currentDepth+1, seed)
+        visited1 := make(map[string]bool)
+        maps.Copy(visited1, visited)
+        subPath1 := DFSHelperWithVariation(recipeMap, recipesEl, ing1, visited1, nodesVisited, currentDepth + 1, seed)
         ing1Channel <- subPath1
     }()
-    
     go func() {
         defer wg.Done()
-        subPath2 := DFSHelperWithVariation(recipeMap, recipesEl, ing2, visited2, nodesVisited, currentDepth+1, seed+1) // Add variety
+        visited2 := make(map[string]bool)
+        maps.Copy(visited2, visited)
+        subPath2 := DFSHelperWithVariation(recipeMap, recipesEl, ing2, visited2, nodesVisited, currentDepth + 1, seed + 1) // Add variety
         ing2Channel <- subPath2
     }()
-    
     subPath1 := <-ing1Channel
     subPath2 := <-ing2Channel
-    
     wg.Wait()
     
-    // Create a message for this combination
-    result = append(result, Message{Ingredient1: ing1, Ingredient2: ing2, Result: targetElement, Depth: currentDepth})
+    result = append(result, RecipePath{ Ingredient1: ing1, Ingredient2: ing2, Result: targetElement })
     result = append(result, subPath1...)
     result = append(result, subPath2...)
-    
     return result
 }
 
 // generatePathSignature creates a unique signature for a recipe path
-func generatePathSignature(messages []Message) string {
+func generatePathSignature(messages []RecipePath) string {
     var elements []string
     
     for _, msg := range messages {

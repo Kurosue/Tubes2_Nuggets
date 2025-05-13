@@ -6,21 +6,32 @@ import (
 	"strings"
 )
 
+var BaseElement = map[string]bool{
+	"Fire":  true,
+	"Water": true,
+	"Earth": true,
+	"Air":   true,
+}
+
 // Nanti jadi return value ke Front end
+type RecipePath struct {
+    Ingredient1 string `json:"ingredient2"`
+    Ingredient2 string `json:"ingredient1"`
+    Result      string `json:"result"`
+}
 type Message struct {
-    Ingredient1 string
-    Ingredient2 string
-    Result      string
-    Depth       int
+    RecipePath []RecipePath `json:"recipePath"`
+    NodesVisited int        `json:"nodesVisited"`
+    Duration float32        `json:"duration"`
 }
 
 // Struct element sesuai json
 type Element struct {
-    Name     string   `json:"name"`
-    Recipes  []string `json:"recipes"`
-    Image    string   `json:"image"`
-    PageURL  string   `json:"page_url"`
-    Tier    int      `json:"tier"`
+    Name     string      `json:"name"`
+    Recipes  [][2]string `json:"recipes"`
+    Image    string      `json:"image"`
+    PageURL  string      `json:"page_url"`
+    Tier    int          `json:"tier"`
 }
 
 func PairKey(a, b string) string {
@@ -56,28 +67,24 @@ func StringInSlice(a string, list []string) bool {
 }
 
 func LoadRecipes(path string) (RecipeMap, RecipeElement, error) {
-    var elems []Element
+    var elements []Element
     data, err := ioutil.ReadFile(path)
     if err != nil {
         return nil, nil, err
     }
-    if err := json.Unmarshal(data, &elems); err != nil {
+    if err := json.Unmarshal(data, &elements); err != nil {
         return nil, nil, err
     }
 
     recipes := make(RecipeMap)
     recipesElement := make(RecipeElement)
-    for _, e := range elems {
-        for _, r := range e.Recipes {
-            parts := strings.Split(r, "+")
-            if len(parts) != 2 {
-                continue
-            }
-            a := strings.TrimSpace(parts[0])
-            b := strings.TrimSpace(parts[1])
-            recipes[PairKey(a, b)] = e.Name
+    for _, element := range elements {
+        for _, recipe := range element.Recipes {
+            a := strings.TrimSpace(recipe[0])
+            b := strings.TrimSpace(recipe[1])
+            recipes[PairKey(a, b)] = element.Name
         }
-        recipesElement[e.Name] = e
+        recipesElement[element.Name] = element
     }
     return recipes, recipesElement, nil
 }

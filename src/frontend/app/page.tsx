@@ -12,7 +12,7 @@ import { toast } from "sonner";
 // Import components
 import Hero from "@/components/hero";
 import Features from "@/components/features";
-import AlgorithmControls from "@/components/algorithm-controls";
+import AlgorithmControls, { TimingInfo } from "@/components/algorithm-controls";
 import D3Visualization from "@/components/d3-visualization";
 
 // Import API services
@@ -20,15 +20,10 @@ import {
   fetchElements, 
   createRecipeWebSocket, 
   Element as ElementData, 
-  Message, 
-  AlgorithmResponse, 
-  TimingInfo 
+  RecipePath, 
+  AlgorithmResponse
 } from "@/lib/api/service";
-
-// Helper function for element images
-function getElementImageUrl(elementName: string): string {
-  return `/api/element-image/${elementName}`;
-}
+import { Slider } from "@/components/ui/slider";
 
 // Splash texts for random selection
 const splashTexts = [
@@ -48,7 +43,7 @@ const splashTexts = [
 // D3Canvas reference type
 type D3CanvasRefType = {
   handler: {
-    refreshData: (messages: Message[]) => void;
+    refreshData: (messages: RecipePath[]) => void;
   };
 };
 
@@ -70,9 +65,9 @@ export default function Page() {
   const [selectedAlgorithm, setSelectedAlgorithm] = useState<'dfs' | 'bfs' | 'bfs-shortest'>('dfs');
   const [totalRecipes, setTotalRecipes] = useState(5);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [results, setResults] = useState<AlgorithmResponse[]>([]);
   const [currentRecipeIndex, setCurrentRecipeIndex] = useState(0);
   const [timingResults, setTimingResults] = useState<TimingInfo[]>([]);
+  const [visualizationStep, setVisualizationStep] = useState(Infinity);
   const resultsRef = useRef<AlgorithmResponse[]>([]);
 
   // Select a random splash text on initial render
@@ -132,7 +127,7 @@ export default function Page() {
     
     // Check if element exists
     const elementExists = elements.some(e => 
-      e.name.toLowerCase() === targetElement.toLowerCase()
+      e.name.toLowerCase() == targetElement.toLowerCase()
     );
     
     if (!elementExists) {
@@ -140,8 +135,10 @@ export default function Page() {
       return;
     }
     
+    resultsRef.current = [];
+    // Trigger rerender automatically below:
+    setVisualizationStep(Infinity);
     setIsProcessing(true);
-    setResults([]);
     setCurrentRecipeIndex(0);
     setError(null);
 
@@ -151,33 +148,22 @@ export default function Page() {
         targetElement,
         totalRecipes,
         (result) => {
-            setResults(prevResults => {
-                // Use prevResults inside this callback where it's available
-                const newResults = [...prevResults, result];
-
-                // Update the ref to the latest results
-                resultsRef.current = newResults;
-                
-                toast.success(`Found recipe for ${targetElement}`, {
-                    style: {
-                        background: '#4CAF50', // green background
-                        color: '#fff'
-                    }
-                });
-
-                if (result.timingInfo) {
-                    setTimingResults(prev => [
-                        ...prev,
-                        {
-                            algorithm: result.timingInfo.algorithm,
-                            duration: result.timingInfo.duration,
-                            nodesVisited: result.nodesVisited,
-                        }
-                    ]);
-                }
-        
-                return newResults;
-            });
+          result.recipePath = [...new Set(result.recipePath.map(p => JSON.stringify(p)))].map(p => JSON.parse(p));
+          resultsRef.current = [...resultsRef.current, result];
+          // Trigger rerender automatically below:
+          setTimingResults(prev => [
+              ...prev,
+              {
+                  algorithm: selectedAlgorithm,
+                  duration: result.duration,
+              }
+          ]);
+          // toast.success(`Found recipe for ${targetElement}`, {
+          //     style: {
+          //         background: '#4CAF50', // green background
+          //         color: '#fff'
+          //     }
+          // });
         },
         (err) => {
             console.error("WebSocket error:", err);
@@ -216,9 +202,9 @@ export default function Page() {
 
     // Safety timeout (30 seconds)
     const timeout = setTimeout(() => {
-      if (socket.readyState === WebSocket.OPEN) {
+      if (socket.readyState == WebSocket.OPEN) {
         socket.close();
-        if (results.length === 0) {
+        if (resultsRef.current.length == 0) {
           setError("Request timed out. Please try again.");
           toast.error("Request timed out", {
             style: {
@@ -232,29 +218,29 @@ export default function Page() {
     
     return () => {
       clearTimeout(timeout);
-      if (socket.readyState === WebSocket.OPEN) {
+      if (socket.readyState == WebSocket.OPEN) {
         socket.close();
       }
     };
-  }, [targetElement, selectedAlgorithm, totalRecipes, elements, results.length]);
+  }, [targetElement, selectedAlgorithm, totalRecipes, elements]);
 
   // Update D3Canvas with new recipe data
   useEffect(() => {
-    if (!d3CanvasRef.current || results.length === 0) return;
+    if (!d3CanvasRef.current || resultsRef.current.length == 0) return;
     
-    const currentResult = results[currentRecipeIndex];
+    const currentResult = resultsRef.current[currentRecipeIndex];
     if (!currentResult) return;
     
     // Pass the recipe directly to D3Canvas for rendering
-    d3CanvasRef.current.handler.refreshData(currentResult.recipe);
+    d3CanvasRef.current.handler.refreshData(currentResult.recipePath.slice(0, visualizationStep));
     
-  }, [results, currentRecipeIndex]);
+  }, [resultsRef.current, visualizationStep, currentRecipeIndex]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* Header */}
       <header className="border-b border-primary/10">
-        <div className="container md:h-16 p-4 flex items-center justify-between">
+        <div className="container md:h-16 p-4 flex items-center justify-between mx-auto">
           <motion.h1 
             className="text-2xl font-bold text-primary"
             initial={{ opacity: 0, x: -20 }}
@@ -323,27 +309,39 @@ export default function Page() {
                 filteredElements={filteredElements}
                 setFilteredElements={setFilteredElements}
                 currentRecipeIndex={currentRecipeIndex}
-                setCurrentRecipeIndex={setCurrentRecipeIndex}
-                resultsLength={results.length}
+                setCurrentRecipeIndex={v => { setCurrentRecipeIndex(v); setVisualizationStep(Infinity); }}
+                resultsLength={resultsRef.current.length}
                 timingResults={timingResults}
                 setTimingResults={setTimingResults}
               />
               
               {/* Right panel - Visualization */}
               <div className="bg-background-card border-2 border-primary/10 rounded-xl overflow-hidden shadow-card">
-                {results.length > 0 && (
+                {resultsRef.current.length > 0 && (
                   <div className="p-3 bg-background-muted flex justify-between items-center border-b border-primary/10">
                     <div className="text-sm font-medium text-primary">
                       Recipe {currentRecipeIndex + 1} for {targetElement}
                     </div>
                     <div className="text-sm text-text-muted">
-                      Total nodes searched: {results[currentRecipeIndex]?.nodesVisited || 0}
+                      Total nodes searched: {resultsRef.current[currentRecipeIndex]?.nodesVisited || 0}
                     </div>
                   </div>
                 )}
                 <div className="h-[600px]">
                   <D3Visualization ref={d3CanvasRef} className="w-full h-full" />
                 </div>
+                {resultsRef.current.length > 0 && (
+                  <div className="p-3 bg-background-muted flex justify-between items-center border-b border-primary/10">
+                    <Slider
+                      min={1}
+                      max={resultsRef.current[currentRecipeIndex]?.recipePath.length || 1}
+                      step={1}
+                      value={[Math.min(visualizationStep, resultsRef.current[currentRecipeIndex]?.recipePath.length || 1)]}
+                      onValueChange={(value) => setVisualizationStep(value[0])}
+                      className="py-4"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
@@ -352,13 +350,13 @@ export default function Page() {
       
       {/* Footer */}
       <footer className="mt-auto py-6 border-t border-primary/10">
-        <div className="container text-center text-text-muted">
+        <div className="container text-center text-text-muted mx-auto">
           <p className="mb-2">© 2025 Nuggets - Visual Algorithm Playground</p>
           <div className="flex flex-col items-center justify-center">
             <p className="font-medium text-primary mb-1 mx">Contributors</p>
             <div className="flex flex-wrap justify-center gap-2 my-1">
               <a 
-                href="https://github.com/username" 
+                href="https://github.com/Kurosue" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-2 py-1 bg-primary/10 rounded-full text-xs hover:bg-primary/20 transition-colors"
@@ -366,7 +364,7 @@ export default function Page() {
                 Muhammad Aditya Rahmadeni - 13523028
               </a>
               <a
-                href="https://github.com/username"
+                href="https://github.com/NadhifRadityo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-2 py-1 bg-primary/10 rounded-full text-xs hover:bg-primary/20 transition-colors"
@@ -374,7 +372,7 @@ export default function Page() {
                 Nadhif Radityo Nugroho - 13523045
               </a>
               <a
-                href="https://github.com/username"
+                href="https://github.com/ryonlunar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-2 py-1 bg-primary/10 rounded-full text-xs hover:bg-primary/20 transition-colors"

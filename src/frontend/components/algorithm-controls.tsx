@@ -8,7 +8,12 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent } from "@/components/ui/card";
-import { Element, TimingInfo } from "@/lib/api/service";
+import { Element } from "@/lib/api/service";
+
+export interface TimingInfo {
+  algorithm: string;
+  duration: number; // milliseconds
+}
 
 interface AlgorithmControlsProps {
   targetElement: string;
@@ -156,7 +161,7 @@ export default function AlgorithmControls({
                 <RadioGroupItem value="bfs" id="bfs" />
                 <Label 
                   htmlFor="bfs" 
-                  className={selectedAlgorithm === 'bfs' ? 'text-algorithm-bfs font-medium' : ''}
+                  className={selectedAlgorithm == 'bfs' ? 'text-algorithm-bfs font-medium' : ''}
                 >
                   BFS
                 </Label>
@@ -168,7 +173,7 @@ export default function AlgorithmControls({
                 <RadioGroupItem value="dfs" id="dfs" />
                 <Label 
                   htmlFor="dfs"
-                  className={selectedAlgorithm === 'dfs' ? 'text-algorithm-dfs font-medium' : ''}
+                  className={selectedAlgorithm == 'dfs' ? 'text-algorithm-dfs font-medium' : ''}
                 >
                   DFS
                 </Label>
@@ -180,7 +185,7 @@ export default function AlgorithmControls({
                 {/* <RadioGroupItem value="bfs-shortest" id="bfs-shortest" />
                 <Label 
                   htmlFor="bfs-shortest"
-                  className={selectedAlgorithm === 'bfs-shortest' ? 'text-algorithm-bfsShort font-medium' : ''}
+                  className={selectedAlgorithm == 'bfs-shortest' ? 'text-algorithm-bfsShort font-medium' : ''}
                 >
                   BFS-Shortest
                 </Label> */}
@@ -237,7 +242,7 @@ export default function AlgorithmControls({
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button 
                   onClick={handlePrevRecipe}
-                  disabled={currentRecipeIndex === 0}
+                  disabled={currentRecipeIndex == 0}
                   variant="outline"
                   size="sm"
                   className="flex-1 border-primary/20"
@@ -251,7 +256,7 @@ export default function AlgorithmControls({
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button 
                   onClick={handleNextRecipe}
-                  disabled={currentRecipeIndex === resultsLength - 1}
+                  disabled={currentRecipeIndex == resultsLength - 1}
                   variant="outline"
                   size="sm"
                   className="flex-1 border-primary/20"
@@ -276,9 +281,11 @@ export default function AlgorithmControls({
                   const latestByAlgorithm: Record<string, TimingInfo> = {};
                   
                   // Process array from end to beginning to get the latest entries
-                  [...timingResults].reverse().forEach(timing => {
+                  [...timingResults].forEach(timing => {
                     if (!latestByAlgorithm[timing.algorithm]) {
                       latestByAlgorithm[timing.algorithm] = timing;
+                    } else {
+                      latestByAlgorithm[timing.algorithm].duration = 0.2 * latestByAlgorithm[timing.algorithm].duration + timing.duration * 0.8;
                     }
                   });
                   
@@ -295,13 +302,13 @@ export default function AlgorithmControls({
                         {timing.algorithm.toUpperCase()}
                       </span>
                       <span className={`font-bold ${
-                        timing.algorithm === 'dfs' 
+                        timing.algorithm == 'dfs' 
                           ? 'text-algorithm-dfs' 
-                          : timing.algorithm === 'bfs' 
+                          : timing.algorithm == 'bfs' 
                             ? 'text-algorithm-bfs' 
                             : 'text-algorithm-bfsShort'
                       }`}>
-                        {timing.duration.toFixed(2)} ms
+                        {timing.duration.toFixed(4)} ms
                       </span>
                     </motion.div>
                   ));

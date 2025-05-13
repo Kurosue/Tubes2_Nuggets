@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useImperativeHandle } from "react";
 import * as d3 from "d3";
-import { Message } from "@/lib/api/service";
+import { RecipePath } from "@/lib/api/service";
 
 type D3CanvasRefType = {
   handler: {
-    refreshData: (messages: Message[]) => void;
+    refreshData: (messages: RecipePath[]) => void;
   };
 };
 
@@ -14,7 +14,8 @@ const D3Canvas = React.forwardRef(function D3Canvas(
 ) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<SVGGElement | null>(null);
-  const currentMessages = useRef<Message[]>([]);
+  const currentMessages = useRef<RecipePath[]>([]);
+  const zoomTransformRef = useRef<any>(null);
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -30,6 +31,7 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     const zoom = d3.zoom()
       .scaleExtent([0.1, 3])
       .on("zoom", (event) => {
+        zoomTransformRef.current = event.transform;
         container.attr("transform", event.transform);
       });
     
@@ -69,13 +71,13 @@ const D3Canvas = React.forwardRef(function D3Canvas(
   }, []);
 
   // The main function to refresh the tree with new message data
-  const refreshData = (messages: Message[]) => {
+  const refreshData = (recipePath: RecipePath[]) => {
     if (!containerRef.current || !svgRef.current) return;
     
     // Store current messages
-    currentMessages.current = messages;
+    currentMessages.current = recipePath;
     
-    if (messages.length === 0) return;
+    if (recipePath.length == 0) return;
     
     const width = svgRef.current.clientWidth;
     const height = svgRef.current.clientHeight;
@@ -87,61 +89,70 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     d3.select("#caption-placeholder").remove();
 
     // Find target element
-    const targetMsg = messages.find(msg => msg.Depth === 0) || messages[0];
+    function findRootNode(
+      path: RecipePath, 
+      visited: Set<string> = new Set()
+    ) {
+      const next = recipePath.find(m => m.ingredient1 == path.result || m.ingredient2 == path.result);
+      if(next == null || visited.has(path.result)) return path;
+      visited.add(path.result);
+      return findRootNode(next, visited);
+    }
+    const targetElement = findRootNode(recipePath[0]);
     
-    const messageMap: Record<string, Message> = {};
-    messages.forEach(msg => {
-      if (!messageMap[msg.Result] || msg.Depth < messageMap[msg.Result].Depth) {
-        messageMap[msg.Result] = msg;
+    const recipeMap: Record<string, RecipePath> = {};
+    recipePath.forEach(msg => {
+      if (!recipeMap[msg.result]) {
+        recipeMap[msg.result] = msg;
       }
     });
     
     // Helper
     interface TreeNode {
       name: string;
-      message: Message;
+      path: RecipePath;
+      depth: number;
       children: TreeNode[];
     }
     
     // Recursively build the tree - similar to your Go code
     function buildTreeNode(
-      msg: Message, 
+      path: RecipePath, 
       visited: Set<string> = new Set(),
       depth = 0
     ): TreeNode {
-      if (depth > 10 || visited.has(msg.Result)) { // Prevent infinite recursion
-        return { name: msg.Result, message: msg, children: [] };
+      if (visited.has(path.result)) { // Prevent infinite recursion
+        return { name: path.result, path: path, depth: depth, children: [] };
       }
       
       // Create node for current message
       const node: TreeNode = {
-        name: msg.Result,
-        message: msg,
+        name: path.result,
+        path: path,
+        depth: depth,
         children: []
       };
       
       // Mark as visited
-      visited.add(msg.Result);
-      
-      // Add ingredient1 if it exists
-      if (msg.Ingredient1 && messageMap[msg.Ingredient1]) {
-        // Create copy of visited set for this branch
-        const visited1 = new Set(visited);
-        node.children.push(buildTreeNode(messageMap[msg.Ingredient1], visited1, depth + 1));
-      }
-      
-      // Add ingredient2 if it exists
-      if (msg.Ingredient2 && messageMap[msg.Ingredient2]) {
-        // Create copy of visited set for this branch
-        const visited2 = new Set(visited);
-        node.children.push(buildTreeNode(messageMap[msg.Ingredient2], visited2, depth + 1));
+      try {
+        visited.add(path.result);
+        
+        // Add ingredient1 if it exists
+        if (path.ingredient1 && recipeMap[path.ingredient1])
+          node.children.push(buildTreeNode(recipeMap[path.ingredient1], visited, depth + 1));
+        
+        // Add ingredient2 if it exists
+        if (path.ingredient2 && recipeMap[path.ingredient2])
+          node.children.push(buildTreeNode(recipeMap[path.ingredient2], visited, depth + 1));
+      } finally {
+        visited.delete(path.result);
       }
       
       return node;
     }
     
     // Build the hierarchical tree data
-    const treeData = buildTreeNode(targetMsg);
+    const treeData = buildTreeNode(targetElement);
     
     // Create d3 hierarchy
     const root = d3.hierarchy(treeData);
@@ -196,7 +207,7 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     nodes.append("circle")
       .attr("r", 20)
       .attr("fill", "white")
-      .attr("stroke", d => d.data.message.Ingredient1 === "" ? "#ff8800" : "#999") // Highlight base elements
+      .attr("stroke", d => d.data.path.ingredient1 == "" ? "#ff8800" : "#999") // Highlight base elements
       .attr("stroke-width", 1.5);
     
     // Add element images
@@ -214,36 +225,37 @@ const D3Canvas = React.forwardRef(function D3Canvas(
       });
     
     // Add element name labels
-    nodes.append("text")
+    nodes.filter(d => d.data.path.ingredient1 == "")
+      .append("text")
       .attr("dy", 30)
       .attr("text-anchor", "middle")
       .attr("font-size", "10px")
-      .attr("fill", d => d.data.message.Ingredient1 === "" ? "#ff8800" : "#333") // Highlight base elements
-      .attr("font-weight", d => d.data.message.Ingredient1 === "" ? "bold" : "normal")
+      .attr("fill", d => d.data.path.ingredient1 == "" ? "#ff8800" : "#333") // Highlight base elements
+      .attr("font-weight", d => d.data.path.ingredient1 == "" ? "bold" : "normal")
       .attr("stroke", "black")  // Add white outline
       .attr("stroke-width", "0.3px") // Thin white stroke
       .attr("paint-order", "stroke") 
       .text(d => {
-        const msg = d.data.message;
+        const recipePath = d.data.path;
         // Show "Base" suffix for base elements
-        return msg.Ingredient1 === "" && msg.Ingredient2 === "" ? 
-          `${msg.Result} (Base)` : msg.Result;
+        return recipePath.ingredient1 == "" && recipePath.ingredient2 == "" ? 
+          `${recipePath.result} (Base)` : recipePath.result;
       });
     
     // Add recipe formula and depth (for non-base elements)
-    nodes.filter(d => d.data.message.Ingredient1 !== "")
+    nodes.filter(d => d.data.path.ingredient1 != "")
       .append("text")
       .attr("dy", -25)
       .attr("text-anchor", "middle")
       .attr("font-size", "9px")
-      .attr("fill", d => d.data.message.Ingredient1 === "" ? "#ff8800" : "#333") // Highlight base elements
-      .attr("font-weight", d => d.data.message.Ingredient1 === "" ? "bold" : "normal")
+      .attr("fill", d => d.data.path.ingredient1 == "" ? "#ff8800" : "#333") // Highlight base elements
+      .attr("font-weight", d => d.data.path.ingredient1 == "" ? "bold" : "normal")
       .attr("stroke", "black")  // Add white outline
       .attr("stroke-width", "0.3px") // Thin white stroke
       .attr("paint-order", "stroke") 
       .text(d => {
-        const msg = d.data.message;
-        return `${msg.Result} = ${msg.Ingredient1} + ${msg.Ingredient2} (Depth: ${msg.Depth})`;
+        const recipePath = d.data.path;
+        return `${recipePath.result} = ${recipePath.ingredient1} + ${recipePath.ingredient2} (Depth: ${d.data.depth})`;
       });
     
     // Add depth label for all nodes
@@ -252,12 +264,13 @@ const D3Canvas = React.forwardRef(function D3Canvas(
       .attr("text-anchor", "middle")
       .attr("font-size", "9px")
       .attr("fill", "#666")
-      .attr("fill", d => d.data.message.Ingredient1 === "" ? "#ff8800" : "#333") // Highlight base elements
-      .attr("font-weight", d => d.data.message.Ingredient1 === "" ? "bold" : "normal")
+      .attr("fill", d => d.data.path.ingredient1 == "" ? "#ff8800" : "#333") // Highlight base elements
+      .attr("font-weight", d => d.data.path.ingredient1 == "" ? "bold" : "normal")
       .attr("stroke", "black")  // Add white outline
       .attr("stroke-width", "0.3px") // Thin white stroke
       .attr("paint-order", "stroke") 
-      .text(d => `Depth: ${d.data.message.Depth}`);
+      .text(d => `Depth: ${d.data.depth}`);
+    container.attr("transform", zoomTransformRef.current);
   };
   
   // Expose method to refresh the tree data

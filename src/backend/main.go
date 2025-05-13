@@ -15,12 +15,13 @@ func main() {
     }
 
     start := "Pyramid"
-    res, _ := utils.BFSP(start, rese, elmt)
+    resultChan := make(chan utils.Message)
+    go func() {
+        utils.BFSP(start, rese, elmt, 5, resultChan)
+        close(resultChan)
+    }()
     fmt.Println("Result:")
-    for _, path := range res {
-        fmt.Println(path)
+    for result := range resultChan {
+        fmt.Println(utils.VisualizeMessageTree(result.RecipePath)) // visualization max depth to 10
     }
-    
 }
-
-

@@ -25,13 +25,17 @@ func TestDFS(t *testing.T) {
 
 
 	// Multiple recipe Test
-	pathElMulti := DFSMultiple(recipes, recipesEl, recipesEl[test], 5)
-	for i, el := range pathElMulti.RecipePaths {
-		t.Logf("recipe: %v", i+1)
-		t.Log(VisualizeMessageTree(el)) // visualization max depth to 10
+	resultChan := make(chan Message)
+	go func() {
+		DFSMultiple(recipes, recipesEl, recipesEl[test], 5, resultChan)
+		close(resultChan)
+	}()
+	i := 0
+	for result := range resultChan {
+		t.Logf("recipe: %v, duration %v, visited: %v", i+1, result.Duration, result.NodesVisited)
+		t.Log(VisualizeMessageTree(result.RecipePath)) // visualization max depth to 10
+		i++
 	}
-	t.Logf("Total nodes: %d", pathElMulti.NodesVisited)
 }
 
 // How to run, use `go test -v .` in the terminal
-
