@@ -24,7 +24,7 @@
     <br />
     <a href="https://github.com/Kurosue/Tubes2_Nuggets/releases/">Releases</a>
     ·
-    <a href="https://github.com/Kurosue/Tubes2_Nuggets/docs">Project Report (Bahasa Indonesia)</a>
+    <a href="https://github.com/Kurosue/Tubes2_Nuggets/doc/Tubes2_Nuggets.pdf">Project Report (Bahasa Indonesia)</a>
 </p>
 
  <div align="justify">  </div>
