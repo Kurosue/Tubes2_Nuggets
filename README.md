@@ -22,9 +22,9 @@
 
  <p align="center">
     <br />
-    <a href="https://github.com/Labpro-21/if2010-2425-tubes-1-ctf/releases/">Releases</a>
+    <a href="https://github.com/Kurosue/Tubes2_Nuggets/releases/">Releases</a>
     ·
-    <a href="https://github.com/Labpro-21/if2010-2425-tubes-1-ctf/tree/main/docs/IF2010_TB1_Laporan_CTF.pdf">Project Report (Bahasa Indonesia)</a>
+    <a href="https://github.com/Kurosue/Tubes2_Nuggets/docs">Project Report (Bahasa Indonesia)</a>
 </p>
 
  <div align="justify">  </div>
@@ -69,7 +69,7 @@ A web application for discovering and visualizing element combination recipes. U
  ## How to Run
  1. Clone the repository
     ```   bash
-    git clone https://github.com/Kurosue/Tubes2-Nuggets.git
+    git clone https://github.com/Kurosue/Tubes2_Nuggets.git
     ```
  2. Go to the project directory:
     ```bash
