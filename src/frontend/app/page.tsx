@@ -148,7 +148,12 @@ export default function Page() {
         targetElement,
         totalRecipes,
         (result) => {
-          result.recipePath = [...new Set(result.recipePath.map(p => JSON.stringify(p)))].map(p => JSON.parse(p));
+          result.recipePath = (() => {
+            const m = new Map<string, RecipePath>();
+            for(const p of result.recipePath)
+              m.set(p.result, p);
+            return [...m.values()];
+          })();
           resultsRef.current = [...resultsRef.current, result];
           // Trigger rerender automatically below:
           setTimingResults(prev => [

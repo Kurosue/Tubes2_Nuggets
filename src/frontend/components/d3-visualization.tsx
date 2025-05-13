@@ -84,7 +84,7 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     const svg = d3.select(svgRef.current);
     
     // Clear content
-    d3.select(containerRef.current).selectAll("*").remove();
+    d3.select(containerRef.current).selectAll("& > *").remove();
     d3.select("#emoji-placeholder").remove();
     d3.select("#caption-placeholder").remove();
 
@@ -98,7 +98,6 @@ const D3Canvas = React.forwardRef(function D3Canvas(
       visited.add(path.result);
       return findRootNode(next, visited);
     }
-    const targetElement = findRootNode(recipePath[0]);
     
     const recipeMap: Record<string, RecipePath> = {};
     recipePath.forEach(msg => {
@@ -118,6 +117,7 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     // Recursively build the tree - similar to your Go code
     function buildTreeNode(
       path: RecipePath, 
+      remainingPath: Set<RecipePath>,
       visited: Set<string> = new Set(),
       depth = 0
     ): TreeNode {
@@ -125,6 +125,7 @@ const D3Canvas = React.forwardRef(function D3Canvas(
         return { name: path.result, path: path, depth: depth, children: [] };
       }
       
+      remainingPath.delete(path);
       // Create node for current message
       const node: TreeNode = {
         name: path.result,
@@ -139,11 +140,11 @@ const D3Canvas = React.forwardRef(function D3Canvas(
         
         // Add ingredient1 if it exists
         if (path.ingredient1 && recipeMap[path.ingredient1])
-          node.children.push(buildTreeNode(recipeMap[path.ingredient1], visited, depth + 1));
+          node.children.push(buildTreeNode(recipeMap[path.ingredient1], remainingPath, visited, depth + 1));
         
         // Add ingredient2 if it exists
         if (path.ingredient2 && recipeMap[path.ingredient2])
-          node.children.push(buildTreeNode(recipeMap[path.ingredient2], visited, depth + 1));
+          node.children.push(buildTreeNode(recipeMap[path.ingredient2], remainingPath, visited, depth + 1));
       } finally {
         visited.delete(path.result);
       }
@@ -151,37 +152,36 @@ const D3Canvas = React.forwardRef(function D3Canvas(
       return node;
     }
     
-    // Build the hierarchical tree data
-    const treeData = buildTreeNode(targetElement);
-    
-    // Create d3 hierarchy
-    const root = d3.hierarchy(treeData);
-    
-    // Create tree layout
-    const treeLayout = d3.tree<TreeNode>()
-      .nodeSize([100, 120]); // [horizontal, vertical] spacing
-    
-    // Apply the layout
-    const hierarchyData = treeLayout(root);
+    const remainingNodes = new Set(recipePath);
+    const allNodes = [] as d3.HierarchyPointNode<TreeNode>[];
+    const allLinks = [] as d3.HierarchyPointLink<TreeNode>[];
+    let lastX = 0;
+    while(remainingNodes.size > 0) {
+      const targetElement = findRootNode([...remainingNodes][0]);
+      const treeData = buildTreeNode(targetElement, remainingNodes);
+      const root = d3.tree<TreeNode>().nodeSize([100, 120])(d3.hierarchy(treeData));
+      allNodes.push(...root.descendants());
+      allLinks.push(...root.links());
+      const treeMinX = d3.min(root.descendants(), d => d.x) || 0;
+      const treeMaxX = d3.max(root.descendants(), d => d.x) || 0;
+      if(lastX == 0) {
+        root.descendants().forEach(d => d.x += lastX);
+        lastX += treeMaxX + 100;
+      } else {
+        root.descendants().forEach(d => d.x += lastX - treeMinX);
+        lastX += treeMaxX - treeMinX + 100;
+      }
+    }
     
     // Create container group and center it
     const container = d3.select(containerRef.current);
-    
-    // Center the tree horizontally
-    const descendants = hierarchyData.descendants();
-    const minX = d3.min(descendants, d => d.x) || 0;
-    const maxX = d3.max(descendants, d => d.x) || 0;
-    const centerX = (maxX + minX) / 2;
-    
-    // Transform to center the tree
-    container.attr("transform", `translate(${width / 2 - centerX}, 50)`);
     
     // Create container for links
     const linkGroup = container.append("g").attr("class", "links");
     
     // Draw links
     linkGroup.selectAll("path")
-      .data(hierarchyData.links())
+      .data(allLinks)
       .enter()
       .append("path")
       .attr("fill", "none")
@@ -197,7 +197,7 @@ const D3Canvas = React.forwardRef(function D3Canvas(
     
     // Create node groups
     const nodes = nodeGroup.selectAll(".node")
-      .data(hierarchyData.descendants())
+      .data(allNodes)
       .enter()
       .append("g")
       .attr("class", "node")
